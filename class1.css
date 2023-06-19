@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+:root {
+  --poppins-font: "Poppins", sans-serif;
+}
+html,
+body {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+.start {
+  margin-top: 30px;
+  width: 100%;
+  height: auto;
+}
+.start h1 {
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+.body {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.insidebody {
+  width: 75%;
+  height: auto;
+  margin-left: 95px;
+  border-radius: 10px;
+  border: solid 1px #b0abab70;
+}
+.allinside {
+  width: 65%;
+  height: auto;
+  margin-left: 45px;
+}
+.menu-class span {
+  font-family: var(--poppins-font);
+  color: chocolate;
+}
+.source1 {
+  padding-bottom: 8px;
+}
+.source1 a {
+  text-decoration: none;
+  font-family: var(--poppins-font);
+}
+.source1 a:hover {
+  color: coral;
+}
+.cources {
+  width: 100%;
+  height: auto;
+  margin-left: 30px;
+}
+.inforpart {
+  padding-bottom: 10px;
+}
+.inforpart a {
+  text-decoration: none;
+  font-family: var(--poppins-font);
+}
+.inforpart a :hover {
+  color: coral;
+}
+.underINforcourse {
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+.underINforcourse a {
+  padding-bottom: 10px;
+  text-decoration: none;
+  font-family: var(--poppins-font);
+}
+.underINforcourse a:hover {
+  color: coral;
+}
+.Powerpoint {
+  padding-top: 50px;
+}
+.Powerpoint h1 {
+  color: rgb(4, 189, 189);
+  font-family: var(--poppins-font);
+  text-align: center;
+}
+.underPowerpoint {
+  margin-left: 95px;
+  width: 75%;
+  height: auto;
+  font-family: var(--poppins-font);
+}
+.body2 {
+  width: 75%;
+  height: auto;
+  margin-left: 95px;
+}
+.wordprimary {
+  width: 100%;
+  height: auto;
+  padding-bottom: 10px;
+}
+.wordprimary span {
+  font-size: 1.5rem;
+  font-family: var(--poppins-font);
+  color: forestgreen;
+}
+.word1,
+.word2 p {
+  font-family: var(--poppins-font);
+}
+.primary {
+  margin-bottom: 10px;
+}
+.div-under {
+  border: solid 1px #b0abab70;
+  border-radius: 5px;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 6px 8px #ccc, -9px -9px 12px rgb(237, 234, 234);
+}
+.placetodown {
+  display: flex;
+  width: 85%;
+  height: 65px;
+}
+.iconimg {
+  width: 15%;
+}
+.iconimg img {
+  margin-top: 5px;
+  width: 50%;
+}
+.nexttoicon {
+  width: 85%;
+}
+.wo p {
+  font-family: var(--poppins-font);
+}
+.download {
+  width: 25%;
+}
+.btndown {
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 8px;
+  margin-top: 15px;
+  margin-left: 15px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 9px 3px 12px #ccc, -9px 3px 6px white;
+}
+.btndown a {
+  border-radius: 10px;
+  text-decoration: none;
+}
+.btndown:hover a {
+  color: orange;
+}
+.btndown:hover {
+  box-shadow: 9px 3px 12px #ccc inset, -9px 3px 6px white inset;
+}
+.btndown.changee {
+  background-color: chartreuse;
+}
