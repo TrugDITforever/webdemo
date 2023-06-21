@@ -2,6 +2,7 @@
 :root {
   --poppins-font: "Poppins", sans-serif;
 }
+
 html {
   font-size: 16px;
 }
@@ -207,7 +208,7 @@ p {
   visibility: visible;
   opacity: 1;
 }
-.alert {
+/* .alert {
   z-index: 10;
   top: 30px;
   right: -400px;
@@ -219,7 +220,6 @@ p {
   border-radius: 50px;
   box-shadow: 9px 9px 12px #e4dfdf, -9px -4px 12px #ccc;
   transition: 0.5s all linear;
-  /* color: #eff; */
 }
 .alert.moveout {
   right: 0;
@@ -248,7 +248,7 @@ p {
 .alertword a:hover {
   background-color: #3498db;
   box-shadow: 0px 6px 0px 0px #258cd1;
-}
+} */
 .loginbtnn {
   text-align: center;
 }
@@ -265,4 +265,18 @@ p {
   opacity: 0.9;
   z-index: 10;
   background-color: #0e0d0d6d;
+}
+@media screen and (max-width: 1000px) {
+  .box {
+    width: 80%;
+  }
+  .Page-login {
+    left: 40%;
+  }
+  #Page-signup {
+    left: 40%;
+  }
+  .alert.moveout {
+    right: 200px;
+  }
 }

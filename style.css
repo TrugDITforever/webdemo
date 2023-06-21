@@ -178,8 +178,8 @@ html {
 }
 .alert {
   z-index: 10;
-  top: 30px;
-  right: -400px;
+  top: 30%;
+  right: -60%;
   position: fixed;
   width: 20rem;
   height: 8.5rem;
@@ -982,7 +982,7 @@ h5 {
   margin-top: 6px;
 }
 .group-create {
-  position: absolute;
+  position: fixed;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1004,8 +1004,8 @@ h5 {
   cursor: pointer;
 }
 .Page-login {
-  position: absolute;
-  top: 30%;
+  position: fixed;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #eee;
@@ -1052,8 +1052,8 @@ h5 {
 }
 
 #Page-signup {
-  position: absolute;
-  top: 26%;
+  position: fixed;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #eee;
@@ -1169,8 +1169,6 @@ h5 {
   width: 100%;
   height: 250px;
   padding-top: 25px;
-  /* justify-content: center;
-  align-items: center; */
 }
 .footer {
   position: relative;
@@ -1180,53 +1178,7 @@ h5 {
   height: auto;
   border-top: 3px solid #f4de39;
 }
-@media screen and (max-width: 1000px) {
-  .tab-main {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    display: block;
-    position: static;
-  }
-  .infor {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    display: block;
-    position: static;
-  }
-  .last {
-    margin: auto;
-    padding: auto;
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    display: block;
-    position: static;
-  }
-  .group-main {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-  .place-for-ad {
-    margin: 0px 0px 10px 0px;
-    padding: 0px 0px 10px 0px;
-  }
-  .last-page {
-    height: 300px;
-  }
-  .footer {
-    margin: auto;
-    padding: auto;
-    width: 100%;
-    max-height: 100%;
-    display: block;
-    position: static;
-  }
-}
+
 .cmt-word {
   width: 100%;
   height: auto;
@@ -1305,4 +1257,108 @@ h5 {
 }
 .name-cmt p {
   line-height: 0px;
+}
+@media screen and (max-width: 1000px) {
+  .tab-main {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    display: block;
+    position: static;
+  }
+  .infor {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    display: block;
+    position: static;
+  }
+  .last {
+    margin: auto;
+    padding: auto;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    display: block;
+    position: static;
+  }
+  .group-main {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .last-page {
+    height: 550px;
+    display: block;
+  }
+  .place-for-ad {
+    width: 100%;
+
+    padding: 0 0 10px 0;
+  }
+  .privacy {
+    width: 100%;
+  }
+  .contact-menu {
+    width: 100%;
+  }
+  .footer {
+    margin: auto;
+    padding: auto;
+    width: 100%;
+    max-height: 100%;
+    display: block;
+    position: static;
+  }
+  .ask {
+    width: 70%;
+  }
+  .under-ask {
+    width: 80%;
+  }
+  .ask-box {
+    margin-left: 0;
+  }
+  .ask a img {
+    width: 50%;
+  }
+  .ask a {
+    font-size: 30px;
+  }
+  .box1 {
+    margin-left: 30px;
+    width: 80%;
+  }
+  .pic1 {
+    width: 100%;
+  }
+  .box2 {
+    margin-left: 30px;
+    width: 80%;
+  }
+  .pic2 {
+    width: 100%;
+  }
+  .reward {
+    margin-left: 0;
+  }
+  .tabmenu {
+    display: block;
+  }
+  /* .tabmenu li {
+    display: block;
+  } */
+  .login-place {
+    padding: 0;
+    animation: none;
+  }
+  .logo a {
+    animation: none;
+  }
+
+  /* .box {
+    width: 80%;
+  } */
 }
