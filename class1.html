@@ -31,19 +31,22 @@
         <div class="tabmenu">
           <ul id="listmainmenu">
             <li>
-              <a href="study.html"> TRANG CHỦ </a>
+              <a class="tabmenub" href="study.html"> TRANG CHỦ </a>
             </li>
             <li>
-              <a href="#tab-main"> LỘ TRÌNH HỌC </a>
+              <a class="tabmenub" href="#tab-main"> LỘ TRÌNH HỌC </a>
             </li>
 
             <li>
-              <a href="teststudy.html"> HƯỚNG DẪN THÊM </a>
+              <a class="tabmenub" href="teststudy.html"> HƯỚNG DẪN THÊM </a>
             </li>
             <li>
-              <a href="#footer"> LIÊN HỆ </a>
+              <a class="tabmenub" href="#footer"> LIÊN HỆ </a>
             </li>
           </ul>
+          <div class="mobbilebtn">
+            <i class="fa-solid fa-bars"></i>
+          </div>
         </div>
       </section>
     </header>
@@ -59,7 +62,7 @@
         <div class="tab-main" id="tab-main">
           <div class="menu1">
             <div class="listword">
-              <a class="home" href="">
+              <a class="home">
                 <img src="homeicon.png" alt="" />
                 MỤC LỤC
               </a>
@@ -108,7 +111,7 @@
           </div>
           <div class="menu2">
             <div class="listword2">
-              <h1>ÔN THI</h1>
+              <h1 class="btnon">ÔN THI</h1>
               <h4>Lộ trình ôn thi các khóa</h4>
             </div>
             <div class="liststudy2">
@@ -124,7 +127,7 @@
           </div>
           <div class="menu3">
             <div class="listword3">
-              <h1>LUYỆN ĐỀ</h1>
+              <h1 class="btnluyen">LUYỆN ĐỀ</h1>
               <h4>Các dạng đề hay qua các năm</h4>
             </div>
             <div class="liststudy3">
@@ -1784,9 +1787,15 @@
             </div>
           </div>
         </div>
+        <div class="alert">
+          <div class="alertword">
+            <p>Bạn cần đăng nhập vào trang để xem tài liệu này</p>
+            <a>OK</a>
+          </div>
+        </div>
         <div class="Page-login">
           <i class="fa-solid fa-circle-xmark" id="close"></i>
-          <form>
+          <form class="signupform">
             <h4
               style="
                 margin: 0px;

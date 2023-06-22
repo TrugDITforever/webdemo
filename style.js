@@ -8,7 +8,7 @@ const btnmovetosignup = document.getElementById("movetosignup");
 const btnmovetologin = document.getElementById("btnmovetologin");
 var header = document.querySelector(".head");
 var headerheight = header.offsetHeight;
-const tabmenu = document.querySelector(".tab-mainmenu");
+var tabmenu = document.querySelector(".tab-mainmenu");
 const ads = document.querySelector(".ads");
 
 window.addEventListener("scroll", function () {
@@ -204,5 +204,56 @@ ads.addEventListener("click", function (event) {
     test2.classList.remove("appearrr");
     test3.classList.remove("appearrr");
     test4.classList.remove("appearrr");
+  }
+});
+
+//btn mobile
+const btnMobile = document.querySelector(".mobbilebtn");
+btnMobile.addEventListener("click", function () {
+  console.log(tabmenu.clientHeight);
+  if (tabmenu.clientHeight === 40) {
+    tabmenu.classList.add("addheight");
+  } else {
+    tabmenu.classList.remove("addheight");
+  }
+});
+const tabmenuall = document.querySelectorAll(".tabmenub");
+tabmenuall.forEach(function (element) {
+  element.addEventListener("click", function () {
+    console.log("jkhhjasgfhj");
+    tabmenu.classList.remove("addheight");
+  });
+});
+///menu under btnmobile
+var menu1 = document.querySelector(".menu1");
+var menu1height = menu1.clientHeight;
+const homebtn = document.querySelector(".home");
+homebtn.addEventListener("click", function () {
+  if (menu1.clientHeight === 50) {
+    menu1.style.height = "auto";
+  } else {
+    menu1.style.height = "50px";
+  }
+});
+var menu2 = document.querySelector(".menu2");
+var menu2height = menu2.clientHeight;
+const btnon = document.querySelector(".btnon");
+btnon.addEventListener("click", function () {
+  console.log(menu2height);
+  if (menu2.clientHeight === 50) {
+    menu2.style.height = "auto";
+  } else {
+    menu2.style.height = "50px";
+  }
+});
+var menu3 = document.querySelector(".menu3");
+var menu3height = menu3.clientHeight;
+const btnluyen = document.querySelector(".btnluyen");
+btnluyen.addEventListener("click", function () {
+  console.log(menu2height);
+  if (menu3.clientHeight === 50) {
+    menu3.style.height = "auto";
+  } else {
+    menu3.style.height = "50px";
   }
 });

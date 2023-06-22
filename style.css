@@ -117,8 +117,9 @@ html {
   animation: changecolor 2s linear infinite alternate;
 }
 .tab-mainmenu {
+  position: relative;
   width: 100%;
-  height: auto;
+  height: 35px;
   padding-left: 0px;
   background-color: rgb(255 255 255 / 80%);
 }
@@ -131,6 +132,7 @@ html {
 }
 .tabmenu {
   align-items: center;
+  /* height: 35px; */
   display: flex;
   justify-content: center;
   padding: 2px;
@@ -1291,18 +1293,18 @@ h5 {
   }
   .last-page {
     height: 550px;
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
   }
   .place-for-ad {
     width: 100%;
-
     padding: 0 0 10px 0;
   }
   .privacy {
-    width: 100%;
+    width: 50%;
   }
   .contact-menu {
-    width: 100%;
+    width: 50%;
   }
   .footer {
     margin: auto;
@@ -1347,18 +1349,64 @@ h5 {
   .tabmenu {
     display: block;
   }
-  /* .tabmenu li {
-    display: block;
-  } */
+
   .login-place {
     padding: 0;
     animation: none;
   }
-  .logo a {
-    animation: none;
+  .logo {
+    width: 100%;
+  }
+  .slogan {
+    display: none;
+  }
+  .tabmenu li {
+    padding-bottom: 20px;
+    display: block;
+  }
+  .tab-mainmenu {
+    height: 40px;
+    overflow: hidden;
+  }
+  .tab-mainmenu.padd {
+    padding: 0px;
   }
 
-  /* .box {
-    width: 80%;
-  } */
+  .mobbilebtn {
+    display: block;
+    top: 15%;
+    left: 85%;
+    position: absolute;
+    float: right;
+    border-radius: 10px;
+    background-color: #ccc;
+    width: 50px;
+    height: auto;
+  }
+  .fa-solid {
+    padding-left: 10px;
+    font-size: 2rem;
+  }
+  .menu1 {
+    overflow: hidden;
+    width: auto;
+    height: 50px;
+  }
+  .menu2 {
+    overflow: hidden;
+    width: auto;
+    height: 50px;
+  }
+  .menu3 {
+    overflow: hidden;
+    width: auto;
+    height: 50px;
+  }
+}
+/* .mobbilebtn {
+  left: 1000px;
+} */
+.tab-mainmenu.addheight {
+  height: 190px;
+  overflow: visible;
 }

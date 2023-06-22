@@ -166,3 +166,9 @@ body {
 .btndown.changee {
   background-color: chartreuse;
 }
+@media screen and (max-width: 1000px) {
+  .body2 {
+    width: 90%;
+    margin-left: 10px;
+  }
+}
