@@ -1,0 +1,157 @@
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+.suround {
+  width: 100%;
+  height: auto;
+}
+.mathplace {
+  width: 90%;
+  height: auto;
+  margin-left: 30px;
+}
+.cources {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.courceplace {
+  margin-bottom: 10px;
+}
+.class {
+  border-radius: 20px;
+  margin: 10px;
+  width: 30%;
+  height: 200px;
+  border: 1px solid black;
+  background-color: #8deae4;
+}
+.classwwo p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+.nameclass p {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.placetoodown {
+  display: flex;
+}
+.arr {
+  width: 40%;
+}
+.arr ul li {
+  display: inline-block;
+}
+.arr ul {
+  animation: backup 0.5s infinite alternate;
+}
+@keyframes backup {
+  0% {
+    padding-left: 15px;
+  }
+  100% {
+    padding-right: 0;
+  }
+}
+@keyframes changecolorr {
+  0% {
+    color: rgb(193, 193, 4);
+  }
+  50% {
+    color: rgb(179, 1, 182);
+  }
+  100% {
+    color: rgb(255, 3, 3);
+  }
+}
+@keyframes changecolor2 {
+  0% {
+    color: rgb(24, 160, 6);
+  }
+  50% {
+    color: rgb(255, 3, 3);
+  }
+  100% {
+    color: rgb(61, 61, 2);
+  }
+}
+.fa-solid {
+  font-size: larger;
+}
+.arr li:nth-child(1) {
+  color: rgb(193, 193, 4);
+  animation: changecolorr 0.5s infinite alternate;
+}
+.arr li:nth-child(2) {
+  color: rgb(179, 1, 182);
+  animation: changecolor2 0.5s infinite alternate;
+}
+.arr li:nth-child(3) {
+  color: rgb(24, 160, 6);
+  animation: changecolorr 0.5s infinite alternate;
+}
+.arr li:nth-child(4) {
+  color: rgb(255, 3, 3);
+  animation: changecolor2 0.5s infinite alternate;
+}
+.btndowwn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.btndoown {
+  margin-left: 8px;
+}
+.btndoown a {
+  display: block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  background-color: aqua;
+  color: #333;
+  border: 2px solid #333;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+  border-radius: 10px;
+  box-shadow: 3px 3px 12px white, -3px -3px 12px white;
+}
+.btndoown a:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ff003b;
+  border-radius: 8px;
+
+  transition: all 0.35s;
+}
+.btndoown a span {
+  position: relative;
+  z-index: 2;
+}
+.btndoown a:hover {
+  color: #fff;
+  cursor: pointer;
+}
+.btndoown a:hover:after {
+  width: 100%;
+}
