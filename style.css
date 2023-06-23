@@ -36,13 +36,13 @@ html {
   display: flex;
   margin-top: 0px;
   border-bottom: 2px solid;
+  background-image: linear-gradient(#00328f, rgba(245, 245, 245, 0.284));
+  background-color: #043285;
+  animation: changeback 4s infinite alternate;
 }
 .logo {
   width: 50%;
   height: 100px;
-  background-image: linear-gradient(#00328f, rgba(245, 245, 245, 0.284));
-  background-color: #043285;
-  animation: changeback 4s infinite alternate;
 }
 /* #1a51b6 */
 .slogan {
@@ -51,9 +51,6 @@ html {
   align-items: center;
   width: 50%;
   height: 100px;
-  background-image: linear-gradient(#00328f, rgba(245, 245, 245, 0.284));
-  background-color: #043285;
-  animation: changeback 4s infinite alternate;
 }
 @keyframes changeback {
   0% {
