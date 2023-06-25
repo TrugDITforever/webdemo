@@ -531,6 +531,7 @@ h5 {
   box-shadow: 2px 5px 10px#42c1c1;
 }
 .ask-box {
+  position: relative;
   margin-top: 40px;
   margin-left: 400px;
   width: 350px;
@@ -539,15 +540,26 @@ h5 {
   background-color: white;
   border-radius: 10px;
 }
+.ask-box input[type="submit"] {
+  position: absolute;
+  top: 0%;
+  left: 86%;
+  padding: 6.5px;
+  border: none;
+  background-color: rgb(81, 97, 202);
+  color: white;
+  border-radius: 0px 10px 10px 0px;
+}
 #ask-place {
   margin-top: 0px;
   display: inline-block;
-  width: 300px;
+  width: 350px;
   height: 25px;
   border-radius: 10px;
-  border-style: none;
+  border: none;
+  outline: none;
 }
-.ask-box button {
+/* .ask-box button {
   background-color: white;
   width: 30px;
   height: 30px;
@@ -556,7 +568,7 @@ h5 {
 .ask-box button {
   border-radius: 35px;
   border-style: hidden;
-}
+} */
 .box1 {
   margin-left: 70px;
   margin-top: 20px;
@@ -1360,6 +1372,13 @@ h5 {
   .tabmenu li {
     padding-bottom: 20px;
     display: block;
+  }
+  .tabmenu a {
+    text-align: left;
+  }
+  #listmainmenu li a {
+    display: block;
+    position: relative;
   }
   .tab-mainmenu {
     height: 40px;

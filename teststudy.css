@@ -618,3 +618,16 @@ p {
   box-shadow: 3px 3px 12px #ccc, -3px -3px 12px white;
   cursor: pointer;
 }
+@media screen and (max-width: 1000px) {
+  .mobbilebtn {
+    display: block;
+    top: 15%;
+    left: 55%;
+    position: absolute;
+    float: right;
+    border-radius: 10px;
+    background-color: #ccc;
+    width: 50px;
+    height: auto;
+  }
+}
