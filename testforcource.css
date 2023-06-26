@@ -256,9 +256,37 @@ html {
 }
 @media screen and (max-width: 1000px) {
   .suround {
+    margin: 0;
     width: 90%;
+  }
+  .imagewelcome {
+    margin-left: 30px;
+  }
+  .cources {
+    width: 108%;
   }
   .infor {
     width: 100%;
+  }
+  .class {
+    width: 44%;
+  }
+  .menucource {
+    height: auto;
+  }
+  .matthwo h1 {
+    margin-left: 200px;
+  }
+  .fa-chevron-right {
+    font-size: 15px;
+  }
+  .fa-bars {
+    font-size: x-large;
+  }
+  .arr {
+    width: 47%;
+  }
+  .matthwo {
+    width: 108%;
   }
 }

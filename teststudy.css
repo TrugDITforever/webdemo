@@ -100,6 +100,7 @@ all {
 }
 .about {
   width: 100%;
+  background-image: linear-gradient(to right, #fffbfb4f, rgb(214, 214, 191));
 }
 .aboutt {
   height: 750px;
@@ -109,7 +110,6 @@ all {
   /* position: relative; */
   width: 100%;
   height: 750px;
-  background-image: linear-gradient(to right, #fffbfb4f, rgb(214, 214, 191));
 }
 .worrd {
   width: 100%;
@@ -622,12 +622,85 @@ p {
   .mobbilebtn {
     display: block;
     top: 15%;
-    left: 55%;
+    left: 80%;
     position: absolute;
     float: right;
     border-radius: 10px;
     background-color: #ccc;
     width: 50px;
     height: auto;
+  }
+  .introduce {
+    flex-wrap: wrap;
+    height: auto;
+    background-image: linear-gradient(
+      to right,
+      rgb(5, 16, 112),
+      rgba(27, 4, 4, 0.399)
+    );
+  }
+  .leftside {
+    width: 100%;
+  }
+  .background img {
+    width: 400px;
+    height: 300px;
+    margin: 0;
+  }
+  .welcome {
+    width: 100%;
+    margin: 0;
+  }
+  .welcome h1 {
+    font-size: 2rem;
+  }
+  .welcome p {
+    color: aliceblue;
+  }
+  .shadow {
+    width: 25%;
+  }
+  .left-pri {
+    display: none;
+  }
+  .leftnext {
+    width: 100%;
+  }
+  .next {
+    height: auto;
+  }
+  .undernext {
+    height: auto;
+    flex-wrap: wrap;
+  }
+  .word1 h1 {
+    margin: 0;
+  }
+  .nexxt {
+    left: 175%;
+  }
+  .alllast2 {
+    flex-wrap: wrap;
+  }
+  .leftlast {
+    width: 100%;
+    height: 400px;
+  }
+  .rightlast {
+    width: 100%;
+  }
+  .imglearn img {
+    top: 26%;
+    height: 27%;
+  }
+  .worddd {
+    margin-top: 9rem;
+  }
+  .mainnextt {
+    margin-left: 111px;
+  }
+  .about {
+    background-image: linear-gradient(to right, #fffbfb4f, rgb(214, 214, 191));
+    height: 790px;
   }
 }

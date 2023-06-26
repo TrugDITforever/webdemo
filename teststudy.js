@@ -9,7 +9,7 @@ btnMobile.addEventListener("click", function () {
     tabmenu.classList.remove("addheight");
   }
 });
-const tabmenuall = document.querySelectorAll(".tabmenub");
+const tabmenuall = document.querySelectorAll(".tabmenu a");
 tabmenuall.forEach(function (element) {
   element.addEventListener("click", function () {
     console.log("jkhhjasgfhj");
