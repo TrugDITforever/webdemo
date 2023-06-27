@@ -259,6 +259,16 @@ html {
     margin: 0;
     width: 90%;
   }
+  .mobbilebtn {
+    top: 15%;
+    left: 85%;
+    position: absolute;
+    float: right;
+    border-radius: 10px;
+    background-color: #ccc;
+    width: 50px;
+    height: auto;
+  }
   .imagewelcome {
     margin-left: 30px;
   }
@@ -281,7 +291,9 @@ html {
     font-size: 15px;
   }
   .fa-bars {
-    font-size: x-large;
+    margin-top: 3px;
+    margin-left: 1px;
+    font-size: xx-large;
   }
   .arr {
     width: 47%;

@@ -13,10 +13,6 @@ html {
 .container {
   width: 100%;
   height: auto;
-  top: 0;
-  left: 0;
-  position: relative;
-  margin: 0;
 }
 .head {
   width: 100%;
@@ -535,7 +531,6 @@ h5 {
   width: 350px;
   height: 30px;
   display: inline-block;
-  background-color: white;
   border-radius: 10px;
 }
 .ask-box input[type="submit"] {
@@ -552,7 +547,7 @@ h5 {
   margin-top: 0px;
   display: inline-block;
   width: 350px;
-  height: 25px;
+  height: 27px;
   border-radius: 10px;
   border: none;
   outline: none;
@@ -1344,7 +1339,7 @@ h5 {
     width: 80%;
   }
   .ask-box {
-    margin-left: 200px;
+    margin-left: 170px;
   }
   .ask a img {
     height: 120%;

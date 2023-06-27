@@ -11,7 +11,7 @@ all {
 }
 .start {
   width: 100%;
-  padding-top: 132px;
+  padding-top: 142px;
 }
 .introduce {
   width: 100%;
@@ -103,10 +103,11 @@ all {
   background-image: linear-gradient(to right, #fffbfb4f, rgb(214, 214, 191));
 }
 .aboutt {
-  height: 750px;
+  height: 800px;
   width: 100%;
 }
 .understart {
+  padding-top: 30px;
   /* position: relative; */
   width: 100%;
   height: 750px;
@@ -138,6 +139,7 @@ all {
   height: auto;
 }
 .left-pri {
+  position: relative;
   width: 50%;
   height: max-content;
 }
@@ -184,14 +186,14 @@ all {
 }
 .img2 {
   position: absolute;
-  top: 32%;
+  top: 20%;
   left: -18%;
   width: 300px;
   height: 300px;
   transition: 0.5s all linear;
 }
 .img2.moveee {
-  left: 18%;
+  left: 35%;
 }
 .img2 img {
   width: 300px;
@@ -266,9 +268,12 @@ p {
     opacity: 0.1;
   }
 }
+.mainnextt {
+  padding-top: 30px;
+}
 .next {
   width: 100%;
-  height: 750px;
+  height: 800px;
   background-image: linear-gradient(to right, orange, yellow);
 }
 .undernext {
@@ -620,11 +625,9 @@ p {
 }
 @media screen and (max-width: 1000px) {
   .mobbilebtn {
-    display: block;
     top: 15%;
-    left: 80%;
+    left: 76%;
     position: absolute;
-    float: right;
     border-radius: 10px;
     background-color: #ccc;
     width: 50px;
@@ -666,6 +669,10 @@ p {
   .leftnext {
     width: 100%;
   }
+  .rightnext {
+    position: relative;
+    width: 100%;
+  }
   .next {
     height: auto;
   }
@@ -677,20 +684,25 @@ p {
     margin: 0;
   }
   .nexxt {
-    left: 175%;
+    top: -242%;
+    left: 89%;
+  }
+  .prev {
+    top: -242%;
+    left: 5%;
   }
   .alllast2 {
     flex-wrap: wrap;
   }
   .leftlast {
     width: 100%;
-    height: 400px;
+    height: 475px;
   }
   .rightlast {
     width: 100%;
   }
   .imglearn img {
-    top: 26%;
+    top: 12%;
     height: 27%;
   }
   .worddd {
@@ -702,5 +714,8 @@ p {
   .about {
     background-image: linear-gradient(to right, #fffbfb4f, rgb(214, 214, 191));
     height: 790px;
+  }
+  .laptop img {
+    top: 6%;
   }
 }
