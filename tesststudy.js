@@ -13,7 +13,6 @@ function appear() {
     opacity3.classList.remove("boom");
   }
 }
-
 const img1 = document.querySelectorAll(".img1");
 const img2 = document.querySelector(".img2");
 window.addEventListener("scroll", appear2);
@@ -31,7 +30,6 @@ function appear2() {
     img2.classList.remove("moveee");
   }
 }
-
 window.addEventListener("load", function () {
   const btnnext = document.querySelector(".fa-caret-right");
   const btnpre = document.querySelector(".fa-caret-left");

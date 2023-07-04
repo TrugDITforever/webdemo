@@ -543,6 +543,10 @@ h5 {
   color: white;
   border-radius: 0px 10px 10px 0px;
 }
+.ask-box input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: rgb(113, 129, 239);
+}
 #ask-place {
   margin-top: 0px;
   display: inline-block;
@@ -987,7 +991,7 @@ h5 {
 }
 .group-create {
   position: fixed;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #eee;
