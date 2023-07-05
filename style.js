@@ -13,7 +13,7 @@ const ads = document.querySelector(".ads");
 
 window.addEventListener("scroll", function () {
   var scrollDistance = window.scrollY;
-  if (scrollDistance >= 200) {
+  if (scrollDistance >= 100) {
     header.classList.add("hide");
     tabmenu.classList.add("padd");
   } else {

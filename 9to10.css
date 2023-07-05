@@ -34,8 +34,9 @@ html {
   right: 0;
 }
 .placefortest {
-  width: 100%;
+  width: 90%;
   height: auto;
+  margin-left: 10px;
 }
 .dethi {
   width: 100%;
@@ -58,7 +59,8 @@ html {
   width: 40%;
   height: 120px;
   border-radius: 10px;
-  border: 2px solid #eeee;
+  box-shadow: 3px 3px 12px #ccc;
+  border-left: 4px solid orange;
 }
 .list h3 {
   margin: 0;
@@ -79,6 +81,22 @@ html {
 }
 .check span {
   font-family: var(--poppins-font);
+}
+.opening {
+  width: 85%;
+  margin-left: 55px;
+}
+.topic {
+  border-bottom: 2px solid #ccc;
+  text-align: center;
+}
+.topic p {
+  font-size: xx-large;
+  font-family: "poppins", sans-serif;
+}
+.opening p {
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
 }
 @media screen and (max-width: 1000px) {
   .listtest {

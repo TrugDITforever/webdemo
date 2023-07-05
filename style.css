@@ -261,7 +261,7 @@ html {
 .menu1 {
   width: auto;
   height: auto;
-  box-shadow: 0px 2px #7fecad;
+  border-bottom: 2px solid orange;
 }
 .listword a img {
   margin-top: 5px;
@@ -275,10 +275,6 @@ html {
   font-size: x-large;
   color: black;
 }
-/* .listword h4 {
-  color: black;
-  text-align: center;
-} */
 .listword h5 {
   color: black;
   margin-top: 15px;
@@ -317,7 +313,7 @@ h5 {
 .menu2 {
   width: auto;
   height: auto;
-  box-shadow: 0px 2px #7fecad;
+  border-bottom: 2px solid orange;
 }
 .liststudy2 {
   display: flex;
@@ -325,9 +321,16 @@ h5 {
   align-items: center;
   flex-direction: column;
 }
+.listword2,
+.listword3 h1 {
+  font-family: "poppins", sans-serif;
+  font-weight: 400;
+}
 .listword2 h1,
 h4,
 h5 {
+  font-family: "poppins", sans-serif;
+  font-weight: 400;
   line-height: 0.5;
   text-align: center;
 }
@@ -352,7 +355,6 @@ h5 {
 .menu3 {
   width: auto;
   height: auto;
-  /* box-shadow: 0px 2px #7fecad; */
 }
 .listword3 h1,
 h4,
