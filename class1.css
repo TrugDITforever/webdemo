@@ -22,7 +22,7 @@ body {
   height: auto;
 }
 .start h1 {
-  font-weight: 500;
+  font-weight: 400;
   font-family: "Poppins", sans-serif;
   text-align: center;
 }
@@ -185,7 +185,19 @@ body {
 .infor {
   background-image: url(https://i.pinimg.com/236x/28/a2/c7/28a2c78d7e4987a057a612842002bf90.jpg);
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 767px) {
+  .mobbilebtn {
+    display: block;
+    top: 15%;
+    left: 90%;
+    position: absolute;
+    float: right;
+    border-radius: 10px;
+    background-color: #ccc;
+    width: 50px;
+    height: auto;
+  }
+
   .body2 {
     width: 90%;
     margin-left: 10px;

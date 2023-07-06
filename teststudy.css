@@ -287,6 +287,7 @@ p {
   height: 660px;
 }
 .rightnext {
+  position: relative;
   width: 50%;
   height: 660px;
 }
@@ -587,7 +588,6 @@ p {
 .btnfornext {
   width: 100%;
   height: 100px;
-  position: relative;
 }
 .nexxt {
   width: 20%;
@@ -623,10 +623,10 @@ p {
   box-shadow: 3px 3px 12px #ccc, -3px -3px 12px white;
   cursor: pointer;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 767px) {
   .mobbilebtn {
     top: 15%;
-    left: 76%;
+    left: 82%;
     position: absolute;
     border-radius: 10px;
     background-color: #ccc;
@@ -684,11 +684,11 @@ p {
     margin: 0;
   }
   .nexxt {
-    top: -242%;
+    top: 50%;
     left: 89%;
   }
   .prev {
-    top: -242%;
+    top: 50%;
     left: 5%;
   }
   .alllast2 {

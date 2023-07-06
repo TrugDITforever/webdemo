@@ -70,30 +70,48 @@ exitbtn2.onclick = function () {
   ads.classList.remove("active");
   pagedangki.style.display = "none";
 };
-var downloadLinks = document.getElementsByClassName("down");
-for (var i = 0; i < downloadLinks.length; i++) {
-  downloadLinks[i].addEventListener("click", function (event) {
+
+// var downloadLinks = document.getElementsByClassName("down");
+// for (var i = 0; i < downloadLinks.length; i++) {
+//   downloadLinks[i].addEventListener("click", function (event) {
+//     event.preventDefault();
+//
+//   });
+// }
+
+//btndowwnALL
+let isSubmitted = false;
+const btnDownLinks = document.querySelectorAll(".down");
+
+btnDownLinks.forEach(function (element) {
+  element.addEventListener("click", function (event) {
     event.preventDefault();
-    var link = this;
-    link.innerHTML = "Đã tải xuống";
-    var fileURL = link.getAttribute("href");
-    var fileName = fileURL.split("/").pop();
-    var element = document.createElement("a");
-    element.setAttribute("href", fileURL);
-    element.setAttribute("download", fileName);
-    element.style.display = "none";
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-    const btndown = document.querySelectorAll(".btndown");
-    btndown.forEach(function (element) {
-      console.log(`btndown.length`);
-      element.addEventListener("click", function () {
-        element.classList.add("changee");
+    if (isSubmitted === false) {
+      alertwords.innerHTML = "Bạn cần đăng nhập vào trang để xem tài liệu này";
+      alertt.classList.add("moveout");
+    } else if (isSubmitted === true) {
+      var link = this;
+      link.innerHTML = "Đã tải xuống";
+      var fileURL = link.getAttribute("href");
+      var fileName = fileURL.split("/").pop();
+
+      var downloadLink = document.createElement("a");
+      downloadLink.setAttribute("href", fileURL);
+      downloadLink.setAttribute("download", fileName);
+      downloadLink.style.display = "none";
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+      const btnDown = document.querySelectorAll(".btndown");
+      btnDown.forEach(function (element) {
+        console.log(btnDown.length);
+        element.addEventListener("click", function () {
+          element.classList.add("changee");
+        });
       });
-    });
+    }
   });
-}
+});
 
 //event when login
 const alertwordss = document.querySelector(".alertword p");
@@ -104,7 +122,7 @@ const loginplace = document.querySelector(".outsideloginplace");
 alertword2.addEventListener("click", function () {
   alertt2.classList.remove("moveout");
 });
-let isSubmitted = false;
+
 loginFormm.addEventListener("submit", function (event) {
   event.preventDefault();
   const username = document.getElementById("username").value;
@@ -229,9 +247,11 @@ var menu1 = document.querySelector(".menu1");
 var menu1height = menu1.clientHeight;
 const homebtn = document.querySelector(".home");
 homebtn.addEventListener("click", function () {
+  console.log(menu1height);
   if (menu1.clientHeight === 50) {
     menu1.style.height = "auto";
   } else {
+    console.log(menu1height);
     menu1.style.height = "50px";
   }
 });
