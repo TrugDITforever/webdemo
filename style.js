@@ -22,13 +22,16 @@ window.addEventListener("scroll", function () {
   }
 });
 // scroll of infor
+// const divunder = document.querySelectorAll(".div-under");
 const arrow = document.querySelector(".arrow");
 const infor = document.querySelector(".infor");
 infor.addEventListener("scroll", function () {
   var scroll = infor.scrollTop;
   if (scroll >= 100) {
     arrow.classList.add("appear");
+    // divunder.classList.add("appear");
   } else {
+    // divunder.classList.remove("appear");
     arrow.classList.remove("appear");
   }
 });
@@ -164,6 +167,7 @@ window.addEventListener("load", function () {
   word.innerHTML = `${boxlenght} tài liệu`;
 });
 //12tocollege js
+//button when review
 const revew = document.querySelector(".review");
 const test1 = document.querySelector(".test:nth-child(1)");
 const test2 = document.querySelector(".test:nth-child(2)");

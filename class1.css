@@ -127,6 +127,7 @@ body {
   margin-bottom: 10px;
 }
 .div-under {
+  /* opacity: 0.2; */
   background-color: white;
   border: solid 1px #b0abab70;
   border-radius: 5px;
@@ -136,6 +137,9 @@ body {
   justify-content: center;
   align-items: center;
   box-shadow: 5px 6px 8px #ccc, -9px -9px 12px rgb(237, 234, 234);
+}
+.div-under.appear {
+  opacity: 1;
 }
 .placetodown {
   display: flex;
