@@ -4,7 +4,6 @@ const opacity3 = document.querySelector(".opacity3");
 
 function appear() {
   var scrollDistance = window.scrollY;
-
   if (scrollDistance >= 1500 && scrollDistance <= 1900) {
     opacity2.classList.add("bom");
     opacity3.classList.add("boom");

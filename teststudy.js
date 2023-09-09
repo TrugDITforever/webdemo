@@ -18,12 +18,10 @@ tabmenuall.forEach(function (element) {
 });
 ///
 window.addEventListener("scroll", appear);
-const opacity2 = document.querySelector(".opacity2");
-const opacity3 = document.querySelector(".opacity3");
-
 function appear() {
+  const opacity2 = document.querySelector(".opacity2");
+  const opacity3 = document.querySelector(".opacity3");
   var scrollDistance = window.scrollY;
-
   if (scrollDistance >= 1500 && scrollDistance <= 1900) {
     opacity2.classList.add("bom");
     opacity3.classList.add("boom");
@@ -33,10 +31,10 @@ function appear() {
   }
 }
 
-const img1 = document.querySelectorAll(".img1");
-const img2 = document.querySelector(".img2");
 window.addEventListener("scroll", appear2);
 function appear2() {
+  const img1 = document.querySelectorAll(".img1");
+  const img2 = document.querySelector(".img2");
   var scrolldis = window.scrollY;
   if (scrolldis >= 700 && scrolldis <= 1300) {
     img1.forEach(function (element) {
