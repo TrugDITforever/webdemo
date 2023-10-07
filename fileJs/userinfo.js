@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(".BoxforInfo:nth-child(1)").removeClass("moveout1");
     $(".BoxforInfo:nth-child(2)").removeClass("moveout2");
     $(".BoxforInfo:nth-child(3)").removeClass("moveout2");
-    });
+  });
   $(".passwordBlock").click(function () {
     $(".BoxforInfo:nth-child(1)").addClass("moveout1");
     $(".BoxforInfo:nth-child(2)").addClass("moveout2");
@@ -46,11 +46,12 @@ $(document).ready(function () {
     var fileInput = $("#file-input")[0].files[0];
     if (fileInput) {
       formData.append("fileToUpload", fileInput);
+      console.log(fileInput);
     } else {
       var imgSrc = $("#image").attr("src");
-      var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
-      formData.append("fileToUpload", imgFileName);
-      console.log(imgFileName);
+      // var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
+      formData.append("fileToUpload", imgSrc);
+      console.log(imgSrc);
     }
     if (isNaN(phonenumber)) {
       $(".alertword p").html("Vui Lòng nhập đúng kiểu số điện thoại");
@@ -64,12 +65,12 @@ $(document).ready(function () {
       contentType: false,
       data: formData,
       success: function (data) {
-        // console.log(data);
-        if (data == "success") {
-          console.log(data);
-        } else if (data == "error") {
-          console.log(data);
-        }
+        // if (data == "success") {
+        //   console.log(data);
+        // } else if (data == "error") {
+        //   console.log(data);
+        // }
+        console.log(data);
       },
     });
   });

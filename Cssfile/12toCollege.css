@@ -62,6 +62,9 @@ html {
   color: steelblue;
   padding: 3px;
 }
+.title p {
+  color: black;
+}
 .title {
   margin-bottom: 10px;
   border-bottom: 2px solid rgb(200, 198, 198);

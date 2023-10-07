@@ -318,6 +318,23 @@
   background-color: #d76b43;
   cursor: pointer;
 }
+.history_table {
+  border-radius: 10px;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+.history_table:hover {
+  height: 500px;
+  overflow: auto;
+}
+.history_table::-webkit-scrollbar {
+  width: 10px;
+}
+.history_table::-webkit-scrollbar-thumb {
+  background-color: chartreuse;
+  border-radius: 10px;
+}
 .styled-table {
   width: 100%;
   border-collapse: collapse;
@@ -332,10 +349,19 @@
   color: #ffffff;
   text-align: left;
 }
-.styled-table th, 
+.styled-table th,
 .styled-table td {
   text-align: center;
+  width: 30rem;
   padding: 12px 15px;
+}
+.decrip_test {
+  /* width: 30rem; */
+  overflow: hidden;
+  text-align: center;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
 }
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;

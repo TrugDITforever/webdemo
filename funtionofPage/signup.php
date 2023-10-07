@@ -1,35 +1,29 @@
-<?php 
-$db_server="localhost";
-$db_user="root";
-$db_pass="";
-$db_name="useraccount";
+<?php
+require_once("../ElementForMainpage/database.php");
 session_start();
-$con= mysqli_connect($db_server,$db_user,$db_pass,$db_name);
-  try{
+try {
+  $usersignup = $_POST['usernamesignup'];
+  $userpass = md5($_POST['passwordsignup']);
+  $userEmail = $_POST['userEmailsignup'];
+  $sql = "INSERT INTO `useracc`(`username`, `password`, `email`) VALUES ('$usersignup','$userpass','$userEmail')";
+  $statement = $con->prepare($sql);
+  if ($statement->execute()) {
+    $statement->closeCursor();
+    $sql2 = "SELECT * FROM `useracc` WHERE `username` = '$usersignup'";
+    $statement = $con->prepare($sql2);
+    $statement->execute();
+    $row = $statement->fetch(PDO::FETCH_ASSOC);   
+    $_SESSION["userid"] = $row['id'];
+    $_SESSION["userEmail"] = $row['email'];
+    $statement->closeCursor();
+    $response = 'success';
+    echo $response;
+  } else {
+    $response = 'error';
+    echo $response;
+  }
 
-      $usersignup = $_POST['usernamesignup'];
-      $userpass = $_POST['passwordsignup'];
-      $userEmail = $_POST['userEmailsignup'];   
-      $sql = "INSERT INTO `useracc`(`username`, `password`, `email`) VALUES ('$usersignup','$userpass','$userEmail')";
-            $result = mysqli_query($con, $sql);
-            if ($result) {
-// $con= mysqli_connect($db_server,$db_user,$db_pass,$db_name);
-$sql2 ="SELECT * FROM `useracc` WHERE `username` = '$usersignup'";
-$result2 = mysqli_query($con,$sql2);
- $row=mysqli_fetch_assoc($result2);
-$_SESSION["userid"]=$row['id'];
-$_SESSION["userEmail"]=$row['email'];
-$response='success';
-echo $response;
-              }
-              else {
-                $response= 'error';
-                echo $response;
-              }
-
-}catch(mysqli_sql_exception $e){
-  $response= 'error';
+} catch (mysqli_sql_exception $e) {
+  $response = 'error';
   echo $response;
 }
-    
-?>

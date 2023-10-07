@@ -1,0 +1,489 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant&family=Nunito:wght@500&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  background-color: #f5fafd;
+}
+.Admin-page {
+  width: 100%;
+  height: 755px;
+}
+.contanier-admin {
+  width: 100%;
+  height: 755px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.left-menu-admin {
+  width: 18%;
+  height: 755px;
+  background: white;
+}
+.menu-admin {
+  width: 100%;
+  height: auto;
+}
+.name-logo {
+  width: 70%;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.name-logo img {
+  padding-right: 5px;
+  width: 50px;
+  vertical-align: middle;
+}
+.name-logo a {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.name-logo p {
+  color: blue;
+  margin-top: 0;
+}
+.list-menu {
+  padding: 20px 0px 0px 0px;
+}
+.list-menu ul {
+  width: 100%;
+  padding-left: 10px;
+}
+.list-menu li {
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 25px;
+  width: 88%;
+  border-radius: 10px;
+  padding: 15px 0px 15px 20px;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  box-shadow: 0px 3px 12px #e4e2e2;
+  transition: all 0.5s ease-in-out;
+}
+/* .list-menu li:nth-child(1) {
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 25px;
+  width: 88%;
+  color: white;
+  background-color: #3699fe;
+  border-radius: 10px;
+  padding: 15px 0px 15px 20px;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+} */
+.list-menu li:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #3699fe;
+}
+.list-menu li.hoveradd {
+  color: white;
+  background-color: #3699fe;
+}
+.list-menu i {
+  opacity: 0.5;
+  font-size: 1.5rem;
+  padding-right: 5px;
+}
+.right-page-admin {
+  width: 82%;
+}
+.welcome-word {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+}
+.word-h1 i {
+  color: #e1db31;
+  animation: waving 1s alternate infinite;
+}
+.word-h1 {
+  width: 50%;
+}
+.word-h1 h1 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  float: left;
+  text-align: left;
+}
+.admin-pic img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.dropdown {
+  width: 14%;
+  background-color: #fff;
+  box-shadow: 3px 3px 12px #ccc;
+  display: flex;
+  border-radius: 20px;
+}
+.dropdown i {
+  animation: waving 1s alternate infinite;
+}
+.btn {
+  color: black;
+  padding: 0;
+  background: #fff;
+  border-radius: none;
+  border: none;
+}
+.btn-secondary:hover {
+  background: #fff;
+  color: black;
+}
+@keyframes waving {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.placeShowlist {
+  position: relative;
+  width: 95%;
+  height: auto;
+  margin-left: 30px;
+}
+.boxshowlist {
+  overflow: hidden !important;
+}
+.boxshowlist:nth-child(1) {
+  position: absolute;
+  opacity: 1;
+  box-shadow: 0px 3px 12px #e4e2e2;
+  width: 100%;
+  height: 650px;
+  background: white;
+  transition: opacity 0.6s linear;
+  border-radius: 10px;
+}
+.boxshowlist:nth-child(1).fadeout {
+  opacity: 0;
+}
+.boxshowlist:nth-child(2) {
+  position: absolute;
+  box-shadow: 0px 3px 12px #e4e2e2;
+  width: 100%;
+  height: 650px;
+  background: white;
+  border-radius: 10px;
+  transition: opacity 0.6s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+.boxshowlist:nth-child(2).appear2 {
+  visibility: visible;
+  opacity: 1;
+}
+.boxshowlist:nth-child(3) {
+  position: absolute;
+  box-shadow: 0px 3px 12px #e4e2e2;
+  width: 100%;
+  height: 680px;
+  background: white;
+  border-radius: 10px;
+  transition: opacity 0.6s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+.boxshowlist:nth-child(3).appear3 {
+  visibility: visible;
+  opacity: 1;
+}
+.table-list {
+  width: 97%;
+  height: 480px;
+  margin-left: 10px;
+  border-top-right-radius: 10px;
+  overflow: auto;
+}
+.table-body {
+  width: 100%;
+  height: 480px;
+  border-top-right-radius: 10px;
+  overflow: auto;
+}
+.styled-table {
+  background-color: #3699fe;
+  border-radius: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead {
+  border-top-right-radius: 10px;
+}
+.styled-table thead {
+  /* background-color: #009879; */
+  color: #fff;
+  text-align: left;
+}
+.styled-table th,
+.styled-table td {
+  text-align: center;
+  width: 30rem;
+  padding: 12px 15px;
+}
+.styled-table th:nth-child(1),
+.styled-table td:nth-child(1) {
+  width: 8rem;
+  padding: 12px 15px;
+}
+.styled-table i {
+  cursor: pointer;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #e0e3e3;
+}
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+.styled-table tbody tr:nth-of-type(odd) {
+  background-color: #fff;
+}
+.username-pic img {
+  border-radius: 50%;
+  width: 40px;
+  vertical-align: middle;
+  height: 40px;
+}
+.btn-inserttest {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.btn-inserttest button {
+  cursor: pointer;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 15px 10px;
+  border-radius: 20px;
+  background: linear-gradient(to right, #49bfa5, #93ca91);
+  box-shadow: 3px 3px 5px #ccc;
+  transition: 1s all ease-in-out;
+}
+.btn-inserttest button:hover {
+  background: linear-gradient(to right, #6dedd2, #a2f09f);
+}
+.btn-inserttest i {
+  vertical-align: middle;
+  font-size: 2.5rem;
+  padding-right: 5px;
+}
+.form-insert {
+  margin: 10px;
+  font-family: "Nunito", sans-serif;
+}
+.form-insert-test {
+  /* border-radius: 10px; */
+  width: 400px;
+  height: 365px;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  /* background-image: url(https://e0.pxfuel.com/wallpapers/11/226/desktop-wallpaper-soft-gradient-color-background-tip-gradient-colors.jpg); */
+  backdrop-filter: blur(5px) !important;
+  border-radius: 10px;
+  /* background: #e0e0e0; */
+  box-shadow: 5px 5px 11px #bebebe, -5px -5px 11px #ffffff;
+}
+.form-insert-test i {
+  float: right;
+}
+.form-insert-test i:hover {
+  cursor: pointer;
+}
+.form-insert h1 {
+  background-image: linear-gradient(to right, #49bfa5, #93ca91);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.form-insert label {
+  font-size: 1.5rem;
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+}
+.hidden_id {
+  height: 5px;
+  visibility: hidden;
+}
+.form-insert input {
+  outline: 0px solid;
+  display: block;
+  width: 40%;
+  border: 0;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: inherit;
+  transition: 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 5px 5px 11px #bebebe, -5px -5px 11px #ffffff;
+}
+
+.form-insert textarea {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  width: 99%;
+  /* height: 100px; */
+  box-shadow: 5px 5px 11px #bebebe, -5px -5px 11px #ffffff;
+  resize: none;
+}
+.form-insert textarea:hover {
+  outline: 1px solid #6dedd2;
+}
+.form-insert button {
+  font-weight: 600;
+  float: right;
+  cursor: pointer;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  /* background: linear-gradient(to right, #49bfa5, #93ca91); */
+  background: #0066cc;
+  box-shadow: 3px 3px 5px #ccc;
+  transition: 1s all ease-in-out;
+}
+.form-insert button:hover {
+  background: linear-gradient(to right, #6dedd2, #a2f09f);
+}
+.blur-div {
+  z-index: 100;
+  position: absolute;
+  top: 64px;
+  left: -150rem;
+  width: 98%;
+  backdrop-filter: blur(1px);
+  height: calc(100% - 74px);
+  background: rgba(255, 255, 255, 0.667);
+  border: 1px solid rgb(246, 246, 246);
+  transition: 0.5s all ease-in-out;
+}
+.blur-div.moveout {
+  top: 64px;
+  left: 0px;
+}
+.title_page1 {
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+  background: #255bf1;
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px #7c9fff;
+}
+.title_page1 p {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.3rem;
+  color: #fff;
+  padding-top: 20px;
+  padding-left: 15px;
+}
+.totaluser {
+  margin-left: 20px;
+}
+.totaluser i,
+.totaluser span {
+  color: white;
+  font-size: 2rem;
+  padding-left: 10px;
+}
+.editacc,
+.delacc {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 7px 12px;
+  background: #fff;
+  box-shadow: 3px 3px 12px #dfdede, -3px 0px 12px #ccc;
+}
+.editacc i {
+  color: #255bf1;
+}
+.delacc i {
+  color: #f12525;
+}
+.editacc:hover {
+  box-shadow: 3px 3px 12px #dfdede inset, -3px 0px 12px #ccc inset;
+  background: #fff;
+  color: #255bf1;
+  border: 1px solid #255bf1;
+}
+.delacc:hover {
+  box-shadow: 3px 3px 12px #dfdede inset, -3px 0px 12px #ccc inset;
+  background: #fff;
+  color: #f12525;
+  border: 1px solid #f12525;
+}
+.confirm-whendelete {
+  border-top: 3px solid yellow;
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  width: 280px;
+  height: 80px;
+  background-color: #fff;
+  box-shadow: 3px 3px 12px #dfdede;
+  transition: 0.5s all linear;
+}
+
+.confirm-whendelete.slideup {
+  bottom: 10px;
+  left: 50%;
+}
+.confirm-whendelete h4 {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+.confirm-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  margin: 5px 5px;
+}
+.secondary-button {
+  border: 2px solid #0066cc;
+  background-color: white;
+  color: #0066cc;
+}
+.primary-button {
+  background-color: rgb(0, 102, 204);
+  color: white;
+}
+.secondary-button:hover {
+  background-color: rgb(0, 102, 204, 0.1);
+}
+
+.primary-button:hover {
+  background-color: rgb(0, 102, 204, 0.85);
+}

@@ -1,17 +1,19 @@
 <?php
-$db_server = "localhost";
-$db_user = "root";
-$db_pass = "";
-$db_name = "useraccount";
-$con = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+require_once("./ElementForMainpage/database.php");
+$sql = "SELECT * FROM `exam_test`";
+$statement = $con->prepare($sql);
+$statement->execute();
+$row = $statement->fetchALL();
+$statement->closeCursor();
 session_start();
 $user_id = $_SESSION["userid"];
 $userEmail = $_SESSION["userEmail"];
 if (isset($user_id) && isset($userEmail)) {
   $sql = "SELECT * FROM userprofile WHERE id_user = '$user_id'";
-  $result = mysqli_query($con, $sql);
-  if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+  $statement = $con->prepare($sql);
+  $statement->execute();
+  if ($statement->rowCount() > 0) {
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
     $userName = $row["name"];
     $useraddress = $row["address"];
     $phonenumber = $row["phonenumber"];
@@ -102,18 +104,22 @@ if (isset($user_id) && isset($userEmail)) {
                   <!-- <a>
                           Trung Do
                         </a> -->
-                  <p><?php echo "$useraddress" ?></p>
+                  <p>
+                    <?php echo "$useraddress" ?>
+                  </p>
                 </div>
               </div>
               <div class="BoxUnder">
                 <form class="formchange">
                   <div class="elemetninform">
                     <label for="username">Tên</label>
-                    <input type="text" name="username" id="username" value="<?php echo $userName ?>" autocomplete="none" required />
+                    <input type="text" name="username" id="username" value="<?php echo $userName ?>" autocomplete="none"
+                      required />
                   </div>
                   <div class="elemetninform">
                     <label for="phonenumber">Số điện thoại</label>
-                    <input type="tel" id="phonenumber" name="phonenumber" value="<?php echo $phonenumber ?> " required />
+                    <input type="tel" id="phonenumber" name="phonenumber" value="<?php echo $phonenumber ?> "
+                      required />
                   </div>
                   <div class="elemetninform">
                     <label for="username">Email</label>
@@ -145,7 +151,8 @@ if (isset($user_id) && isset($userEmail)) {
                   foreach ($message as $message) {
                     echo '<div>' . $message . '</div>';
                   }
-                };
+                }
+                ;
                 ?>
                 <form class="formchange2" action="" method="post">
                   <div class="elemetninform">
@@ -187,22 +194,32 @@ if (isset($user_id) && isset($userEmail)) {
                     <tr>
                       <th>Thời gian</th>
                       <th>Mô tả</th>
-                      <th>Cấp bậc</th>
+                      <th>Cấp bậc/Môn</th>
 
                     </tr>
                   </thead>
                   <tbody>
                     <?php
                     $sql2 = "SELECT * FROM `history_down` WHERE id_user = '$user_id'";
-                    $result2 = mysqli_query($con, $sql2);
+                    $statement = $con->prepare($sql2);
+                    $statement->execute();
+                    $row2 = $statement->fetchAll();
                     ?>
                     <?php
-                    while ($row2 = mysqli_fetch_assoc($result2)) {
-                    ?>
+                    foreach ($row2 as $row2) {
+                      ?>
                       <tr>
-                        <td><?php echo $row2['time'] ?></td>
-                        <td><?php echo $row2['decrip'] ?></td>
-                        <td><?php echo $row2['rank'] ?></td>
+                        <td>
+                          <?php echo $row2['time'] ?>
+                        </td>
+                        <td>
+                          <p class="decrip_test" title="<?php echo $row2['decrip'] ?>">
+                            <?php echo $row2['decrip'] ?>
+                          </p>
+                        </td>
+                        <td>
+                          <?php echo $row2['rank'] ?>
+                        </td>
                       </tr>
                     <?php } ?>
 
@@ -224,7 +241,7 @@ if (isset($user_id) && isset($userEmail)) {
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-  <script src="userinfo.js"></script>
+  <script src="fileJS/userinfo.js"></script>
 </body>
 
 </html>

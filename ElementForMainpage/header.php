@@ -31,7 +31,7 @@
                   Giới Thiệu
                 </a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="bookstore">
                   <i
                     class="fa-solid fa-cart-flatbed"
@@ -39,11 +39,17 @@
                   ></i>
                   Cửa Hàng
                 </a>
-              </li>
+              </li> -->
               <li >
                 <a class="pageinfo">
                   <i class="fa-regular fa-circle-user"></i>
                   Tài khoản
+                </a>
+              </li>
+              <li >
+                <a href= "adminpage.php"class="pageadmin">
+                <i class="fa-solid fa-people-roof"></i>
+                 Admin
                 </a>
               </li>
             </ul>

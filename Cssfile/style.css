@@ -214,10 +214,10 @@ html {
   top: 20%;
   right: -60%;
   position: fixed;
-  width: 20rem;
+  width: auto;
   height: auto;
-  background: rgb(147, 245, 243);
-  border: 1px solid black;
+  background: #1665d8;
+  /* border: 1px solid black; */
   border-left: 5px solid blue;
   border-radius: 4px;
   transition: 0.5s all linear;
@@ -234,9 +234,10 @@ html {
   font-size: large;
   text-align: center;
   margin-left: 7px;
-  color: rgb(1, 1, 160);
+  color: rgb(251, 251, 251);
 }
 .alertword a {
+  color: #fff;
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -782,7 +783,7 @@ h5 {
 .ask-box {
   position: relative;
   margin-top: 40px;
-  margin-left: 300px;
+  float: right;
   width: 350px;
   height: 30px;
   display: inline-block;
@@ -802,15 +803,31 @@ h5 {
   cursor: pointer;
   background-color: rgb(113, 129, 239);
 }
+
+#search-form {
+  margin-top: 0px;
+  display: inline-block;
+  background-color: #fff;
+  width: 280px;
+  height: auto;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
 #ask-place {
   margin-top: 0px;
   display: inline-block;
-  width: 350px;
+  background-color: #fff;
+  width: 250px;
   height: 30px;
   border-radius: 10px;
   border: none;
   outline: none;
 }
+#search-form:is(:hover, :focus) {
+  border: 1px solid rgb(255, 108, 108);
+}
+
 /* .ask-box button {
   background-color: white;
   width: 30px;
@@ -1260,7 +1277,8 @@ h5 {
   position: fixed;
   margin-top: 6px;
 }
-.group-create {
+.group-create,
+.Post-create {
   display: none;
   position: fixed;
   top: 50%;
@@ -1275,10 +1293,54 @@ h5 {
   border-radius: 20px;
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.group-create.activate {
+.Post-create {
+  height: auto !important;
+}
+.group-create.activate,
+.Post-create.activate {
   display: block;
 }
-#close3 {
+.add-img {
+  position: relative;
+  right: 0;
+  background-color: #ffffff;
+  width: 30%;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-radius: 30px;
+  box-shadow: 3px 3px 10px #27e9e9;
+}
+.input-hidden {
+  width: 100px;
+  position: absolute;
+  top: 215px;
+  left: -100px;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+}
+.place-img-select {
+  display: none;
+  width: 100%;
+  height: auto !important;
+  & a {
+    cursor: pointer;
+    float: right;
+  }
+  & img {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+  }
+}
+.place-img-select.active {
+  display: block;
+}
+#close3,
+#close4 {
   float: right;
   cursor: pointer;
 }
@@ -1430,7 +1492,8 @@ h5 {
 .login-form {
   margin-top: 43px;
 }
-.login-form input {
+.login-form input,
+.status-form input {
   outline: none;
   display: block;
   background: rgba(0, 0, 0, 0.1);
@@ -1444,7 +1507,8 @@ h5 {
   transition: 0.3s ease;
   margin-top: 10px;
 }
-.login-form label {
+.login-form label,
+.status-form label {
   display: block;
   margin: 0 0 10px;
   color: rgba(0, 0, 0, 0.6);
@@ -1457,7 +1521,9 @@ h5 {
   margin: 0 0 10px;
   margin-top: 10px;
 }
-#signup-btn {
+#signup-btn,
+#post-btn {
+  font-size: 1.2rem;
   margin-top: 13px;
   width: 100%;
   font-family: "Nunito", sans-serif;
@@ -1603,11 +1669,12 @@ h5 {
   padding-top: 5px;
   display: flex;
 }
-.box-cmt button {
+.box-cmt button,
+.btnpost button {
   background-color: blue;
   margin-left: 5px;
   margin-top: 10px;
-  width: 15%;
+  width: auto;
   height: 1%;
   border: none;
   color: white;
@@ -1662,6 +1729,40 @@ h5 {
   color: #385898;
   padding-bottom: 5px;
 }
+.place_tolike {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.place_tolike li:nth-child(1).changecolor {
+  color: blue;
+}
+.place_tolike i {
+  padding-right: 5px;
+}
+.place_tolike ul {
+  margin: 0;
+  padding: 0;
+}
+.place_tolike li {
+  list-style: none;
+  display: inline-block;
+  padding: 15px 40px;
+}
+.place_tolike li:hover {
+  cursor: pointer;
+  color: #349ba9;
+}
+/* .place_tolike li:nth-child(1) {
+  color: blue;
+}
+.place_tolike li:nth-child(2) {
+  color: red;
+}
+.place_tolike li:nth-child(3) {
+  color: yellow;
+} */
 @media screen and (max-width: 767px) {
   .tab-main {
     margin-top: 10px;

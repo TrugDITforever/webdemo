@@ -23,7 +23,7 @@
 
       <div class="main">
         <div class="arrow">
-          <a href="#login-place" href="#">
+          <a href="#">
             <i class="fa-solid fa-arrow-up fa-2xl"></i>
           </a>
         </div>
@@ -1675,7 +1675,7 @@
         <div class="alert">
           <div class="alertword">
             <p>Bạn cần đăng nhập vào trang để xem tài liệu này</p>
-            <a>OK</a>
+            <a><i class="fa-solid fa-xmark"></i></a>
           </div>
         </div>
         <div class="group-create">
@@ -1768,6 +1768,7 @@
         </div>
       </footer>
     </div>
-    <script src="style.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="fileJS/style.js"></script>
   </body>
 </html>
