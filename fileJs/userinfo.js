@@ -16,7 +16,7 @@ $(document).ready(function () {
   });
   $(".logoutbtn").click(function () {
     localStorage.setItem("isAppear", "false");
-    window.location.href = "study.php";
+    window.location.href = "index?route=mainpage";
   });
 });
 $(document).ready(function () {
@@ -49,7 +49,6 @@ $(document).ready(function () {
       console.log(fileInput);
     } else {
       var imgSrc = $("#image").attr("src");
-      // var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
       formData.append("fileToUpload", imgSrc);
       console.log(imgSrc);
     }
@@ -65,12 +64,16 @@ $(document).ready(function () {
       contentType: false,
       data: formData,
       success: function (data) {
-        // if (data == "success") {
-        //   console.log(data);
-        // } else if (data == "error") {
-        //   console.log(data);
-        // }
-        console.log(data);
+        // console.log(data);
+        if (data == "success-UPDATE") {
+          $(".alertword p").html("Cập nhật thành công");
+          $(".alert").addClass("moveout");
+          setTimeout(() => {
+            $(".alert").removeClass("moveout");
+          }, 3000);
+        } else {
+          console.log(data);
+        }
       },
     });
   });

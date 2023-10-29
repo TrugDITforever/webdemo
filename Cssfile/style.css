@@ -256,7 +256,7 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 6;
+  z-index: 5;
   opacity: 0;
   transition: opacity 0.8s ease;
   /* transition-delay: 0.1s; */
@@ -280,7 +280,7 @@ html {
   background: white;
   width: 15.5%;
   /* height: 1110px; */
-  height: 645px;
+  height: 655px;
   position: fixed;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -312,9 +312,10 @@ html {
 
 .last {
   overflow-y: auto;
-  position: relative;
+  position: sticky;
   width: 21%;
   height: auto;
+  right: 0;
   /* padding-top: 125px; */
 }
 .menu1 {
@@ -783,7 +784,7 @@ h5 {
 .ask-box {
   position: relative;
   margin-top: 40px;
-  float: right;
+  /* float: right; */
   width: 350px;
   height: 30px;
   display: inline-block;
@@ -1277,8 +1278,7 @@ h5 {
   position: fixed;
   margin-top: 6px;
 }
-.group-create,
-.Post-create {
+.group-create {
   display: none;
   position: fixed;
   top: 50%;
@@ -1287,9 +1287,9 @@ h5 {
   background-color: #eee;
   border: 1px solid #ccc;
   padding: 20px;
-  height: 380px;
+  height: 400px;
   z-index: 15;
-  width: 400px;
+  width: 700px;
   border-radius: 20px;
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -1311,7 +1311,8 @@ h5 {
   border-radius: 30px;
   box-shadow: 3px 3px 10px #27e9e9;
 }
-.input-hidden {
+.input-hidden,
+.input-creategroup {
   width: 100px;
   position: absolute;
   top: 215px;
@@ -1321,6 +1322,9 @@ h5 {
   font-size: 20px;
   cursor: pointer;
   opacity: 0;
+}
+.input-creategroup {
+  top: 260px;
 }
 .place-img-select {
   display: none;
@@ -1332,8 +1336,9 @@ h5 {
   }
   & img {
     width: 100%;
-    height: 200px;
+    height: 300px;
     border-radius: 20px;
+    object-fit: cover;
   }
 }
 .place-img-select.active {
@@ -1344,23 +1349,25 @@ h5 {
   float: right;
   cursor: pointer;
 }
-.Page-login {
+.Page-login,
+.Post-create {
   display: none;
-  overflow: hidden;
   position: fixed;
+  overflow: hidden;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #eee;
+  background-color: #eee;
   border: 1px solid #ccc;
   padding: 20px;
-  /* display: block; */
   height: auto;
   z-index: 15;
-  width: 400px;
+  width: 700px;
   border-radius: 20px;
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  box-shadow: 9px 3px 12px #ccc, -9px -3px 12px #ccc;
+}
+.Post-create {
+  width: 470px !important;
 }
 .Page-login.appear {
   display: block;
@@ -1369,10 +1376,10 @@ h5 {
 .Page-login::before {
   content: "";
   position: absolute;
-  height: 600px;
+  height: 1000px;
   width: 100px;
-  left: 175px;
-  top: -100px;
+  left: 330px;
+  top: -150px;
   background: linear-gradient(#00e5ff, #b400fb);
   animation: animate 10s linear infinite;
 }
@@ -1391,10 +1398,15 @@ h5 {
     transform: rotate(360deg);
   }
 }
-.loginform h4 {
-  font-family: "Nunito", sans-serif;
-  position: relative;
-  z-index: 1;
+.loginform h4,
+.signupform h4,
+.create-word {
+  margin: 0px;
+  padding: 4px 0;
+  color: #4285f4;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 .loginform {
   font-family: "Nunito", sans-serif;
@@ -1486,9 +1498,7 @@ h5 {
   position: relative;
   z-index: 1;
 }
-.signupform h4 {
-  font-family: "Nunito", sans-serif;
-}
+
 .login-form {
   margin-top: 43px;
 }
@@ -1507,8 +1517,23 @@ h5 {
   transition: 0.3s ease;
   margin-top: 10px;
 }
+.create-form input {
+  outline: none;
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+  width: 85%;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  font-family: inherit;
+  font-size: inherit;
+  transition: 0.3s ease;
+  margin-top: 10px;
+}
 .login-form label,
-.status-form label {
+.status-form label,
+.create-form label {
   display: block;
   margin: 0 0 10px;
   color: rgba(0, 0, 0, 0.6);
@@ -1534,7 +1559,20 @@ h5 {
   border-radius: 60px;
   transition: 0.3s linear;
 }
-#signup-btn:hover {
+#create-btn {
+  font-size: 1.2rem;
+  margin-top: 13px;
+  width: 85%;
+  font-family: "Nunito", sans-serif;
+  border-style: none;
+  background-color: aqua;
+  box-shadow: 3px 3px 12px #0b4644;
+  padding: 10px 20px 10px 20px;
+  border-radius: 60px;
+  transition: 0.3s linear;
+}
+#signup-btn:hover,
+#create-btn:hover {
   cursor: pointer;
   background-color: coral;
   color: white;
@@ -1557,7 +1595,6 @@ h5 {
   color: white;
   box-shadow: 3px 3px 12px #0b4644 inset;
 }
-
 #close {
   position: relative;
   z-index: 2;
@@ -1675,7 +1712,7 @@ h5 {
   margin-left: 5px;
   margin-top: 10px;
   width: auto;
-  height: 1%;
+  /* height: 1%; */
   border: none;
   color: white;
   padding: 9px 20px;
@@ -1754,15 +1791,6 @@ h5 {
   cursor: pointer;
   color: #349ba9;
 }
-/* .place_tolike li:nth-child(1) {
-  color: blue;
-}
-.place_tolike li:nth-child(2) {
-  color: red;
-}
-.place_tolike li:nth-child(3) {
-  color: yellow;
-} */
 @media screen and (max-width: 767px) {
   .tab-main {
     margin-top: 10px;
@@ -1953,4 +1981,103 @@ h5 {
 .tab-mainmenu.addheight {
   height: 215px;
   overflow: visible;
+}
+.FormPostComment {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  height: 40rem;
+  z-index: 15;
+  width: 48rem;
+  border-radius: 10px;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.Status-title {
+  position: relative;
+  width: 100%;
+  height: 4.5rem;
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.word-title-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.word-title-status h3 {
+  text-align: center;
+}
+.close-btn-status {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f0efef;
+  top: 0.8rem;
+  right: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+.close-btn-status:hover {
+  cursor: pointer;
+  background-color: #cecece;
+}
+.btn-close-status {
+  font-size: 1.5rem;
+}
+.Content-status {
+  width: 100%;
+  height: 31rem;
+  overflow-y: auto;
+}
+.adminPost-info {
+  display: flex;
+  width: 100%;
+  height: 60px;
+}
+.adminPost-img {
+  width: 10%;
+  height: 50px;
+}
+.adminPost-img img {
+  width: 100%;
+  height: 100%;
+  padding-top: 5px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+.adminPost-name p {
+  font-weight: 800;
+}
+.containform-create,
+.containform-login {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+}
+.Creategroup {
+  width: 50%;
+}
+.Picture-Group,
+.Picture-Login {
+  z-index: 15;
+  width: 50%;
+}
+.Picture-Group img,
+.Picture-Login img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+.image-createform.borderimg {
+  border-radius: 10px;
+  height: 60%;
+  object-fit: cover;
 }

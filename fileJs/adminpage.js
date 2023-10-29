@@ -39,12 +39,25 @@ $(document).ready(function () {
   $(".insert-subject").click(function () {
     var index = $(".insert-subject").index(this);
     $(".blur-div").addClass("moveout");
-    $(".name-subject").val($(".subject-word:eq(" + index + ")").text());
-    $(".detail-text").val($(".decrip-word:eq(" + index + ")").text());
-    $(".hidden_id").val($(".id-subject:eq(" + index + ")").text());
+    $(".name-subject").val(
+      $(".subject-word:eq(" + index + ")")
+        .text()
+        .trim()
+    );
+    console.log($(".subject-word:eq(" + index + ")").text());
+    $(".detail-text").val(
+      $(".decrip-word:eq(" + index + ")")
+        .text()
+        .trim()
+    );
+    $(".hidden_id").val(
+      $(".id-subject:eq(" + index + ")")
+        .text()
+        .trim()
+    );
   });
 });
-
+//confirm delete
 $(document).on("click", ".delete-subject", function () {
   var index2 = $(".delete-subject").index(this);
   $(".confirm-whendelete").addClass("slideup");

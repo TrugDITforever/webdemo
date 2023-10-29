@@ -15,7 +15,6 @@ if (isset($_SESSION["userid"])) {
     } else {
         $userimg = "";
     }
-
     $sql1 = "SELECT * FROM `userprofile` WHERE `id_user` = :user_id";
     $statement = $con->prepare($sql1);
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);

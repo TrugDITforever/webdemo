@@ -10,19 +10,6 @@ var header = document.querySelector(".head");
 var headerheight = header.offsetHeight;
 var tabmenu = document.querySelector(".tab-mainmenu");
 const ads = document.querySelector(".ads");
-
-// window.addEventListener("scroll", function () {
-//   var scrollDistance = window.scrollY;
-//   if (scrollDistance >= 100) {
-//     header.classList.add("hide");
-//     tabmenu.classList.add("padd");
-//   } else {
-//     header.classList.remove("hide");
-//     tabmenu.classList.remove("padd");
-//   }
-// });
-// scroll of infor
-// const divunder = document.querySelectorAll(".div-under");
 const arrow = document.querySelector(".arrow");
 const infor = document.querySelector(".infor");
 window.addEventListener("scroll", function () {
@@ -35,17 +22,7 @@ window.addEventListener("scroll", function () {
     arrow.classList.remove("appear");
   }
 });
-const btngroup = document.querySelector(".btngroup");
-const groupcreate = document.querySelector(".group-create");
-btngroup.addEventListener("click", function () {
-  groupcreate.classList.add("activate");
-  ads.classList.add("active");
-});
-const exitbtn3 = document.getElementById("close3");
-exitbtn3.addEventListener("click", function () {
-  groupcreate.classList.remove("activate");
-  ads.classList.remove("active");
-});
+
 btnmovetosignup.onclick = function () {
   pagedangnhap.classList.remove("appear");
   pagedangki.style.display = "block";
@@ -72,8 +49,9 @@ exitbtn2.onclick = function () {
   ads.classList.remove("active");
   pagedangki.style.display = "none";
 };
+// image select for create-status-form
 $(document).ready(function () {
-  $(".input-hidden").change(function () {
+  $(".create-status").change(function () {
     const selectedFile = this.files[0];
     if (selectedFile) {
       $(".place-img-select").addClass("active");
@@ -88,29 +66,26 @@ $(document).ready(function () {
     $(".img-status").attr("src", "");
   });
 });
-//btndowwnALL
-// let isSubmitted = false;
-// const btnDownLinks = document.querySelectorAll(".down");
-// btnDownLinks.forEach(function (element, index) {
-//   element.addEventListener("click", function (event) {
-//     if (isSubmitted === false) {
-//       event.preventDefault();
-//       var woElement = document.querySelectorAll(".wo p");
-//       woElement = woElement[index].textContent;
-//       console.log(woElement);
-//       alertwords.innerHTML = "Bạn cần đăng nhập vào trang để tải tài liệu này";
-//       alertt.classList.add("moveout");
-//     } else if (isSubmitted === true) {
-//       const btnDown = document.querySelectorAll(".btndown");
-//       btnDown.forEach(function (element) {
-//         console.log(btnDown.length);
-//         element.addEventListener("click", function () {
-//           element.classList.add("changee");
-//         });
-//       });
-//     }
-//   });
-// });
+// image select for create-group-form
+$(document).ready(function () {
+  $(".image-createform").attr(
+    "src",
+    "https://png.pngtree.com/png-clipart/20230914/original/pngtree-cartoon-friends-group-hd-vector-images-smc-tfsa-png-image_11086182.png"
+  );
+  $(".input-creategroup").change(function () {
+    const fileselected = this.files[0];
+    if (fileselected) {
+      const objectURL = URL.createObjectURL(fileselected);
+      $(".image-createform").attr("src", objectURL);
+      $(".image-createform").addClass("borderimg");
+    } else {
+      $(".image-createform").attr(
+        "src",
+        "https://png.pngtree.com/png-clipart/20230914/original/pngtree-cartoon-friends-group-hd-vector-images-smc-tfsa-png-image_11086182.png"
+      );
+    }
+  });
+});
 ///btn down in class1.php
 $(document).ready(function () {
   let isSubmitted = localStorage.getItem("isAppear");
@@ -128,7 +103,7 @@ $(document).ready(function () {
       $(".btndown:eq(" + index + ")").addClass("changee");
       var currentDate = new Date();
       var day = currentDate.getDate();
-      var month = currentDate.getMonth() + 1; // Tháng bắt đầu từ 0
+      var month = currentDate.getMonth() + 1;
       var year = currentDate.getFullYear();
       $.ajax({
         url: "funtionofPage/tracking.php",
@@ -192,12 +167,11 @@ $(document).ready(function () {
     );
   });
 });
-
 //btn down in 12tocolleage.php
 $(document).ready(function () {
-  let isSubmitted = localStorage.getItem("isAppear");
+  let isSubmit = localStorage.getItem("isAppear");
   $(".down_test").on("click", function (event) {
-    if (isSubmitted === "false") {
+    if (isSubmit === "false") {
       event.preventDefault();
       $(".alertword p").html("Bạn cần đăng nhập vào trang để tải tài liệu này");
       $(".alert").addClass("moveout");
@@ -226,6 +200,7 @@ $(document).ready(function () {
         success: function (data) {
           console.log(data);
           if (data === "success") {
+            $(".down_test:eq(" + index + ")").html("Đã tải");
           }
         },
       });
@@ -242,12 +217,12 @@ $(document).ready(function () {
 });
 //login function
 $(document).ready(function () {
-  $(".loginform").submit(function (event) {
+  $(".loginform").on("submit", function (event) {
     event.preventDefault();
     let userLoginn = $("#username").val();
     let password = $("#password").val();
     $.ajax({
-      url: "funtionofPage/login.php",
+      url: "../funtionofPage/login.php",
       type: "POST",
       data: {
         userLogin: userLoginn,
@@ -266,7 +241,7 @@ $(document).ready(function () {
             $(".alert").removeClass("moveout");
           }, 2000);
         } else if (data === "error") {
-          $(".alertword p").html("Sai tên đăng nhập/ mật khẩu");
+          $(".alertword p").html("Sai tên đăng nhập/mật khẩu");
           $(".alert").addClass("moveout");
           $("#username").val("");
           $("#password").val("");
@@ -279,14 +254,21 @@ $(document).ready(function () {
   });
 });
 
-// even when sign up
+//sign up function
 $(document).ready(function () {
-  $(".signupform").submit(function (event) {
+  $(".signupform").on("submit", function (event) {
     event.preventDefault();
     let username = $("#username2").val();
     let password = $("#password2").val();
     let confirmPassword = $("#password3").val();
     let userEmail = $("#email").val();
+
+    // Kiểm tra các trường nhập liệu
+    if (!username || !password || !confirmPassword || !userEmail) {
+      alert("Vui lòng điền đầy đủ thông tin");
+      return;
+    }
+
     if (password !== confirmPassword) {
       $(".alertword p").html("Mật khẩu xác nhận không đúng");
       $(".alert").addClass("moveout");
@@ -295,8 +277,9 @@ $(document).ready(function () {
       }, 2000);
       return;
     }
+
     $.ajax({
-      url: "funtionofPage/signup.php",
+      url: "../funtionofPage/signup.php",
       type: "post",
       data: {
         usernamesignup: username,
@@ -304,6 +287,7 @@ $(document).ready(function () {
         userEmailsignup: userEmail,
       },
       success: function (response) {
+        console.log(response);
         if (response === "success") {
           $(".alert").addClass("moveout");
           $(".alertword p").html("Đăng ký thành công!");
@@ -320,7 +304,7 @@ $(document).ready(function () {
         }
       },
       error: function (xhr, status, error) {
-        $(".alertword p").html("lỗi cú pháp");
+        $(".alertword p").html("Lỗi cú pháp");
         $(".alert").addClass("moveout");
         console.log(error);
         console.log(xhr.responseText);
@@ -340,8 +324,33 @@ $(document).ready(function () {
         $(".alert").removeClass("moveout");
       }, 2000);
     } else {
-      window.location.href = "userinfo.php";
+      window.location.href = "index?route=account";
     }
+  });
+  $(".btngroup").click(function () {
+    const checkIsappear = localStorage.getItem("isAppear");
+    if (checkIsappear === "false") {
+      $(".alertword p").html("Bạn cần đăng nhập vào để xem tài khoản");
+      $(".alert").addClass("moveout");
+      setTimeout(() => {
+        $(".alert").removeClass("moveout");
+      }, 2000);
+    } else {
+      $(".group-create").addClass("activate");
+      $(".ads").addClass("active");
+    }
+  });
+  $("#close3").click(function () {
+    $(".group-create").removeClass("activate");
+    $(".ads").removeClass("active");
+  });
+});
+// PlaceForComment appear
+$(document).ready(function () {
+  $(".answer-comment").click(function () {
+    var index = $(".answer-comment").index(this);
+    var postid = $("a[data-post-id]:eq(" + index + ")").data("post-id");
+    console.log(postid);
   });
 });
 //12tocollege js
@@ -402,141 +411,46 @@ ads.addEventListener("click", function (event) {
     test4.classList.remove("appearrr");
   }
 });
-
 const tabmenuall = document.querySelectorAll(".tabmenub");
 tabmenuall.forEach(function (element) {
   element.addEventListener("click", function () {
     tabmenu.classList.remove("addheight");
   });
 });
-//? this is for dropdown menu
-///menu under btnmobile
-// var menu1 = document.querySelector(".menu1");
-// var menu1height = menu1.clientHeight;
-// const homebtn = document.querySelector(".home");
-// homebtn.addEventListener("click", function () {
-//   console.log(menu1height);
-//   if (menu1.clientHeight === 50) {
-//     menu1.style.height = "auto";
-//   } else {
-//     console.log(menu1height);
-//     menu1.style.height = "50px";
-//   }
-// });
-// var menu2 = document.querySelector(".menu2");
-// var menu2height = menu2.clientHeight;
-// const btnon = document.querySelector(".btnon");
-// btnon.addEventListener("click", function () {
-//   console.log(menu2height);
-//   if (menu2.clientHeight === 50) {
-//     menu2.style.height = "auto";
-//   } else {
-//     menu2.style.height = "50px";
-//   }
-// });
-// var menu3 = document.querySelector(".menu3");
-// var menu3height = menu3.clientHeight;
-// const btnluyen = document.querySelector(".btnluyen");
-// btnluyen.addEventListener("click", function () {
-//   console.log(menu2height);
-//   if (menu3.clientHeight === 50) {
-//     menu3.style.height = "auto";
-//   } else {
-//     menu3.style.height = "50px";
-//   }
-// });
-
+// ? this is for dropdown menu
 ///post comments
-// const commentButton = document.querySelector(".box-cmt button");
-// commentButton.addEventListener("click", handleCreateComment);
-
+// const commentButton = $(".box-cmt button");
+// commentButton.on("click", handleCreateComment);
 // function createCommentElement(name, content, avatarSrc) {
-//   const commentDiv = document.createElement("div");
-//   commentDiv.className = "people-cmt";
-
-//   const imgDiv = document.createElement("div");
-//   const img = document.createElement("img");
-//   img.src = avatarSrc;
-//   imgDiv.appendChild(img);
-
-//   const nameContentDiv = document.createElement("div");
-//   nameContentDiv.className = "name-cmt";
-
-//   const nameParagraph = document.createElement("p");
-//   nameParagraph.textContent = name;
-
-//   const contentParagraph = document.createElement("p");
-//   contentParagraph.textContent = content;
-
-//   nameContentDiv.appendChild(nameParagraph);
-//   nameContentDiv.appendChild(contentParagraph);
-
-//   commentDiv.appendChild(imgDiv);
-//   commentDiv.appendChild(nameContentDiv);
-
+//   const commentDiv = $("<div>").addClass("people-cmt");
+//   const imgDiv = $("<div>");
+//   const img = $("<img>").attr("src", avatarSrc);
+//   imgDiv.append(img);
+//   const nameContentDiv = $("<div>").addClass("name-cmt");
+//   const nameParagraph = $("<p>").text(name);
+//   const contentParagraph = $("<p>").text(content);
+//   nameContentDiv.append(nameParagraph);
+//   nameContentDiv.append(contentParagraph);
+//   commentDiv.append(imgDiv);
+//   commentDiv.append(nameContentDiv);
 //   return commentDiv;
 // }
 
 // function handleCreateComment() {
-//   console.log("create comment");
-//   const input = document.querySelector(".box-cmt input");
-//   const commentsContainer = document.querySelector(".cmt-container");
+//   const input = $(".box-cmt input");
+//   const commentsContainer = $(".cmt-container");
 //   const name = "NO Name";
-//   const content = input.value;
+//   const content = input.val();
 //   const avatarSrc =
-//     "https://thuthuatnhanh.com/wp-content/uploads/2019/02/anh-dai-dien-dep-cho-zalo.jpeg"; // Change this to the commenter's avatar URL
-
+//     "https://thuthuatnhanh.com/wp-content/uploads/2019/02/anh-dai-dien-dep-cho-zalo.jpeg";
 //   if (content.trim() !== "") {
 //     const newCommentElement = createCommentElement(name, content, avatarSrc);
-//     const firstCommentElement = commentsContainer.firstChild;
-//     // Nếu có phần tử comment đầu tiên, thì chèn newCommentElement trước nó
-//     if (firstCommentElement) {
-//       commentsContainer.insertBefore(newCommentElement, firstCommentElement);
+//     const firstCommentElement = commentsContainer.children().first();
+//     if (firstCommentElement.length > 0) {
+//       newCommentElement.insertBefore(firstCommentElement);
 //     } else {
-//       // Nếu không có phần tử comment đầu tiên, thêm newCommentElement bình thường
-//       commentsContainer.appendChild(newCommentElement);
+//       commentsContainer.append(newCommentElement);
 //     }
-//     input.value = "";
+//     input.val("");
 //   }
 // }
-
-const commentButton = $(".box-cmt button");
-commentButton.on("click", handleCreateComment);
-function createCommentElement(name, content, avatarSrc) {
-  const commentDiv = $("<div>").addClass("people-cmt");
-  const imgDiv = $("<div>");
-  const img = $("<img>").attr("src", avatarSrc);
-  imgDiv.append(img);
-  const nameContentDiv = $("<div>").addClass("name-cmt");
-  const nameParagraph = $("<p>").text(name);
-  const contentParagraph = $("<p>").text(content);
-  nameContentDiv.append(nameParagraph);
-  nameContentDiv.append(contentParagraph);
-  commentDiv.append(imgDiv);
-  commentDiv.append(nameContentDiv);
-  return commentDiv;
-}
-
-function handleCreateComment() {
-  const input = $(".box-cmt input");
-  const commentsContainer = $(".cmt-container");
-  const name = "NO Name"; // Change this to the commenter's name
-  const content = input.val();
-  const avatarSrc =
-    "https://thuthuatnhanh.com/wp-content/uploads/2019/02/anh-dai-dien-dep-cho-zalo.jpeg"; // Change this to the commenter's avatar URL
-
-  if (content.trim() !== "") {
-    const newCommentElement = createCommentElement(name, content, avatarSrc);
-    const firstCommentElement = commentsContainer.children().first();
-
-    // Nếu có phần tử comment đầu tiên, thì chèn newCommentElement trước nó
-    if (firstCommentElement.length > 0) {
-      newCommentElement.insertBefore(firstCommentElement);
-    } else {
-      // Nếu không có phần tử comment đầu tiên, thêm newCommentElement bình thường
-      commentsContainer.append(newCommentElement);
-    }
-
-    input.val("");
-  }
-}

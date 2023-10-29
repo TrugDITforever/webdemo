@@ -9,4 +9,5 @@ function getExamtests() {
     $statement->closeCursor();
     return $row;
 }
+include "./View/12toCollege.php"
 ?>

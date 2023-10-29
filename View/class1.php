@@ -7,20 +7,16 @@
     <link rel="stylesheet" href="Cssfile/style.css" />
     <link rel="stylesheet" href="Cssfile/class1.css" />
     <link rel="icon" href="imgg/loggo.png" />
-
     <link
       rel="stylesheet"
       href="source font/fontawesome/fontawesome/css/all.min.css"
     />
     <title>LEARN AND LEARN</title>
   </head>
-
   <body>
   <?php include "ElementForMainpage/header.php"; ?>
-
     <div class="container">
       <div class="ads"></div>
-
       <div class="main">
         <div class="arrow">
           <a href="#">
@@ -33,7 +29,6 @@
           <div class="outsideloginplace">
              <?php include "ElementForMainpage/login-signup.php"; ?>
           </div>
-
           <!-- startherre -->
           <div class="wordsources">
             <a>TÀI LIỆU</a>

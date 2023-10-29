@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/Cssfile/style.css" />
     <link rel="stylesheet" href="/Cssfile/teststudy.css" />
-    <link rel="icon" href="/imgg/logo.png" />
-
-    <link
+    <link rel="icon" href="../imgg/loggo.png" />
+      <link
       rel="stylesheet"
       href="source font/fontawesome/fontawesome/css/all.min.css"
     />
@@ -296,7 +295,7 @@
                       </ul>
                     </div>
                     <div class="btnmove">
-                      <a href="study.html"> Bắt đầu </a>
+                      <a href="index?route=mainpage"> Bắt đầu </a>
                     </div>
                   </div>
                 </div>
@@ -378,6 +377,6 @@
         </div>
       </footer>
     </div>
-    <script src="teststudy.js"></script>
+    <script src="./fileJs/teststudy.js"></script>
   </body>
 </html>

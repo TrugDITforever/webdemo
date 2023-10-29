@@ -3,7 +3,7 @@
         <div class="menu">
           <div class="logo">
             <a href="">
-              <img src="imgg/loggo.png" alt="logo" />
+              <img src="../imgg/loggo.png" alt="logo" />
               LearNx2
             </a>
           </div>
@@ -16,7 +16,7 @@
           <div class="tabmenu">
             <ul id="listmainmenu">
               <li>
-                <a href="study.php">
+                <a href="index.php?route=mainpage">
                   <i    
                     class="fa-regular fa-circle-question"
                     style="color: #5c5470"
@@ -26,20 +26,12 @@
               </li>
 
               <li>
-                <a href="teststudy.html">
+                <a href="index?route=Introduce">
                   <i class="fa-solid fa-door-open" style="color: #5c5470"></i>
                   Giới Thiệu
                 </a>
               </li>
-              <!-- <li>
-                <a href="bookstore">
-                  <i
-                    class="fa-solid fa-cart-flatbed"
-                    style="color: #5c5470"
-                  ></i>
-                  Cửa Hàng
-                </a>
-              </li> -->
+            
               <li >
                 <a class="pageinfo">
                   <i class="fa-regular fa-circle-user"></i>
@@ -47,7 +39,7 @@
                 </a>
               </li>
               <li >
-                <a href= "adminpage.php"class="pageadmin">
+                <a href= "index?route=admin"class="pageadmin">
                 <i class="fa-solid fa-people-roof"></i>
                  Admin
                 </a>

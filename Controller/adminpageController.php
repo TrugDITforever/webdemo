@@ -30,4 +30,5 @@ function getExamtest()
     $statement->closeCursor();
     return $row;
 }
+include "./View/adminpage.php";
 ?>

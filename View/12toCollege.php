@@ -37,7 +37,6 @@
           </div>
           <div class="placefortest">
             <?php
-            require_once("Controllerr/12toCollegeController.php");
             $row = getExamtests();
             ?>
             <?php

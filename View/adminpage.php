@@ -1,10 +1,5 @@
-<?php
-// require_once("ElementForMainpage/database.php");
-require_once("Controllerr/adminpageController.php")
-  ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +10,6 @@ require_once("Controllerr/adminpageController.php")
   <link rel="stylesheet" href="Cssfile/adminpage.css">
   <link rel="stylesheet" href="source font/fontawesome/fontawesome/css/all.min.css" />
 </head>
-
 <body>
   <div class="Admin-page">
     <div class="contanier-admin">
@@ -49,7 +43,7 @@ require_once("Controllerr/adminpageController.php")
               Admin demo<i class="fa-solid fa-arrow-down"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item " href="study.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a>
+              <a class="dropdown-item " href="index?action=mainpage"><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a>
             </div>
           </div>
         </div>
