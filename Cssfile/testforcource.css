@@ -55,17 +55,18 @@ html {
   border-radius: 20px;
   margin: 10px 0 10px 25px;
   width: 30%;
-  height: 260px;
+  height: auto;
   border: 1px solid rgb(145, 142, 142);
   /* background-color: #8294c4; */
   background-color: antiquewhite;
   box-shadow: 3px 3px 12px #ccc, -3px -3px 12px #ccc;
 }
 .classwwo {
-  height: 100px;
+  width: 100%;
+  height: 200px;
   border-radius: 20px 20px 0 0;
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
+  /* background-position: center; */
 }
 .class p {
   font-family: "Poppins", sans-serif;

@@ -1,8 +1,6 @@
-<?php
-// include("../Controllerr/studyController.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,6 +10,7 @@
   <link rel="stylesheet" href="../source font/fontawesome/fontawesome/css/all.min.css" />
   <title>LEARN AND LEARN</title>
 </head>
+
 <body>
   <div>
     <?php include "./ElementForMainpage/header.php"; ?>
@@ -21,7 +20,7 @@
 
     <div class="main">
       <div class="arrow">
-        <a href="#">
+        <a>
           <i class="fa-solid fa-arrow-up fa-2xl"></i>
         </a>
       </div>
@@ -30,7 +29,59 @@
         <div class="outsideloginplace">
           <?php include "./ElementForMainpage/login-signup.php" ?>
         </div>
-
+        <!-- <div class="reward">
+          <div class="iconre1">
+            <img src="./imgg/cup.png" alt="" />
+          </div>
+          <div class="reward-word">
+            <h1>BẢNG VINH DANH</h1>
+          </div>
+          <div class="iconre2">
+            <img src="./imgg/cup.png" alt="" />
+          </div>
+        </div> -->
+        <div class="board">
+          <div class="peo1">
+            <img src="https://image.baogialai.com.vn/w840/dataimages/202207/original/images3171534_1.jpg" alt="" />
+            <h3>Dương Khánh Linh</h3>
+            <h5>Toán: 9.5 Văn: 8.75 Anh: 9.5</h5>
+          </div>
+          <div class="peo1">
+            <img src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2022/8/14/thu-khoa-1-7362-1660496226790395256435.jpg" alt="" />
+            <h3>Trần Bảo Quân</h3>
+            <h5>Toán: 8.75 Lí: 9.5 Anh: 9</h5>
+          </div>
+          <div class="peo1">
+            <img src="https://static-images.vnncdn.net/files/publish/2022/8/23/z3664276784589-48b7f9aab1e867d6167f6dc60c6a0f88-1-112.jpg" alt="" />
+            <h3>Nguyễn Bảo Ngọc</h3>
+            <h5>Văn: 9 Sử: 9.5 Địa: 9.5</h5>
+          </div>
+          <div class="peo1">
+            <img src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2022/8/14/thu-khoa-1-7362-1660496226790395256435.jpg" alt="" />
+            <h3>Trần Chí Khanh</h3>
+            <h5>Toán: 8.75 Lí: 9.5 Anh: 9</h5>
+          </div>
+          <div class="peo1">
+            <img src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2022/8/14/thu-khoa-1-7362-1660496226790395256435.jpg" alt="" />
+            <h3>Trần Hoàng Quân</h3>
+            <h5>Toán: 8.75 Lí: 9.5 Anh: 9</h5>
+          </div>
+          <div class="peo1">
+            <img src="https://static-images.vnncdn.net/files/publish/2022/8/23/z3664276784589-48b7f9aab1e867d6167f6dc60c6a0f88-1-112.jpg" alt="" />
+            <h3>Dương Khánh Ly</h3>
+            <h5>Văn: 9 Sử: 9.5 Địa: 9.5</h5>
+          </div>
+          <div class="peo1">
+            <img src="https://static-images.vnncdn.net/files/publish/2022/8/23/z3664276784589-48b7f9aab1e867d6167f6dc60c6a0f88-1-112.jpg" alt="" />
+            <h3>Nguyễn Quỳnh Nga</h3>
+            <h5>Văn: 9 Sử: 9.5 Địa: 9.5</h5>
+          </div>
+          <div class="peo1">
+            <img src="https://static-images.vnncdn.net/files/publish/2022/8/23/z3664276784589-48b7f9aab1e867d6167f6dc60c6a0f88-1-112.jpg" alt="" />
+            <h3>Đặng Quang Phúc</h3>
+            <h5>Văn: 9 Sử: 9.5 Địa: 9.5</h5>
+          </div>
+        </div>
         <div class="ask">
           <a> <img src="./imgg/team.png" alt="" />HỎI VÀ ĐÁP </a>
         </div>
@@ -48,17 +99,17 @@
             <button class="post-button">Đăng bài</button>
           </div>
         </div>
-        <?php actioninstudy();?>
+        <?php actioninstudy(); ?>
         <?php
         $row = getcmtstatus();
         $reversedArray = array_reverse($row);
         foreach ($reversedArray as $row) {
-          ?>
+        ?>
           <div class="box1">
             <div class="pic1">
               <ul>
                 <li>
-                  <a href="index?post_id=<?php echo $row['id']?>" data-post-id="<?php echo $row['id']?>">
+                  <a href="index?post_id=<?php echo $row['id'] ?>" data-post-id="<?php echo $row['id'] ?>">
                     <img width="40px" src="./imgg/team.png" alt="" />
                     <?php echo $row['nameuser'] ?>
                   </a>
@@ -78,127 +129,61 @@
                 <?php echo $row['cmtStatus'] ?>
               </p>
               <a>
-                <img
-                  src="https://2.bp.blogspot.com/-N5M0I9_1tks/XkElu5uQXII/AAAAAAAAARs/s6sQJXhXzC8CtdmKO3dNv9wKnMAsodQBwCLcBGAsYHQ/s1600/trac-nghiem-gioi-han-1.png"
-                  alt="" />
+                <img src="https://2.bp.blogspot.com/-N5M0I9_1tks/XkElu5uQXII/AAAAAAAAARs/s6sQJXhXzC8CtdmKO3dNv9wKnMAsodQBwCLcBGAsYHQ/s1600/trac-nghiem-gioi-han-1.png" alt="" />
               </a>
 
             </div>
             <div class="place_tolike">
               <ul>
-                <li><i class="fa-solid fa-heart"></i>Thích</li>
+                <li><i class="fa-regular fa-thumbs-up fa-lg"></i>Thích</li>
                 <li class="answer-comment"><i class="fa-regular fa-comment"></i>Trả lời</li>
                 <li><i class="fa-regular fa-share-from-square"></i>Chia sẻ</li>
               </ul>
             </div>
           </div>
 
-          <?php
+        <?php
         }
         ?>
         <div class="line"></div>
-        <div class="reward">
-          <div class="iconre1">
-            <img src="./imgg/cup.png" alt="" />
-          </div>
-          <div class="reward-word">
-            <h1>BẢNG VINH DANH</h1>
-          </div>
-          <div class="iconre2">
-            <img src="./imgg/cup.png" alt="" />
-          </div>
-        </div>
-        <div class="board">
-          <div class="peo1">
-            <img src="https://image.baogialai.com.vn/w840/dataimages/202207/original/images3171534_1.jpg" alt="" />
-            <h3>Dương Khánh Linh</h3>
-            <h5>Toán: 9.5 Văn: 8.75 Anh: 9.5</h5>
-          </div>
-          <div class="peo1">
-            <img
-              src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2022/8/14/thu-khoa-1-7362-1660496226790395256435.jpg"
-              alt="" />
-            <h3>Trần Bảo Quân</h3>
-            <h5>Toán: 8.75 Lí: 9.5 Anh: 9</h5>
-          </div>
-          <div class="peo1">
-            <img
-              src="https://static-images.vnncdn.net/files/publish/2022/8/23/z3664276784589-48b7f9aab1e867d6167f6dc60c6a0f88-1-112.jpg"
-              alt="" />
-            <h3>Nguyễn Bảo Ngọc</h3>
-            <h5>Văn: 9 Sử: 9.5 Địa: 9.5</h5>
-          </div>
-          <div class="peo1">
-            <img
-              src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2022/8/14/thu-khoa-1-7362-1660496226790395256435.jpg"
-              alt="" />
-            <h3>Trần Chí Khanh</h3>
-            <h5>Toán: 8.75 Lí: 9.5 Anh: 9</h5>
-          </div>
-          <div class="peo1">
-            <img
-              src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2022/8/14/thu-khoa-1-7362-1660496226790395256435.jpg"
-              alt="" />
-            <h3>Trần Hoàng Quân</h3>
-            <h5>Toán: 8.75 Lí: 9.5 Anh: 9</h5>
-          </div>
-          <div class="peo1">
-            <img
-              src="https://static-images.vnncdn.net/files/publish/2022/8/23/z3664276784589-48b7f9aab1e867d6167f6dc60c6a0f88-1-112.jpg"
-              alt="" />
-            <h3>Dương Khánh Ly</h3>
-            <h5>Văn: 9 Sử: 9.5 Địa: 9.5</h5>
-          </div>
-          <div class="peo1">
-            <img
-              src="https://static-images.vnncdn.net/files/publish/2022/8/23/z3664276784589-48b7f9aab1e867d6167f6dc60c6a0f88-1-112.jpg"
-              alt="" />
-            <h3>Nguyễn Quỳnh Nga</h3>
-            <h5>Văn: 9 Sử: 9.5 Địa: 9.5</h5>
-          </div>
-          <div class="peo1">
-            <img
-              src="https://static-images.vnncdn.net/files/publish/2022/8/23/z3664276784589-48b7f9aab1e867d6167f6dc60c6a0f88-1-112.jpg"
-              alt="" />
-            <h3>Đặng Quang Phúc</h3>
-            <h5>Văn: 9 Sử: 9.5 Địa: 9.5</h5>
-          </div>
-        </div>
+
         <div class="customer-cmt">
           <div class="cmt-word">
             <div class="word-comment">
-              <p>Bình Luận</p>
+              <p>Mọi sự góp ý của các bạn sẽ giúp trang web tốt hơn</p>
             </div>
           </div>
           <div class="place-cmt">
             <div class="box-cmt">
               <form method="POST">
                 <img src="../imgg/user.png" alt="" />
-            <input type="hidden" name="action" value="postcomment">
-                <input type="text" name="comments"  placeholder="Viết bình luận tại đây..." />
+                <input type="hidden" name="action" value="postcomment">
+                <input type="text" name="comments" placeholder="Viết bình luận tại đây..." />
                 <button id="" type="submit">Đăng</button>
               </form>
             </div>
             <div class="cmt-container">
-            <?php 
-            $row = getpostcomment();
-            $reversedArray = array_reverse($row);
-            foreach ($reversedArray as $comment){ ?>
+              <?php
+              $row = getpostcomment();
+              $reversedArray = array_reverse($row);
+              foreach ($reversedArray as $comment) { ?>
+                <div class="people-cmt">
+                  <div>
+                    <img src="https://thuthuatnhanh.com/wp-content/uploads/2019/02/anh-dai-dien-dep-cho-zalo.jpeg" alt="" />
+                  </div>
+                  <div class="name-cmt">
+                    <p>
+                      <?php echo $comment['nameuser'] ?>
+                    </p>
+                    <p>
+                      <?php echo $comment['comment'] ?>
+                    </p>
+                  </div>
+                </div>
+              <?php } ?>
               <div class="people-cmt">
                 <div>
-                  <img src="https://thuthuatnhanh.com/wp-content/uploads/2019/02/anh-dai-dien-dep-cho-zalo.jpeg"
-                    alt="" />
-                </div>
-                <div class="name-cmt">
-                  <p><?php echo $comment['nameuser']?></p>
-                  <p><?php echo $comment['comment']?></p>
-                </div>
-              </div>
-            <?php }?>
-              <div class="people-cmt">
-                <div>
-                  <img src="https://thuthuatnhanh.com/wp-content/uploads/2019/02/anh-dai-dien-dep-cho-zalo.jpeg"
-                    alt="" />
+                  <img src="https://thuthuatnhanh.com/wp-content/uploads/2019/02/anh-dai-dien-dep-cho-zalo.jpeg" alt="" />
                 </div>
                 <div class="name-cmt">
                   <p>Linh</p>
@@ -225,8 +210,7 @@
               </div>
               <div class="people-cmt">
                 <div>
-                  <img src="https://haycafe.vn/wp-content/uploads/2021/11/Anh-avatar-dep-chat-lam-hinh-dai-dien.jpg"
-                    alt="" />
+                  <img src="https://haycafe.vn/wp-content/uploads/2021/11/Anh-avatar-dep-chat-lam-hinh-dai-dien.jpg" alt="" />
                 </div>
                 <div class="name-cmt">
                   <p>No Name</p>
@@ -247,9 +231,9 @@
         </div>
       </div>
       <div class="last">
-      <?php include "./ElementForMainpage/Group.php"?>
+        <?php include "./ElementForMainpage/Group.php" ?>
       </div>
-      <?php include "./ElementForMainpage/GroupCreate.php"?>
+      <?php include "./ElementForMainpage/GroupCreate.php" ?>
       <div class="alert">
         <div class="alertword">
           <p>Bạn cần đăng nhập vào để xem tài liệu này</p>
@@ -258,7 +242,7 @@
           </a>
         </div>
       </div>
-      <!-- Group-create-form -->
+      <!-- poststatus-create-form -->
       <div class="Post-create">
         <i class="fa-solid fa-circle-xmark" id="close4"></i>
         <form method="post">
@@ -288,31 +272,81 @@
           <input id="post-btn" type="submit" value="Đăng" />
         </form>
       </div>
+  <!-- form post comment to status -->
       <div class="FormPostComment">
-      <div class="Status-title">
-        <div class="word-title-status">
-          <h2>Bài Viết của Trung Do</h2>
+        <div class="Status-title">
+          <div class="word-title-status" data-idpost="">
+            <h2>Bài Viết của Trung Do</h2>
+          </div>
+          <div class="close-btn-status">
+            <i class="fa-solid fa-xmark btn-close-status"></i>
+          </div>
         </div>
-        <div class="close-btn-status">
-        <i class="fa-solid fa-xmark btn-close-status"></i>
-        </div>
-      </div>
-      <div class="Content-status">
-        <div class="Content-adminPost">
-          <div class="adminPost-info">
-            <div class="adminPost-img">
-              <img src="./imgg/face.png" alt="">
+        <div class="Content-status">
+          <div class="Content-adminPost">
+            <div class="adminPost-info">
+              <div class="adminPost-img">
+                <img src="./imgg/face.png" alt="">
+              </div>
+              <div class="adminPost-name">
+                <p>Trung Do</p>
+              </div>
             </div>
-            <div class="adminPost-name">
-              <p>Trung Do</p>
+            <div class="admin-comment">
+              <span>Giúp em giải bài này với ạ Giúp em giải bài này với ạ Giúp em giải bài này với ạ
+                Giúp em giải bài này với ạGiúp em giải bài này với ạGiúp em giải bài này với ạ</span>
+            </div>
+            <div class="admin-status-pic">
+              <img src="https://2.bp.blogspot.com/-N5M0I9_1tks/XkElu5uQXII/AAAAAAAAARs/s6sQJXhXzC8CtdmKO3dNv9wKnMAsodQBwCLcBGAsYHQ/s1600/trac-nghiem-gioi-han-1.png" alt="">
+            </div>
+            <div class="number-comment-status">
+              <span class="numbercom">10 bình luận</span>
+            </div>
+            <div class="comment-for-status">
+              <!-- <div class="User-comment-contain">
+                <div class="user-comment-info">
+                  <div class="user-comment-pic">
+                    <img src="./imgg/face.png" alt="">
+                  </div>
+                  <div class="user-comment-name-container">
+                    <div class="user-comment-name">
+                      <h4>Quang Anh Ta</h4>
+                      <span>Bài này dễ mà em, ráp công thức vào mà làm
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
             </div>
           </div>
-          <div class="admin-comment"></div>
+        </div>
+        <div class="Place-comment-status">
+          <div class="Place-comment-status-container">
+            <div class="UserComment-Pic">
+              <?php
+              $row = getuserInfo();
+              if (empty($row['name']) && empty($row['id_user'])) {
+                $row['name'] = "no name";
+                $row['id_user'] = "";
+              }
+              echo '<img src="./imgg/face.png" " data-id-user="' . $row['id_user'] . ' "data-username="' . $row['name'] . ' ">';
+              ?>
+            </div>
+            <form class="Form-comment-status">
+              <div class="TextComment">
+                <textarea class="editable-content" placeholder="Viết bình luận tại đây..."></textarea>
+              </div>
+              <button type="submit" class="btn-post-comment">
+                <i class="fa-solid fa-paper-plane btn-post-status"></i>
+            </button>
+            </form>
+          </div>
         </div>
       </div>
-      </div>
     </div>
-  <?php include "./ElementForMainpage/Footer.php"?>
+  </div>
+  <?php include "./ElementForMainpage/Footer.php" ?>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="./fileJS/style.js"></script>
@@ -321,9 +355,9 @@
     const searchForm = document.getElementById("search-form");
     const boxes = document.querySelectorAll(".box1");
     const searchInput = document.getElementById("ask-place");
-    searchInput.addEventListener("input", function () {
+    searchInput.addEventListener("input", function() {
       const searchTerm = searchInput.value.toLowerCase();
-      boxes.forEach(function (box) {
+      boxes.forEach(function(box) {
         const subject = box.querySelector("li.space:nth-child(2) a").textContent.toLowerCase();
         if (subject.includes(searchTerm) || searchTerm === "") {
           box.style.display = "block";

@@ -12,7 +12,21 @@ function getGrade()
   } else {
     return false;
   }
-} ?>
+} 
+function getNameclass()
+{
+  global $con;
+  $sql = "SELECT * FROM `classlevel`";
+  $statement = $con->prepare($sql);
+  if ($statement->execute()) {
+    $row = $statement->fetchAll();
+    $statement->closeCursor();
+    return $row;
+  } else {
+    return false;
+  }
+}
+?>
 <div class="tab-main" id="tab-main">
   <div>
     <div class="menu1">
@@ -24,45 +38,18 @@ function getGrade()
         <!-- <h5>GIÁO ÁN HỌC CƠ BẢN</h5> -->
         <div class="liststudy">
           <ul>
-            <li>
-              <a href="index?route=Classes" class="classname-selected"><i
-                  class="fa-solid fa-caret-up fa-rotate-90"></i>Lớp
-                1</a>
+            <?php $row = getNameclass();
+            foreach($row as $row) :
+            ?>
+             <li>
+              <a href="index?route=Classes&class=<?php echo $row['id']?>" 
+              class="classname-selected">
+              <?php echo $row['nameClass']?></a>
             </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 2</a>
-            </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 3</a>
-            </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 4</a>
-            </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 5</a>
-            </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 6</a>
-            </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 7</a>
-            </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 8</a>
-            </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 9</a>
-            </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 10</a>
-            </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 11</a>
-            </li>
-            <li>
-              <a href="index?route=Classes" class="classname-selected">Lớp 12</a>
-            </li>
+            <?php endforeach;?>
           </ul>
+
+          
         </div>
       </div>
     </div>
@@ -128,7 +115,7 @@ function getGrade()
           <?php
           $row = getGrade();
           foreach ($row as $row) {
-            ?>
+          ?>
             <li>
               <a href="index?route=Practice&rank=<?php echo $row['id'] ?>&name=<?php echo $row['grade'] ?>">
                 <?php echo $row['grade'] ?>

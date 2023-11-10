@@ -1,4 +1,5 @@
-<div>
+
+<div class="group-container">
     <div class="create">
         <p>Tạo nhóm để học cùng nhau nhé!!!</p>
         <button class="btngroup">
@@ -11,7 +12,7 @@
     </div>
     <div class="group-main">
         <?php $row = getGroupAll();
-        foreach ($row as $row) :
+        foreach ($row as $row){
         ?>
             <div class="group">
                 <div class="group-img">
@@ -38,7 +39,7 @@
                     <button>Tham Gia Ngay</button>
                 </div>
             </div>
-        <?php endforeach; ?>
+        <?php } ?>
         <!-- Get group that u create -->
         <p>Nhóm của tôi:</p>
         <?php $row = getGroupteam();
@@ -72,5 +73,4 @@
         <?php endforeach; ?>
     </div>
 </div>
-
 <!-- form create-group -->

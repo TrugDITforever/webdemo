@@ -2,6 +2,7 @@
 if (isset($_GET['route'])) {
     switch ($_GET['route']) {
         case 'mainpage':
+            // session_destroy();
             include "Controller/studyController.php";
             break;
         default:
@@ -31,3 +32,4 @@ if (isset($_GET['route'])) {
 } else {
     include "Controller/studyController.php";
 }
+?>

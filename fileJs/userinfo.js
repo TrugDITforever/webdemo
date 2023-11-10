@@ -15,8 +15,21 @@ $(document).ready(function () {
     $(".BoxforInfo:nth-child(3)").addClass("moveout2");
   });
   $(".logoutbtn").click(function () {
-    localStorage.setItem("isAppear", "false");
-    window.location.href = "index?route=mainpage";
+    const reset = "true";
+    $.ajax({
+      url: "./funtionofPage/resetSession.php",
+      type: "POST",
+      data: { reset: reset },
+      success: function (data) {
+        console.log(data);
+        if (data === "success") {
+          localStorage.setItem("isAppear", "false");
+          window.location.href = "index?route=mainpage";
+        } else {
+          return false;
+        }
+      },
+    });
   });
 });
 $(document).ready(function () {

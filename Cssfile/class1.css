@@ -92,9 +92,9 @@ body {
 .underINforcourse a:hover {
   color: coral;
 }
-.Powerpoint {
+/* .Powerpoint {
   padding-top: 50px;
-}
+} */
 .Powerpoint h1 {
   color: rgb(4, 189, 189);
   font-family: var(--poppins-font);
@@ -120,15 +120,20 @@ body {
 .wordprimary span {
   font-size: 2.5rem;
   font-family: "Nunito", sans-serif;
-  color: forestgreen;
+  /* color: forestgreen; */
+  border-radius: 5px;
+  text-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px;
+  /* rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
 }
 
 .word3 p {
   font-family: var(--poppins-font);
 }
 .word1 p {
-  font-size: x-large;
-  font-family: var(--poppins-font);
+  font-size: 1.3rem;
 }
 
 .primary {
@@ -144,7 +149,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 5px 6px 8px #ccc, -9px -9px 12px rgb(237, 234, 234);
+  box-shadow: rgba(240, 46, 170, 0.3) 5px 5px,
+    rgba(240, 46, 170, 0.05) 10px 10px;
 }
 .div-under.appear {
   opacity: 1;
@@ -179,7 +185,7 @@ body {
   margin-left: 15px;
   text-align: center;
   transition: all 0.3s ease-in-out;
-  box-shadow: 9px 3px 12px #ccc, -9px 3px 6px white;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 .btndown a {
   border-radius: 10px;
@@ -231,3 +237,6 @@ body {
     font-size: large;
   }
 }
+
+
+

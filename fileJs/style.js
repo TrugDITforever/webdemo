@@ -35,20 +35,28 @@ btnDangNhap.onclick = function () {
   ads.classList.add("active");
   pagedangnhap.classList.add("appear");
   pagedangki.style.display = "none";
+  document.body.style.overflow = "hidden";
 };
 exitbtn.onclick = function () {
   pagedangnhap.classList.remove("appear");
   ads.classList.remove("active");
+  document.body.style.overflow = "";
 };
 btnDangki.onclick = function () {
   ads.classList.add("active");
   pagedangnhap.classList.remove("appear");
   pagedangki.style.display = "block";
+  document.body.style.overflow = "hidden";
 };
 exitbtn2.onclick = function () {
   ads.classList.remove("active");
   pagedangki.style.display = "none";
+  document.body.style.overflow = "";
 };
+///scroll up
+$(".arrow").on("click", function () {
+  window.scrollTo(0, 0);
+});
 // image select for create-status-form
 $(document).ready(function () {
   $(".create-status").change(function () {
@@ -100,6 +108,7 @@ $(document).ready(function () {
     } else {
       var index = $(".down").index(this);
       var woElement = $(".wo p:eq(" + index + ")").text();
+      var wordClass = $(".wordprimary span").text();
       $(".btndown:eq(" + index + ")").addClass("changee");
       var currentDate = new Date();
       var day = currentDate.getDate();
@@ -110,7 +119,7 @@ $(document).ready(function () {
         type: "post",
         data: {
           decrip: woElement,
-          rank: getSchoolLevel(index),
+          rank: wordClass,
           day: day,
           month: month,
           year: year,
@@ -123,18 +132,6 @@ $(document).ready(function () {
       });
     }
   });
-
-  function getSchoolLevel(index) {
-    if (index >= 0 && index <= 4) {
-      return "Bậc tiểu học";
-    } else if (index >= 5 && index <= 17) {
-      return "Bậc THCS";
-    } else if (index >= 18 && index <= 30) {
-      return "Bậc THPT";
-    } else {
-      return "Không xác định";
-    }
-  }
 });
 //btnpost in stydy.php
 $(document).ready(function () {
@@ -240,6 +237,9 @@ $(document).ready(function () {
           setTimeout(() => {
             $(".alert").removeClass("moveout");
           }, 2000);
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         } else if (data === "error") {
           $(".alertword p").html("Sai tên đăng nhập/mật khẩu");
           $(".alert").addClass("moveout");
@@ -253,7 +253,6 @@ $(document).ready(function () {
     });
   });
 });
-
 //sign up function
 $(document).ready(function () {
   $(".signupform").on("submit", function (event) {
@@ -347,77 +346,129 @@ $(document).ready(function () {
 });
 // PlaceForComment appear
 $(document).ready(function () {
+  $(".close-btn-status").click(function () {
+    $(".FormPostComment").removeClass("activate");
+    $(".ads").removeClass("active");
+    $("body").css("overflow", "");
+  });
   $(".answer-comment").click(function () {
     var index = $(".answer-comment").index(this);
     var postid = $("a[data-post-id]:eq(" + index + ")").data("post-id");
+    $("body").css("overflow", "hidden");
+    $.ajax({
+      url: "../funtionofPage/getPostID.php",
+      type: "post",
+      data: {
+        postid: postid,
+      },
+      success: function (data) {
+        var responseObject = JSON.parse(data);
+        if (responseObject.message === "success") {
+          $(".FormPostComment").addClass("activate");
+          $(".ads").addClass("active");
+          $(".adminPost-name p").html(responseObject.data.nameuser);
+          $(".admin-comment span").html(responseObject.data.cmtStatus);
+          $(".word-title-status h2").html(
+            "Bài viết của " + responseObject.data.nameuser
+          );
+          $("div[data-idpost]").data("idpost", postid);
+          // let listcomments = [];
+          // listcomments = ;
+          console.log(responseObject.listcomments);
+          $(".comment-for-status").html("");
+          let numbercom = responseObject.listcomments.length;
+          $(".numbercom").html(numbercom + " bình luận");
+          responseObject.listcomments.forEach((value, key) => {
+            const divlistcomment = $(`
+            <div class="User-comment-contain">
+            <div class="user-comment-info">
+                <div class="user-comment-pic">
+                  <img src="./imgg/face.png" alt="">
+                </div>
+                <div class="user-comment-name-container">
+                  <div class="user-comment-name">
+                    <h4>${value.username}</h4>
+                    <span>${value.comment}</span>
+                  </div>
+                </div>
+              </div>
+              </div>
+          `);
+            $(".comment-for-status").append(divlistcomment);
+          });
+        }
+      },
+    });
+
     console.log(postid);
   });
 });
-//12tocollege js
-//button when review
-const revew = document.querySelector(".review");
-const test1 = document.querySelector(".test:nth-child(1)");
-const test2 = document.querySelector(".test:nth-child(2)");
-const test3 = document.querySelector(".test:nth-child(3)");
-const test4 = document.querySelector(".test:nth-child(4)");
-const loginplacee = document.querySelector(".outsideloginplace");
-const hovera = document.querySelectorAll(".read a");
-const alertt = document.querySelector(".alert");
-const alertword = document.querySelector(".alertword a");
-const alertwords = document.querySelector(".alertword p");
-alertword.addEventListener("click", function () {
-  alertt.classList.remove("moveout");
-});
-hovera.forEach(function (element) {
-  element.addEventListener("click", function () {
-    const isSubmitted = localStorage.getItem("isAppear");
-    if (isSubmitted === "false") {
-      alertwords.innerHTML = "Bạn cần đăng nhập vào trang để xem tài liệu này";
-      alertt.classList.add("moveout");
-    } else if (isSubmitted === "true") {
-      if (element === hovera[0]) {
-        ads.classList.add("active");
-        revew.classList.add("opacity");
-        test1.classList.add("appearrr");
-      }
-      if (element === hovera[1]) {
-        ads.classList.add("active");
-        revew.classList.add("opacity");
-        test2.classList.add("appearrr");
-      }
-      if (element === hovera[2]) {
-        ads.classList.add("active");
-        revew.classList.add("opacity");
-        test3.classList.add("appearrr");
-      }
-      if (element === hovera[3]) {
-        ads.classList.add("active");
-        revew.classList.add("opacity");
-        test4.classList.add("appearrr");
-      }
-    }
+///Post Comment from User to PostForm
+$(document).ready(function () {
+  $(".Form-comment-status").on("submit", function (e) {
+    // if (e.keycode === 13) {
+    e.preventDefault();
+    var id = $("img[data-id-user]").data("id-user");
+    var username = $("img[data-username]").data("username");
+    var comment = $(".editable-content").val();
+    var postid = $("div[data-idpost]").data("idpost");
+    $.ajax({
+      url: "../funtionofPage/getusercomment.php",
+      type: "POST",
+      data: {
+        postid: postid,
+        iduser: id,
+        username: username,
+        comment: comment,
+      },
+      success: function (data) {
+        console.log(data);
+        const responejson = JSON.parse(data);
+        if (responejson.message === "success") {
+          handleCreateComment();
+        }
+      },
+    });
+    // }
   });
-});
-ads.addEventListener("click", function (event) {
-  var targetElement = event.target;
-  if (targetElement != revew) {
-    pagedangnhap.classList.remove("appear");
-    pagedangki.style.display = "none";
-    ads.classList.remove("active");
-    revew.classList.remove("opacity");
-    test1.classList.remove("appearrr");
-    test2.classList.remove("appearrr");
-    test3.classList.remove("appearrr");
-    test4.classList.remove("appearrr");
+  function showcomment(user, commentofuser) {
+    const container = $("<div>").addClass("User-comment-contain");
+    const userinfo = $("<div>").addClass("user-comment-info");
+    const userpic = $("<div>").addClass("user-comment-pic");
+    const userpic_img = $("<img>").attr("src", "./imgg/face.png");
+    userpic.append(userpic_img);
+    const userpic_comment_container = $("<div>").addClass(
+      "user-comment-name-container"
+    );
+    const userpic_comment_name = $("<div>").addClass("user-comment-name");
+    const nameuser = $("<h4>").html(user);
+    const usercomment = $("<span>").html(commentofuser);
+    userpic_comment_name.append(nameuser);
+    userpic_comment_name.append(usercomment);
+    userpic_comment_container.append(userpic_comment_name);
+    //
+    userinfo.append(userpic);
+    userinfo.append(userpic_comment_container);
+    container.append(userinfo);
+    return container;
+  }
+  function handleCreateComment() {
+    var username = $("img[data-username]").data("username");
+    var comment = $(".editable-content").val();
+    const comment_for_status = $(".comment-for-status");
+    const newCommentElement = showcomment(username, comment);
+    const firstCommentElement = comment_for_status.children().first();
+    if (firstCommentElement.length > 0) {
+      newCommentElement.insertBefore(firstCommentElement);
+    } else {
+      comment_for_status.append(newCommentElement);
+    }
+    $(".editable-content").val("");
   }
 });
-const tabmenuall = document.querySelectorAll(".tabmenub");
-tabmenuall.forEach(function (element) {
-  element.addEventListener("click", function () {
-    tabmenu.classList.remove("addheight");
-  });
-});
-// ? this is for dropdown menu
+//button when review
+// import { showReview } from "./12tocollege";
+// showReview();
 ///post comments
 // const commentButton = $(".box-cmt button");
 // commentButton.on("click", handleCreateComment);

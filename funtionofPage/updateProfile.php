@@ -20,7 +20,6 @@ if (isset($_SESSION["userid"])) {
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->execute();
     $result = $statement->fetch();
-
     if ($result) {
         $sqlupdate = "UPDATE `userprofile` SET `name` = '$username', `address` ='$useraddress', `phonenumber` ='$userphone',`img`='$userimg' WHERE `id_user` ='$user_id'";
         $statement = $con->prepare($sqlupdate);

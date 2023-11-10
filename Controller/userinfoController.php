@@ -6,7 +6,6 @@ require_once("./ElementForMainpage/database.php");
     $statement->execute();
     $row = $statement->fetchALL();
     $statement->closeCursor();
-    session_start();
     $user_id = $_SESSION["userid"];
     $userEmail = $_SESSION["userEmail"];
     if (isset($user_id) && isset($userEmail)) {

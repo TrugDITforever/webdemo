@@ -1,5 +1,6 @@
 <?php 
 include("./ElementForMainpage/database.php");
+require("./Model/group_db.php");
 function getExamtests() {
     global $con;
     $sql = "SELECT * FROM `exam_test`";

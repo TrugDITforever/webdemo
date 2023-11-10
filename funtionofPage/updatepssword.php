@@ -1,6 +1,5 @@
 <?php
 require_once("../ElementForMainpage/database.php");
-
 session_start();
 if (isset($_SESSION["userid"])) {
        $userid = $_SESSION["userid"];

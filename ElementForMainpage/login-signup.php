@@ -73,7 +73,6 @@
       <input type="email" id="email" required />
     </div>
     <input id="login-btn2" type="submit" value="Đăng kí" />
-
   </form>
   <div class="Hasacc">
     <p>
