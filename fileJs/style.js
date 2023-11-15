@@ -372,8 +372,6 @@ $(document).ready(function () {
             "Bài viết của " + responseObject.data.nameuser
           );
           $("div[data-idpost]").data("idpost", postid);
-          // let listcomments = [];
-          // listcomments = ;
           console.log(responseObject.listcomments);
           $(".comment-for-status").html("");
           let numbercom = responseObject.listcomments.length;
@@ -406,7 +404,6 @@ $(document).ready(function () {
 ///Post Comment from User to PostForm
 $(document).ready(function () {
   $(".Form-comment-status").on("submit", function (e) {
-    // if (e.keycode === 13) {
     e.preventDefault();
     var id = $("img[data-id-user]").data("id-user");
     var username = $("img[data-username]").data("username");

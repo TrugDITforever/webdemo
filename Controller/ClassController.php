@@ -17,7 +17,5 @@ function DocumentRender(){
        }
     }
 }
-
-
 require_once "./View/class1.php"
 ?>

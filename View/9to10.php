@@ -19,7 +19,7 @@
 
     <div class="main">
       <div class="arrow">
-        <a href="#" href="#">
+        <a>
           <i class="fa-solid fa-arrow-up fa-2xl"></i>
         </a>
       </div>
@@ -50,38 +50,52 @@
           </div>
           <div class="list-test">
             <ul>
-              <li>
-                <a href="#de1">Đề ôn thi môn toán lớp 9 lên 10(đề 1)</a>
-              </li>
-              <li>
-                <a href="#de2">Đề ôn thi môn toán lớp 9 lên 10(đề 2)</a>
-              </li>
-              <li>
-                <a href="#de3">Đề ôn thi môn toán lớp 9 lên 10(đề 3)</a>
-              </li>
+              <?php $row = getTest();
+              foreach ($row as $row) :
+              ?>
+                <li>
+                  <a href="#de<?php echo $row['id'] ?>">Đề ôn thi môn toán lớp 9 lên 10(đề <?php echo $row['id'] ?>)</a>
+                </li>
+              <?php endforeach; ?>
+
             </ul>
           </div>
         </div>
-        <div class="all" id="de1">
-          <div class="start">
-            <h1>Đề ôn thi môn toán lớp 9 lên 10(đề 1)</h1>
-          </div>
-          <div class="check">
-          <label class="tasks-list-item">
-        <input type="checkbox" name="task_1" value="1" class="tasks-list-cb" >
-        <span class="tasks-list-mark"></span>
-        <span class="tasks-list-desc">Đã hoàn thành</span>
-      </label>
-          </div>
+        <?php $row = getTest();
+        foreach ($row as $row) :
+        ?>
+          <div class="all" id="de<?php echo $row['id'] ?>" data-id-test="<?php echo $row['id'] ?>">
+            <div class="start">
+              <h1>Đề ôn thi môn toán lớp 9 lên 10(đề <?php echo $row['id'] ?>)</h1>
+            </div>
+            <div class="check">
+              <label class="tasks-list-item">
+                <input type="checkbox"  class="tasks-list-cb" <?php $row2 = checkTestdone($row['id']);
+                                                                                                      if (empty($row2)) {
+                                                                                                        echo '';
+                                                                                                      } else {
+                                                                                                        if ($row2['check'] === "true") {
+                                                                                                          echo "checked";
+                                                                                                        } else {
+                                                                                                          echo "";
+                                                                                                        }
+                                                                                                      }
+                                                                                                      ?> />
+                <span class="tasks-list-mark"></span>
+                <span class="tasks-list-desc">Đã hoàn thành</span>
+              </label>
+            </div>
 
-          <div class="placefortest">
-            <div class="dethi"></div>
-            <div class="exam1">
-              <img src="https://phothongcaodang.fpt.edu.vn/wp-content/uploads/de1-1.png" alt="" />
+            <div class="placefortest">
+              <div class="dethi"></div>
+              <div class="exam1">
+                <img src="<?php echo $row['imgtest'] ?>" alt="" />
+              </div>
             </div>
           </div>
-        </div>
-       
+        <?php endforeach; ?>
+
+
         <!-- end here -->
       </div>
 
@@ -102,5 +116,8 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="fileJS/style.js"></script>
+  <script src="fileJS/class9to10.js"></script>
+
 </body>
+
 </html>

@@ -181,7 +181,7 @@
                   </div>
                 </div>
               <?php } ?>
-              <div class="people-cmt">
+              <!-- <div class="people-cmt">
                 <div>
                   <img src="https://thuthuatnhanh.com/wp-content/uploads/2019/02/anh-dai-dien-dep-cho-zalo.jpeg" alt="" />
                 </div>
@@ -225,7 +225,7 @@
                   <p>Ngọc Bảo</p>
                   <p>Trang web khá hay, bổ ích</p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

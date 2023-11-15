@@ -59,7 +59,7 @@ html {
   margin-left: 10px;
   margin-top: 40px;
   width: 40%;
-  height: 120px;
+  height: auto;
   border-radius: 10px;
   box-shadow: 3px 3px 12px #ccc;
   border-left: 4px solid orange;
@@ -162,7 +162,6 @@ html {
   font-weight: bold;
   color: #8a9a9b;
 }
-
 .tasks-list-cb:checked ~ .tasks-list-desc {
   color: #34bf6e;
   text-decoration: line-through;

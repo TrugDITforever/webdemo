@@ -12,7 +12,7 @@ try {
     $sql2 = "SELECT * FROM `useracc` WHERE `username` = '$usersignup'";
     $statement = $con->prepare($sql2);
     $statement->execute();
-    $row = $statement->fetch(PDO::FETCH_ASSOC);   
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
     $_SESSION["userid"] = $row['id'];
     $_SESSION["userEmail"] = $row['email'];
     $statement->closeCursor();
@@ -22,7 +22,6 @@ try {
     $response = 'error';
     echo $response;
   }
-
 } catch (mysqli_sql_exception $e) {
   $response = 'error';
   echo $response;
