@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito";
   background-color: #f5fafd;
 }
 .Admin-page {
@@ -131,11 +131,12 @@ body {
   color: black;
   padding: 0;
   background: #fff;
-  border-radius: none;
+  border-radius: 20px;
+  outline: none;
   border: none;
 }
 .btn-secondary:hover {
-  background: #fff;
+  background: none;
   color: black;
 }
 @keyframes waving {
@@ -204,7 +205,6 @@ body {
   height: 480px;
   margin-left: 10px;
   border-top-right-radius: 10px;
-  overflow: auto;
 }
 .table-body {
   width: 100%;
@@ -216,8 +216,6 @@ body {
   background-color: #3699fe;
   border-radius: 10px;
   width: 100%;
-  border-collapse: collapse;
-  margin: 25px 0px;
   font-size: 0.9em;
   font-family: sans-serif;
   min-width: 400px;
@@ -225,9 +223,6 @@ body {
 }
 .styled-table thead {
   border-top-right-radius: 10px;
-}
-.styled-table thead {
-  /* background-color: #009879; */
   color: #fff;
   text-align: left;
 }
@@ -257,6 +252,17 @@ body {
 .styled-table tbody tr:nth-of-type(odd) {
   background-color: #fff;
 }
+.content_table {
+  height: 400px;
+  overflow: auto;
+}
+.content_table::-webkit-scrollbar {
+  width: 5px;
+}
+.content_table::-webkit-scrollbar-thumb,
+.content_table::-webkit-scrollbar-track {
+  background-color: #3699fe;
+}
 .username-pic img {
   border-radius: 50%;
   width: 40px;
@@ -264,7 +270,6 @@ body {
   height: 40px;
 }
 .btn-inserttest {
-  margin-top: 20px;
   margin-left: 10px;
 }
 .btn-inserttest button {
@@ -384,8 +389,8 @@ body {
   left: 0px;
 }
 .title_page1 {
-  margin: 10px;
-  width: 200px;
+  margin: 20px;
+  width: 250px;
   height: 100px;
   background: #255bf1;
   border-radius: 10px;
@@ -397,6 +402,7 @@ body {
   color: #fff;
   padding-top: 20px;
   padding-left: 15px;
+  margin: 0;
 }
 .totaluser {
   margin-left: 20px;

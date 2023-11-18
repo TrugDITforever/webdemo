@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>LearnX2</title>
   <link rel="stylesheet" href="Cssfile/style.css">
   <link rel="stylesheet" href="Cssfile/userinfo.css">
   <link rel="icon" href="imgg/loggo.png" />

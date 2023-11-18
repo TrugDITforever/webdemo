@@ -14,12 +14,12 @@ if (isset($_POST['postid'])) {
         if ($statement->execute()) {
             $rowpost = $statement->fetchAll();
             $statement->closeCursor();
+            $response = array(
+                'message' => 'success',
+                'data' => $row,
+                'listcomments' => $rowpost
+            );
         }
     }
-    $response = array(
-        'message' => 'success',
-        'data' => $row,
-        'listcomments' => $rowpost
-    );
     echo json_encode($response);
 }

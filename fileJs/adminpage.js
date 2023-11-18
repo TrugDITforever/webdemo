@@ -44,7 +44,6 @@ $(document).ready(function () {
         .text()
         .trim()
     );
-    console.log($(".subject-word:eq(" + index + ")").text());
     $(".detail-text").val(
       $(".decrip-word:eq(" + index + ")")
         .text()
@@ -79,7 +78,6 @@ $(document).on("click", ".delete-subject", function () {
           idsubdel: idsubdel,
         },
         success: function (data) {
-          console.log(data);
           $(".styled-table-tr:eq(" + index2 + ")").remove();
           setTimeout(function () {
             $(".confirm-whendelete").removeClass("slideup");
@@ -88,12 +86,14 @@ $(document).on("click", ".delete-subject", function () {
       });
     });
 });
+//get number of user
 $(document).ready(function () {
   $(".id_useracc").length;
   $(".number-user").html($(".id_useracc").length);
   $("id-subject").length;
   $(".number-doc").html($(".id-subject").length);
 });
+//insert/update documents form
 $(document).ready(function () {
   $(".form-insert").on("submit", function (event) {
     event.preventDefault();
@@ -109,11 +109,31 @@ $(document).ready(function () {
         detailword,
       },
       success: function (data) {
-        console.log(data);
-        if (data === "success") {
+        var responejson = JSON.parse(data);
+        if (responejson.message === "success") {
           $(".blur-div").removeClass("moveout");
           $(".name-subject").val("");
           $(".detail-text").val("");
+          $(".tablecontent").html("");
+          responejson.data.forEach((value, key) => {
+            const documentdiv = $(`
+  <tr class="styled-table-tr">
+    <td class="id-subject">
+     ${value.id}
+    </td>
+    <td class="subject-word">
+    ${value.subject}
+    </td>
+    <td class="decrip-word">
+    ${value.decrip}
+    </td>
+    <td><span class="editacc insert-subject"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
+      <span class="delacc delete-subject"><i class="fa-regular fa-trash-can"></i>Xóa</span>
+    </td>
+  </tr>
+`);
+            $(".tablecontent").append(documentdiv);
+          });
         }
       },
       error: function (xhr, status, error) {

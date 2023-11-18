@@ -77,8 +77,8 @@ $(document).ready(function () {
       contentType: false,
       data: formData,
       success: function (data) {
-        // console.log(data);
-        if (data == "success-UPDATE") {
+        console.log(data);
+        if (data === "success-UPDATE") {
           $(".alertword p").html("Cập nhật thành công");
           $(".alert").addClass("moveout");
           setTimeout(() => {

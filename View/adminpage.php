@@ -7,8 +7,8 @@
   <link rel="icon" href="imgg/loggo.png" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="Cssfile/adminpage.css">
-  <link rel="stylesheet" href="source font/fontawesome/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="source font/fontawesome/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="Cssfile/adminpage.css">
 </head>
 <body>
   <div class="Admin-page">
@@ -56,8 +56,8 @@
               </div>
             </div>
             <div class="table-list">
-              <table class="styled-table">
-
+            <div class="header_table">
+                <table class="styled-table">
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -67,6 +67,10 @@
                     <th>Chỉnh sửa</th>
                   </tr>
                 </thead>
+                </table>
+              </div>
+              <div class="content_table">
+              <table class="styled-table">
                 <tbody>
                   <?php
                   $rows = getUserac();
@@ -95,6 +99,7 @@
                   // } ?>
                 </tbody>
               </table>
+              </div>
             </div>
           </div>
           <div class="boxshowlist">
@@ -102,7 +107,8 @@
               <p>Hồ sơ người dùng</p>
             </div>
             <div class="table-list">
-              <table class="styled-table">
+            <div class="header_table">
+                <table class="styled-table">
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -112,9 +118,12 @@
                     <th>Chỉnh sửa</th>
                   </tr>
                 </thead>
+                </table>
+              </div>
+              <div class="content_table">
+              <table class="styled-table">
                 <tbody>
                   <?php
-
                   $row = getUserProfile();
                   // if ($statement) {
                   foreach ($row as $row) {
@@ -153,6 +162,8 @@
                   } ?>
                 </tbody>
               </table>
+              </div>
+             
             </div>
           </div>
           <div class="boxshowlist">
@@ -163,7 +174,8 @@
               </div>
             </div>
             <div class="table-list">
-              <table class="styled-table">
+              <div class="header_table">
+                <table class="styled-table ">
                 <thead>
                   <tr>
                     <th>Mã số đề</th>
@@ -172,7 +184,11 @@
                     <th>Chỉnh sửa</th>
                   </tr>
                 </thead>
-                <tbody>
+                </table>
+              </div>
+              <div class="content_table">
+              <table class=" styled-table ">
+                <tbody class="tablecontent">
                   <?php
                   $row3 = getExamtest();
                   foreach ($row3 as $row) {
@@ -196,6 +212,8 @@
                   } ?>
                 </tbody>
               </table>
+              </div>
+             
             </div>
             <div class="btn-inserttest">
               <button type="button"><i class="fa-solid fa-circle-plus fa-lg" style="color: #f0f2f4;"></i><a>Thêm tài

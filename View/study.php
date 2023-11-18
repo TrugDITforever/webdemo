@@ -246,20 +246,24 @@
       <div class="Post-create">
         <i class="fa-solid fa-circle-xmark" id="close4"></i>
         <form method="post">
-          <h4 style="
-                margin: 0px;
-                padding: 4px 0;
-                color: #4285f4;
-                font-size: 24px;
-                font-weight: 700;
-                text-transform: uppercase;
-              ">
+          <h4>
             Tạo bài viết
           </h4>
           <div class="status-form">
             <label>Môn học:</label>
             <input type="hidden" name="action" value="poststatus">
-            <input type="text" name="subject-status" required />
+            <!-- <input type="text" name="subject-status" required /> -->
+            <select name="subject-status" class="select-subject">
+              <option value="Toán học">Toán học</option>
+              <option value="Ngữ Văn">Ngữ văn</option>
+              <option value="Tiếng Anh">Tiếng anh</option>
+              <option value="Hóa Học">Hóa học</option>
+              <option value="Vật lí">Vật lí</option>
+              <option value="Sinh học">Sinh học</option>
+              <option value="Địa lí">Địa lí</option>
+              <option value="Lịch sử">Lịch sử</option>
+              <option value="GDCD">GDCD</option>
+            </select>
             <label>Mô tả:</label>
             <input type="text" name="decrip-status" required placeholder="Thêm mô tả tại đây..." />
             <label class="add-img create-status">Thêm ảnh:<i class="fa-solid fa-images" style="color: #04ff00;"></i></label>

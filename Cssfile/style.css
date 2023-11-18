@@ -1399,6 +1399,7 @@ h5 {
 }
 .loginform h4,
 .signupform h4,
+.Post-create h4,
 .create-word {
   margin: 0px;
   padding: 4px 0;
@@ -1571,7 +1572,8 @@ h5 {
   transition: 0.3s linear;
 }
 #signup-btn:hover,
-#create-btn:hover {
+#create-btn:hover,
+#post-btn:hover {
   cursor: pointer;
   background-color: coral;
   color: white;
@@ -2215,4 +2217,27 @@ h5 {
   border-radius: 10px;
   height: 60%;
   object-fit: cover;
+}
+.select-subject {
+  width: 11rem;
+  padding: 0.5rem 4rem 0.5rem 1rem;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  font-family: "Nunito", sans-serif;
+  cursor: pointer;
+  outline: none;
+  &:focus {
+    border: 1px solid #00e5ff;
+    box-shadow: 0 0 0 2px rgba(#0077ff, 0.2);
+  }
+  &:hover {
+    border: 1px solid #00e5ff;
+    box-shadow: 0 0 0 2px rgba(#0077ff, 0.2);
+  }
+}
+option {
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px #0077ff;
 }

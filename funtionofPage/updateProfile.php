@@ -7,7 +7,6 @@ if (isset($_SESSION["userid"])) {
     $userphone = $_POST["phonenumber"];
     $useraddress = $_POST["usseraddress"];
     $useremail = $_POST["useremail"];
-
     if (isset($_FILES["fileToUpload"]["name"])) {
         $userimg = $_FILES["fileToUpload"]["name"];
         $image_folder = "../uploadfile/$userimg";
@@ -20,11 +19,16 @@ if (isset($_SESSION["userid"])) {
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->execute();
     $result = $statement->fetch();
-    if ($result) {
+    if ($statement->rowCount()>0) {
         $sqlupdate = "UPDATE `userprofile` SET `name` = '$username', `address` ='$useraddress', `phonenumber` ='$userphone',`img`='$userimg' WHERE `id_user` ='$user_id'";
         $statement = $con->prepare($sqlupdate);
         if ($statement->execute()) {
-            echo "success-UPDATE";
+            $statement->closeCursor();
+            $sqlupdate2 = "UPDATE `useracc` SET `email`='$useremail' WHERE `id`='$user_id'";
+            $statement2 = $con->prepare($sqlupdate2);
+            if ($statement2->execute()) {
+                echo "success-UPDATE";
+            }
         } else {
             echo "error";
         }
@@ -40,4 +44,3 @@ if (isset($_SESSION["userid"])) {
 } else {
     echo "error";
 }
-?>
