@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ADMIN-PAGE</title>
   <link rel="icon" href="imgg/loggo.png" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="source font/fontawesome/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="Cssfile/adminpage.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="source font/fontawesome/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="Cssfile/adminpage.css">
 </head>
+
 <body>
   <div class="Admin-page">
     <div class="contanier-admin">
@@ -38,12 +39,11 @@
             <div class="admin-pic">
               <img src="https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg" alt="">
             </div>
-            <button class="btn btn-secondary btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Admin demo<i class="fa-solid fa-arrow-down"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item " href="index?action=mainpage"><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a>
+              <a class="dropdown-item " href="index?route=mainpage"><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a>
             </div>
           </div>
         </div>
@@ -56,49 +56,50 @@
               </div>
             </div>
             <div class="table-list">
-            <div class="header_table">
+              <div class="header_table">
                 <table class="styled-table">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Tên đăng nhập</th>
-                    <th>Mật khẩu</th>
-                    <th>Email</th>
-                    <th>Chỉnh sửa</th>
-                  </tr>
-                </thead>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Tên đăng nhập</th>
+                      <th>Mật khẩu</th>
+                      <th>Email</th>
+                      <th>Chỉnh sửa</th>
+                    </tr>
+                  </thead>
                 </table>
               </div>
               <div class="content_table">
-              <table class="styled-table">
-                <tbody>
-                  <?php
-                  $rows = getUserac();
-                  foreach ($rows as $row) {
+                <table class="styled-table">
+                  <tbody>
+                    <?php
+                    $rows = getUserac();
+                    foreach ($rows as $row) {
                     ?>
-                    <tr>
-                      <td class="id_useracc">
-                        <?php echo $row['id']; ?>
-                      </td>
-                      <td>
-                        <?php echo $row['username']; ?>
-                      </td>
-                      <td>
-                        <?php echo $row['password']; ?>
-                      </td>
-                      <td>
-                        <?php echo $row['email']; ?>
-                      </td>
-                      <td><span class="editacc"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
-                        <span class="delacc"><i class="fa-regular fa-trash-can"></i>Xóa</span>
-                      </td>
-                    </tr>
+                      <tr>
+                        <td class="id_useracc">
+                          <?php echo $row['id']; ?>
+                        </td>
+                        <td>
+                          <?php echo $row['username']; ?>
+                        </td>
+                        <td>
+                          <?php echo $row['password']; ?>
+                        </td>
+                        <td>
+                          <?php echo $row['email']; ?>
+                        </td>
+                        <td><span class="editacc"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
+                          <span class="delacc"><i class="fa-regular fa-trash-can"></i>Xóa</span>
+                        </td>
+                      </tr>
 
                     <?php
-                  }
-                  // } ?>
-                </tbody>
-              </table>
+                    }
+                    // } 
+                    ?>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -107,63 +108,63 @@
               <p>Hồ sơ người dùng</p>
             </div>
             <div class="table-list">
-            <div class="header_table">
+              <div class="header_table">
                 <table class="styled-table">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Tên người dùng</th>
-                    <th>Địa chỉ</th>
-                    <th>Số điện thoại</th>
-                    <th>Chỉnh sửa</th>
-                  </tr>
-                </thead>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Tên người dùng</th>
+                      <th>Địa chỉ</th>
+                      <th>Số điện thoại</th>
+                      <th>Chỉnh sửa</th>
+                    </tr>
+                  </thead>
                 </table>
               </div>
               <div class="content_table">
-              <table class="styled-table">
-                <tbody>
-                  <?php
-                  $row = getUserProfile();
-                  // if ($statement) {
-                  foreach ($row as $row) {
+                <table class="styled-table">
+                  <tbody>
+                    <?php
+                    $row = getUserProfile();
+                    // if ($statement) {
+                    foreach ($row as $row) {
                     ?>
 
-                    <tr>
-                      <td>
-                        <?php echo $row['id_user']; ?>
-                      </td>
-                      <td class="username-pic">
-                        <a>
-                          <img src="<?php
-                          if ($row['img'] == "") {
-                            $image = "imgg/user.png";
-                            echo $image;
-                          } else {
-                            $image = 'uploadfile/' . $row['img'];
-                            echo $image;
-                          }
-                          ?>" alt="">
-                          <?php echo $row['name']; ?>
-                        </a>
-                      </td>
-                      <td>
-                        <?php echo $row['address']; ?>
-                      </td>
-                      <td>
-                        <?php echo $row['phonenumber']; ?>
-                      </td>
-                      <td><span class="editacc"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
-                        <span class="delacc"><i class="fa-regular fa-trash-can"></i>Xóa</span>
-                      </td>
-                    </tr>
+                      <tr>
+                        <td>
+                          <?php echo $row['id_user']; ?>
+                        </td>
+                        <td class="username-pic">
+                          <a>
+                            <img src="<?php
+                                      if ($row['img'] == "") {
+                                        $image = "imgg/user.png";
+                                        echo $image;
+                                      } else {
+                                        $image = 'uploadfile/' . $row['img'];
+                                        echo $image;
+                                      }
+                                      ?>" alt="">
+                            <?php echo $row['name']; ?>
+                          </a>
+                        </td>
+                        <td>
+                          <?php echo $row['address']; ?>
+                        </td>
+                        <td>
+                          <?php echo $row['phonenumber']; ?>
+                        </td>
+                        <td><span class="editacc"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
+                          <span class="delacc"><i class="fa-regular fa-trash-can"></i>Xóa</span>
+                        </td>
+                      </tr>
                     <?php
-                    // }
-                  } ?>
-                </tbody>
-              </table>
+                      // }
+                    } ?>
+                  </tbody>
+                </table>
               </div>
-             
+
             </div>
           </div>
           <div class="boxshowlist">
@@ -176,44 +177,43 @@
             <div class="table-list">
               <div class="header_table">
                 <table class="styled-table ">
-                <thead>
-                  <tr>
-                    <th>Mã số đề</th>
-                    <th>Tên môn học</th>
-                    <th>Mô tả</th>
-                    <th>Chỉnh sửa</th>
-                  </tr>
-                </thead>
+                  <thead>
+                    <tr>
+                      <th>Mã số đề</th>
+                      <th>Tên môn học</th>
+                      <th>Mô tả</th>
+                      <th>Chỉnh sửa</th>
+                    </tr>
+                  </thead>
                 </table>
               </div>
               <div class="content_table">
-              <table class=" styled-table ">
-                <tbody class="tablecontent">
-                  <?php
-                  $row3 = getExamtest();
-                  foreach ($row3 as $row) {
-                    ?>
-                    <tr class="styled-table-tr">
-                      <td class="id-subject">
-                        <?php echo $row['id']; ?>
-                      </td>
-                      <td class="subject-word">
-                        <?php echo $row['subject']; ?>
-                      </td>
-                      <td class="decrip-word">
-                        <?php echo $row['decrip']; ?>
-                      </td>
-                      <td><span class="editacc insert-subject"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
-                        <span class="delacc delete-subject"><i class="fa-regular fa-trash-can"></i>Xóa</span>
-                      </td>
-                    </tr>
+                <table class=" styled-table ">
+                  <tbody class="tablecontent">
                     <?php
-
-                  } ?>
-                </tbody>
-              </table>
+                    $row3 = getExamtest();
+                    foreach ($row3 as $row) {
+                    ?>
+                      <tr class="styled-table-tr">
+                        <td class="id-subject">
+                          <?php echo $row['id']; ?>
+                        </td>
+                        <td class="subject-word">
+                          <?php echo $row['subject']; ?>
+                        </td>
+                        <td class="decrip-word">
+                          <?php echo $row['decrip']; ?>
+                        </td>
+                        <td><span class="editacc insert-subject"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
+                          <span class="delacc delete-subject"><i class="fa-regular fa-trash-can"></i>Xóa</span>
+                        </td>
+                      </tr>
+                    <?php
+                    } ?>
+                  </tbody>
+                </table>
               </div>
-             
+
             </div>
             <div class="btn-inserttest">
               <button type="button"><i class="fa-solid fa-circle-plus fa-lg" style="color: #f0f2f4;"></i><a>Thêm tài
@@ -231,8 +231,7 @@
             <label for="">Tên môn học:</label>
             <input class="name-subject" type="text" required>
             <label for="">Chi tiết:</label>
-            <textarea class="detail-text" resizeable="none" cols="30" rows="4"
-              placeholder="Mô tả tài liệu tải lên..."></textarea>
+            <textarea class="detail-text" resizeable="none" cols="30" rows="4" placeholder="Mô tả tài liệu tải lên..."></textarea>
             <button type="submit">
               Tải lên<i class="fa-solid fa-upload" style="padding-left:10px"></i>
             </button>
@@ -249,15 +248,9 @@
       </div>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="fileJS/adminpage.js"></script>
 </body>

@@ -152,6 +152,7 @@ $(document).ready(function () {
     $(".Post-create").removeClass("activate");
     ads.classList.remove("active");
     $(".place-img-select").removeClass("active");
+    $("input").val();
     $(".img-status").attr("src", "");
   });
 });

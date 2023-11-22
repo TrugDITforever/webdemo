@@ -1,20 +1,45 @@
+// btn change handling
 $(document).ready(function () {
   $(".infor").click(function () {
     $(".BoxforInfo:nth-child(1)").removeClass("moveout1");
     $(".BoxforInfo:nth-child(2)").removeClass("moveout2");
     $(".BoxforInfo:nth-child(3)").removeClass("moveout2");
+    $(".BoxforInfo:nth-child(4)").removeClass("moveout2");
   });
   $(".passwordBlock").click(function () {
     $(".BoxforInfo:nth-child(1)").addClass("moveout1");
     $(".BoxforInfo:nth-child(2)").addClass("moveout2");
     $(".BoxforInfo:nth-child(3)").removeClass("moveout2");
+    $(".BoxforInfo:nth-child(4)").removeClass("moveout2");
   });
   $(".btnhistory").click(function () {
     $(".BoxforInfo:nth-child(1)").addClass("moveout1");
     $(".BoxforInfo:nth-child(2)").removeClass("moveout2");
     $(".BoxforInfo:nth-child(3)").addClass("moveout2");
+    $(".BoxforInfo:nth-child(4)").removeClass("moveout2");
   });
+  $(".btnhistory-mypost").click(function () {
+    $(".BoxforInfo:nth-child(1)").addClass("moveout1");
+    $(".BoxforInfo:nth-child(2)").removeClass("moveout2");
+    $(".BoxforInfo:nth-child(3)").removeClass("moveout2");
+    $(".BoxforInfo:nth-child(4)").addClass("moveout2");
+  });
+});
+$(document).ready(function () {
+  $("#file-input").change(function () {
+    const selectedFile = this.files[0];
+    if (selectedFile) {
+      const objectURL = URL.createObjectURL(selectedFile);
+      $("#image").attr("src", objectURL);
+    } else {
+      $("#image").attr("src", "");
+    }
+  });
+});
+// logout function
+$(document).ready(function () {
   $(".logoutbtn").click(function () {
+    console.log("click");
     const reset = "true";
     $.ajax({
       url: "./funtionofPage/resetSession.php",
@@ -32,18 +57,7 @@ $(document).ready(function () {
     });
   });
 });
-$(document).ready(function () {
-  $("#file-input").change(function () {
-    const selectedFile = this.files[0];
-    if (selectedFile) {
-      const objectURL = URL.createObjectURL(selectedFile);
-      $("#image").attr("src", objectURL);
-    } else {
-      $("#image").attr("src", "");
-    }
-  });
-});
-
+// update user profile
 $(document).ready(function () {
   $(".formchange").submit(function (event) {
     event.preventDefault();

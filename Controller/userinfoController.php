@@ -1,8 +1,8 @@
 <?php
 // check to get information of user in database useraccount
 require_once("./ElementForMainpage/database.php");
-    $user_id = $_SESSION["userid"];
-    if (isset($user_id)) {
+if (isset( $_SESSION["userid"])) {
+      $user_id = $_SESSION["userid"];
       $sql = "SELECT * FROM userprofile WHERE id_user = '$user_id'";
       $statement = $con->prepare($sql);
       $statement->execute();
@@ -37,5 +37,18 @@ require_once("./ElementForMainpage/database.php");
       $useraddress = "";
       $phonenumber = "";
     }
-include "./View/userinfo.php"
+
+    function getMypost()
+{
+    global $con;
+    $user_id = $_SESSION["userid"];
+    $sql = "SELECT * FROM `poststatus` WHERE iduser = :iduser";
+    $statement = $con->prepare($sql);
+    $statement->bindParam(":iduser",$user_id);
+    $statement->execute();
+    $row = $statement->fetchAll();
+    $statement->closeCursor();
+    return $row;
+}
+include ("./View/userinfo.php")
 ?>

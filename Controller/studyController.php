@@ -4,7 +4,7 @@ require("./Model/group_db.php");
 function getuserInfo() {
     global $con;
     $user_id = $_SESSION["userid"];
-    $sql = "SELECT `id_user`, `name` FROM `userprofile` WHERE id_user = :user_id";
+    $sql = "SELECT `id_user`, `name`,`img` FROM `userprofile` WHERE id_user = :user_id";
     $statement = $con->prepare($sql);
     $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $statement->execute();
@@ -105,3 +105,4 @@ function actioninstudy()
    
 }
 include("./View/study.php");
+?>

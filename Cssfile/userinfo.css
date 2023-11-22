@@ -93,7 +93,7 @@
   border-radius: 20px;
   margin-top: 3rem;
   margin-left: 6rem;
-  opacity: 1;
+  display: block;
   width: 80%;
   height: 500px;
   background-color: white;
@@ -102,49 +102,73 @@
   transition: all 0.5s linear;
 }
 .BoxforInfo:nth-child(1).moveout1 {
-  opacity: 0;
+  display: none;
 }
 .BoxforInfo:nth-child(2) {
   position: absolute;
   border-radius: 20px;
   margin-top: 3rem;
   margin-left: 6rem;
-  visibility: hidden;
+  display: none;
   width: 80%;
-  opacity: 0;
   height: 500px;
   background-color: white;
   box-shadow: 9px 9px 12px #ccc, -3px -3px 12px #ccc;
   transition: opacity 0.5s linear;
   transition: all 0.5s linear;
 }
-.BoxforInfo:nth-child(3) {
+.BoxforInfo:nth-child(3),
+.BoxforInfo:nth-child(4) {
   position: absolute;
   border-radius: 20px;
   margin-top: 3rem;
   margin-left: 6rem;
   visibility: hidden;
-  width: 80%;
+  width: 90%;
   opacity: 0;
   height: 500px;
-  background-color: white;
+  /* background-color: white; */
   box-shadow: 9px 9px 12px #ccc, -3px -3px 12px #ccc;
   transition: opacity 0.5s linear;
   transition: all 0.5s linear;
 }
-.BoxforInfo:nth-child(3).moveout2 {
+.BoxforInfo:nth-child(4) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1rem;
+  width: 95%;
+  /* background-color: none; */
+  overflow-y: auto !important;
+  height: 600px;
+}
+.BoxforInfo:nth-child(4)::-webkit-scrollbar {
+  width: 5px;
+}
+.BoxforInfo:nth-child(4)::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 20px;
+}
+.box1 {
+  margin-left: 1rem;
+}
+.pic1 ul {
+  margin: 0;
+}
+.BoxforInfo:nth-child(3).moveout2,
+.BoxforInfo:nth-child(4).moveout2 {
   visibility: visible;
   opacity: 1;
 }
 .BoxforInfo:nth-child(2).moveout2 {
-  visibility: visible;
-  opacity: 1;
+  display: block;
 }
 .UpperBox {
   width: 100%;
   border-radius: 10px 10px 0px 0px;
   height: 150px;
   background-image: linear-gradient(to right, #f8dfb1, #f6d3c5);
+  background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg);
+  object-fit: contain;
 }
 .ImgandName {
   position: absolute;
@@ -324,10 +348,10 @@
   height: 500px;
   overflow: hidden;
 }
-.history_table:hover {
+/* .history_table:hover {
   height: 500px;
   overflow: auto;
-}
+} */
 .history_table::-webkit-scrollbar {
   width: 10px;
 }
@@ -338,7 +362,6 @@
 .styled-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 25px 0;
   font-size: 0.9em;
   font-family: sans-serif;
   min-width: 400px;
@@ -355,6 +378,16 @@
   width: 30rem;
   padding: 12px 15px;
 }
+.content_table {
+  height: 450px;
+  overflow: auto;
+}
+.content_table::-webkit-scrollbar {
+  width: 5px;
+}
+.content_table::-webkit-scrollbar-thumb {
+  background-color: #3699fe;
+}
 .decrip_test {
   /* width: 30rem; */
   overflow: hidden;
@@ -370,11 +403,32 @@
 .styled-table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
-
-/* .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-} */
-/* .styled-table tbody tr.active-row {
-  font-weight: bold;
-  color: #009879;
-} */
+.hover-submenu {
+  position: absolute;
+  right: 4rem;
+  cursor: pointer;
+}
+.hover-submenu img {
+  width: 30px;
+}
+.small-submenu {
+  display: none;
+  position: absolute;
+  padding: 0;
+  left: 0;
+  background-color: #eae6e6;
+  width: 8rem;
+  border-radius: 10px;
+  z-index: 1;
+}
+.hover-submenu:hover .small-submenu {
+  display: block;
+}
+.small-submenu li {
+  padding: 5px 10px;
+  margin: 5px;
+}
+.small-submenu li:hover {
+  border-radius: 10px;
+  background: #ccc;
+}

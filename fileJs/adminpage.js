@@ -36,21 +36,22 @@ $(document).ready(function () {
 
 ///get infor from Test
 $(document).ready(function () {
-  $(".insert-subject").click(function () {
-    var index = $(".insert-subject").index(this);
+  $(".tablecontent").on("click", ".insert-subject", function () {
+    console.log("Insert");
+    var indexID = $(".insert-subject").index(this);
     $(".blur-div").addClass("moveout");
     $(".name-subject").val(
-      $(".subject-word:eq(" + index + ")")
+      $(".subject-word:eq(" + indexID + ")")
         .text()
         .trim()
     );
     $(".detail-text").val(
-      $(".decrip-word:eq(" + index + ")")
+      $(".decrip-word:eq(" + indexID + ")")
         .text()
         .trim()
     );
     $(".hidden_id").val(
-      $(".id-subject:eq(" + index + ")")
+      $(".id-subject:eq(" + indexID + ")")
         .text()
         .trim()
     );
@@ -59,18 +60,18 @@ $(document).ready(function () {
 //confirm delete
 $(document).on("click", ".delete-subject", function () {
   var index2 = $(".delete-subject").index(this);
+  console.log($(".id-subject:eq(" + index2 + ")").html());
   $(".confirm-whendelete").addClass("slideup");
   $(".primary-button")
     .off("click")
     .on("click", function () {
       $(".confirm-whendelete").removeClass("slideup");
     });
-
   $(".secondary-button")
     .off("click")
     .on("click", function () {
       console.log($(".id-subject:eq(" + index2 + ")").text());
-      var idsubdel = $(".id-subject:eq(" + index2 + ")").text();
+      var idsubdel = $(".id-subject:eq(" + index2 + ")").html();
       $.ajax({
         url: "funtionofPage/updateinadmin.php",
         type: "POST",
@@ -130,16 +131,10 @@ $(document).ready(function () {
     <td><span class="editacc insert-subject"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
       <span class="delacc delete-subject"><i class="fa-regular fa-trash-can"></i>Xóa</span>
     </td>
-  </tr>
-`);
+  </tr>`);
             $(".tablecontent").append(documentdiv);
           });
         }
-      },
-      error: function (xhr, status, error) {
-        console.log(error);
-        console.log(xhr.responseText);
-        console.log(status);
       },
     });
   });

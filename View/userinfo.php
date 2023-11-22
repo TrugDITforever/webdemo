@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,6 +38,11 @@
                   <i class="fa-solid fa-clock-rotate-left"></i>Lịch sử học tập
                 </p>
               </div>
+              <div class="wordtoclick">
+                <p class="btnhistory-mypost">
+                  <i class="fa-solid fa-clock-rotate-left"></i>Bài đăng của tôi
+                </p>
+              </div>
             </div>
             <div class="Logoutplace">
               <a>
@@ -73,13 +76,11 @@
                 <form class="formchange">
                   <div class="elemetninform">
                     <label for="username">Tên</label>
-                    <input type="text" name="username" id="username" value="<?php echo $userName ?>" autocomplete="none"
-                      required />
+                    <input type="text" name="username" id="username" value="<?php echo $userName ?>" autocomplete="none" required />
                   </div>
                   <div class="elemetninform">
                     <label for="phonenumber">Số điện thoại</label>
-                    <input type="tel" id="phonenumber" name="phonenumber" value="<?php echo $phonenumber ?> "
-                      required />
+                    <input type="tel" id="phonenumber" name="phonenumber" value="<?php echo $phonenumber ?> " required />
                   </div>
                   <div class="elemetninform">
                     <label for="username">Email</label>
@@ -111,8 +112,7 @@
                   foreach ($message as $message) {
                     echo '<div>' . $message . '</div>';
                   }
-                }
-                ;
+                };
                 ?>
                 <form class="formchange2" action="" method="post">
                   <div class="elemetninform">
@@ -147,43 +147,101 @@
             </div>
             <div class="BoxforInfo">
               <div class="history_table">
-                <table class="styled-table">
-                  <thead>
-                    <tr>
-                      <th>Thời gian</th>
-                      <th>Mô tả</th>
-                      <th>Cấp bậc/Môn</th>
-
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    $sql2 = "SELECT * FROM `history_down` WHERE id_user = '$user_id'";
-                    $statement = $con->prepare($sql2);
-                    $statement->execute();
-                    $row2 = $statement->fetchAll();
-                    ?>
-                    <?php
-                    foreach ($row2 as $row2) {
-                      ?>
+                <div class="header_table">
+                  <table class="styled-table ">
+                    <thead>
                       <tr>
-                        <td>
-                          <?php echo $row2['time'] ?>
-                        </td>
-                        <td>
-                          <p class="decrip_test" title="<?php echo $row2['decrip'] ?>">
-                            <?php echo $row2['decrip'] ?>
-                          </p>
-                        </td>
-                        <td>
-                          <?php echo $row2['rank'] ?>
-                        </td>
-                      </tr>
-                    <?php } ?>
+                        <th>Thời gian</th>
+                        <th>Mô tả</th>
+                        <th>Cấp bậc/Môn</th>
 
-                </table>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="content_table">
+                  <table class="styled-table">
+                    <tbody>
+                      <?php
+                      $sql2 = "SELECT * FROM `history_down` WHERE id_user = '$user_id'";
+                      $statement = $con->prepare($sql2);
+                      $statement->execute();
+                      $row2 = $statement->fetchAll();
+                      ?>
+                      <?php
+                      foreach ($row2 as $row2) {
+                      ?>
+                        <tr>
+                          <td>
+                            <?php echo $row2['time'] ?>
+                          </td>
+                          <td>
+                            <p class="decrip_test" title="<?php echo $row2['decrip'] ?>">
+                              <?php echo $row2['decrip'] ?>
+                            </p>
+                          </td>
+                          <td>
+                            <?php echo $row2['rank'] ?>
+                          </td>
+                        </tr>
+                      <?php } ?>
+
+                  </table>
+                </div>
               </div>
 
+            </div>
+            <div class="BoxforInfo">
+              <?php
+              $row = getMypost();
+              $reversedArray = array_reverse($row);
+              foreach ($reversedArray as $row) :
+              ?>
+                <div class="box1">
+                  <div class="pic1">
+                    <ul>
+                      <li>
+                        <a data-post-id="<?php echo $row['id'] ?>">
+                          <img width="40px" src="./imgg/team.png" alt="" />
+                          <?php echo $row['nameuser'] ?>
+                        </a>
+                      </li>
+                      <li class="space">
+                        <a>
+                          <?php echo $row['subject'] ?>
+                        </a>
+                      </li>
+                      <li class="space">
+                        <a> 1 giờ trước </a>
+                      </li>
+                      <li class="space hover-submenu">
+                        <a> <img src="./imgg/ellipsis.png" ></a>
+                        <ul class="small-submenu">
+                          <li><i class="fa-solid fa-trash-can" style="color: #cb1010;"></i>&nbspXóa bài</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="comment1">
+                    <p>
+                      <?php echo $row['cmtStatus'] ?>
+                    </p>
+                    <a>
+                      <img src="https://2.bp.blogspot.com/-N5M0I9_1tks/XkElu5uQXII/AAAAAAAAARs/s6sQJXhXzC8CtdmKO3dNv9wKnMAsodQBwCLcBGAsYHQ/s1600/trac-nghiem-gioi-han-1.png" alt="" />
+                    </a>
+
+                  </div>
+                  <div class="place_tolike">
+                    <ul>
+                      <li><i class="fa-regular fa-thumbs-up fa-lg"></i>Thích</li>
+                      <li class="answer-comment"><i class="fa-regular fa-comment"></i>Trả lời</li>
+                      <li><i class="fa-regular fa-share-from-square"></i>Chia sẻ</li>
+                    </ul>
+                  </div>
+                </div>
+              <?php
+              endforeach;
+              ?>
             </div>
           </div>
         </div>
@@ -199,7 +257,7 @@
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-  <script src="fileJS/userinfo.js"></script>
+  <script src="./fileJS/userinfo.js"></script>
 </body>
 
 </html>

@@ -334,7 +334,7 @@
                 $row['name'] = "no name";
                 $row['id_user'] = "";
               }
-              echo '<img src="./imgg/face.png" " data-id-user="' . $row['id_user'] . ' "data-username="' . $row['name'] . ' ">';
+              echo '<img src="./uploadfile/'.$row['img'].'" " data-id-user="' . $row['id_user'] . ' "data-username="' . $row['name'] . ' ">';
               ?>
             </div>
             <form class="Form-comment-status">
