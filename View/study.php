@@ -29,17 +29,6 @@
         <div class="outsideloginplace">
           <?php include "./ElementForMainpage/login-signup.php" ?>
         </div>
-        <!-- <div class="reward">
-          <div class="iconre1">
-            <img src="./imgg/cup.png" alt="" />
-          </div>
-          <div class="reward-word">
-            <h1>BẢNG VINH DANH</h1>
-          </div>
-          <div class="iconre2">
-            <img src="./imgg/cup.png" alt="" />
-          </div>
-        </div> -->
         <div class="board">
           <div class="peo1">
             <img src="https://image.baogialai.com.vn/w840/dataimages/202207/original/images3171534_1.jpg" alt="" />
@@ -87,13 +76,19 @@
         </div>
         <div class="under-ask">
           <div class="ask-box">
-            <form id="search-form" action="">
-              <input id="ask-place" type="text" placeholder="Tìm kiếm môn học...... " required />
-              <a>
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </a>
-              <!-- <input type="submit" value="Search" /> -->
-            </form>
+            <span>Tìm môn học:</span>
+            <select name="subject-status" id="ask-place" class="select-subject">
+            <option value="">Tất cả</option>
+              <option value="Toán học">Toán học</option>
+              <option value="Ngữ Văn">Ngữ văn</option>
+              <option value="Tiếng Anh">Tiếng anh</option>
+              <option value="Hóa Học">Hóa học</option>
+              <option value="Vật lí">Vật lí</option>
+              <option value="Sinh học">Sinh học</option>
+              <option value="Địa lí">Địa lí</option>
+              <option value="Lịch sử">Lịch sử</option>
+              <option value="GDCD">GDCD</option>
+            </select>
           </div>
           <div class="btnpost">
             <button class="post-button">Đăng bài</button>
@@ -181,51 +176,6 @@
                   </div>
                 </div>
               <?php } ?>
-              <!-- <div class="people-cmt">
-                <div>
-                  <img src="https://thuthuatnhanh.com/wp-content/uploads/2019/02/anh-dai-dien-dep-cho-zalo.jpeg" alt="" />
-                </div>
-                <div class="name-cmt">
-                  <p>Linh</p>
-                  <p>Bài giải hay quá</p>
-                </div>
-              </div>
-              <div class="people-cmt">
-                <div>
-                  <img src="https://top10dienbien.com/wp-content/uploads/2022/10/avatar-cute-11.jpg" alt="" />
-                </div>
-                <div class="name-cmt">
-                  <p>Lê Nhã</p>
-                  <p>Các dạng đề khá hay</p>
-                </div>
-              </div>
-              <div class="people-cmt">
-                <div>
-                  <img src="https://freenice.net/wp-content/uploads/2021/08/hinh-anh-avatar-dep.jpg" alt="" />
-                </div>
-                <div class="name-cmt">
-                  <p>Anh Quang</p>
-                  <p>Bài giải hay quá</p>
-                </div>
-              </div>
-              <div class="people-cmt">
-                <div>
-                  <img src="https://haycafe.vn/wp-content/uploads/2021/11/Anh-avatar-dep-chat-lam-hinh-dai-dien.jpg" alt="" />
-                </div>
-                <div class="name-cmt">
-                  <p>No Name</p>
-                  <p>Cảm ơn add nhiều nhé! Tài liệu rất có giá trị.</p>
-                </div>
-              </div>
-              <div class="people-cmt">
-                <div>
-                  <img src="./imgg/user.png" alt="" />
-                </div>
-                <div class="name-cmt">
-                  <p>Ngọc Bảo</p>
-                  <p>Trang web khá hay, bổ ích</p>
-                </div>
-              </div> -->
             </div>
           </div>
         </div>
@@ -330,11 +280,13 @@
             <div class="UserComment-Pic">
               <?php
               $row = getuserInfo();
-              if (empty($row['name']) && empty($row['id_user'])) {
+              if (empty($row['name']) && empty($row['id_user'])&&empty($row['img'])) {
                 $row['name'] = "no name";
                 $row['id_user'] = "";
+                $row['img']="face.png";
+              }else{
+                echo '<img src="./uploadfile/'.$row['img'].'" " data-id-user="' . $row['id_user'] . ' "data-username="' . $row['name'] . ' ">';
               }
-              echo '<img src="./uploadfile/'.$row['img'].'" " data-id-user="' . $row['id_user'] . ' "data-username="' . $row['name'] . ' ">';
               ?>
             </div>
             <form class="Form-comment-status">
@@ -354,22 +306,23 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="./fileJS/style.js"></script>
-  <!-- searching form -->
   <script>
     const searchForm = document.getElementById("search-form");
-    const boxes = document.querySelectorAll(".box1");
-    const searchInput = document.getElementById("ask-place");
-    searchInput.addEventListener("input", function() {
-      const searchTerm = searchInput.value.toLowerCase();
-      boxes.forEach(function(box) {
-        const subject = box.querySelector("li.space:nth-child(2) a").textContent.toLowerCase();
-        if (subject.includes(searchTerm) || searchTerm === "") {
-          box.style.display = "block";
-        } else {
-          box.style.display = "none";
-        }
-      });
-    });
+const boxes = document.querySelectorAll(".box1");
+const searchInput = document.getElementById("ask-place");
+searchInput.addEventListener("input", function () {
+  const searchTerm = searchInput.value.toLowerCase();
+  boxes.forEach(function (box) {
+    const subject = box
+      .querySelector("li.space:nth-child(2) a")
+      .textContent.toLowerCase();
+    if (subject.includes(searchTerm) || searchTerm === "") {
+      box.style.display = "block";
+    } else {
+      box.style.display = "none";
+    }
+  });
+});
   </script>
 </body>
 

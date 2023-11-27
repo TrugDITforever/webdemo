@@ -98,7 +98,6 @@
 
         <!-- end here -->
       </div>
-
       <div class="last">
         <?php include "./ElementForMainpage/Group.php" ?>
       </div>
@@ -115,9 +114,7 @@
     <?php include "./ElementForMainpage/Footer.php" ?>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-  <script src="fileJS/style.js"></script>
-  <script src="fileJS/class9to10.js"></script>
-
+  <script src="./fileJS/style.js"></script>
+  <script src="./fileJS/class9to10.js"></script>
 </body>
-
 </html>

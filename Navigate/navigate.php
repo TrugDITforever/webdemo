@@ -10,9 +10,6 @@ if (isset($_GET['route'])) {
         case 'account':
             include "Controller/userinfoController.php";
             break;
-        case 'admin':
-            include "Controller/adminpageController.php";
-            break;
         case 'Classes':
             include "Controller/ClassController.php";
             break;
@@ -25,11 +22,13 @@ if (isset($_GET['route'])) {
         case 'Practice':
             include "Controller/PracticeController.php";
             break;
-            case 'Introduce':
-                include "Controller/introduceController.php";
-                break;
+        case 'Introduce':
+            include "Controller/introduceController.php";
+            break;
+        case 'admin':
+            include "Controller/adminpageController.php";
+            break;
     }
 } else {
     include "Controller/studyController.php";
 }
-?>

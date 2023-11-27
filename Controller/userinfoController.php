@@ -26,6 +26,13 @@ if (isset( $_SESSION["userid"])) {
           $image = "uploadfile/$imgg";
         }
       } else {
+        $sql = "SELECT * FROM useracc WHERE id = '$user_id'";
+      $statement = $con->prepare($sql);
+      $statement->execute();
+      if($statement->rowCount()>0){
+        $row2 = $statement->fetch(PDO::FETCH_ASSOC);
+        $userEmail = $row2["email"];
+      }
         $image = "imgg/team.png";
         $userName = "";
         $useraddress = "";

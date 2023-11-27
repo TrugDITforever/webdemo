@@ -105,7 +105,7 @@ $(document).ready(function () {
     });
   });
 });
-///update password
+//update password
 $(document).ready(function () {
   $(".formchange2").submit(function (event) {
     event.preventDefault();
@@ -151,4 +151,8 @@ $(document).ready(function () {
       },
     });
   });
+});
+// manage postStatus
+$(document).ready(function() {
+  
 });

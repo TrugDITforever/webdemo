@@ -22,6 +22,7 @@ window.addEventListener("scroll", function () {
     arrow.classList.remove("appear");
   }
 });
+// searching in mainpage
 
 btnmovetosignup.onclick = function () {
   pagedangnhap.classList.remove("appear");
@@ -277,7 +278,6 @@ $(document).ready(function () {
       }, 2000);
       return;
     }
-
     $.ajax({
       url: "../funtionofPage/signup.php",
       type: "post",
@@ -298,6 +298,9 @@ $(document).ready(function () {
           setTimeout(() => {
             $(".alert").removeClass("moveout");
           }, 2000);
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         } else if (response === "error") {
           $(".alertword p").html("Tên người dùng đã tồn tại");
           $(".alert").addClass("moveout");

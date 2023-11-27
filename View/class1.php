@@ -116,7 +116,6 @@
           <a><i class="fa-solid fa-xmark"></i></a>
         </div>
       </div>
-
     </div>
     <?php include "./ElementForMainpage/Footer.php" ?>
   </div>
