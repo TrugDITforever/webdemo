@@ -153,6 +153,32 @@ $(document).ready(function () {
   });
 });
 // manage postStatus
-$(document).ready(function() {
-  
+$(document).ready(function () {
+  var index;
+  $(".deletepost").click(function () {
+    index = $(".deletepost").index(this);
+    var postid = $("a[data-post-id]:eq(" + index + ")").data("post-id");
+    console.log(postid);
+    $(".Confirm-form-delete").addClass("moveout");
+  });
+  $(".primary-button").click(function () {
+    $(".Confirm-form-delete").removeClass("moveout");
+  });
+  $(".secondary-button").click(function () {
+    var postid = $("a[data-post-id]:eq(" + index + ")").data("post-id");
+    $.ajax({
+      url: "./funtionofPage/deletePostofUser.php",
+      type: "POST",
+      data: {
+        postid: postid,
+      },
+      success: function (res) {
+        console.log(res);
+        if (res === "success") {
+          $(".Confirm-form-delete").removeClass("moveout");
+          $(".box1:eq(" + index + ")").remove();
+        }
+      },
+    });
+  });
 });

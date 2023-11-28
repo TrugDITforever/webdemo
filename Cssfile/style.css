@@ -1467,18 +1467,18 @@ h5 {
   position: relative;
   z-index: 1;
 }
-
 .login-form {
   margin-top: 43px;
 }
 .login-form input,
-.status-form input {
+.status-form input,
+.admin-form input {
   outline: none;
   display: block;
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
   border: 0;
-  border-radius: 4px;
+  border-radius: 40px;
   box-sizing: border-box;
   padding: 12px 20px;
   font-family: inherit;
@@ -1502,7 +1502,8 @@ h5 {
 }
 .login-form label,
 .status-form label,
-.create-form label {
+.create-form label,
+.admin-form label {
   display: block;
   margin: 0 0 10px;
   color: rgba(0, 0, 0, 0.6);
@@ -1516,7 +1517,8 @@ h5 {
   margin-top: 10px;
 }
 #signup-btn,
-#post-btn {
+#post-btn,
+#admin-btn {
   font-size: 1.2rem;
   margin-top: 13px;
   width: 100%;
@@ -1542,7 +1544,8 @@ h5 {
 }
 #signup-btn:hover,
 #create-btn:hover,
-#post-btn:hover {
+#post-btn:hover,
+#admin-btn:hover {
   cursor: pointer;
   background-color: coral;
   color: white;

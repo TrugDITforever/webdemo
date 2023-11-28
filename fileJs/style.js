@@ -348,7 +348,7 @@ $(document).ready(function () {
     $(".ads").removeClass("active");
   });
 });
-// PlaceForComment appear
+// PlaceForComment appear(getpostID.php)
 $(document).ready(function () {
   $(".close-btn-status").click(function () {
     $(".FormPostComment").removeClass("activate");

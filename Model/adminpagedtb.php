@@ -1,9 +1,17 @@
-<?php
-include("./ElementForMainpage/database.php");
+<?php 
 function getUserac()
 {
     global $con;
     $sql = "SELECT * FROM `useracc`";
+    $statement = $con->prepare($sql);
+    $statement->execute();
+    $row = $statement->fetchAll();
+    $statement->closeCursor();
+    return $row;
+}
+function getAdminacc(){
+    global $con;
+    $sql = "SELECT * FROM `adminacc`";
     $statement = $con->prepare($sql);
     $statement->execute();
     $row = $statement->fetchAll();
@@ -29,6 +37,4 @@ function getExamtest()
     $row = $statement->fetchALL();
     $statement->closeCursor();
     return $row;
-}
-include "./View/adminpage.php";
-?>
+}?>

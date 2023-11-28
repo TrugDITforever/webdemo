@@ -26,7 +26,7 @@ if (isset($_GET['route'])) {
             include "Controller/introduceController.php";
             break;
         case 'admin':
-            include "Controller/adminpageController.php";
+            include "Controller/AdminController/adminpageController.php";
             break;
     }
 } else {

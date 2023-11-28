@@ -3,7 +3,7 @@ require_once("../ElementForMainpage/database.php");
 session_start();
 try {
   $usersignup = $_POST['usernamesignup'];
-  $userpass = md5($_POST['passwordsignup']);
+  $userpass = $_POST['passwordsignup'];
   $userEmail = $_POST['userEmailsignup'];
   $sql = "INSERT INTO `useracc`(`username`, `password`, `email`) VALUES ('$usersignup','$userpass','$userEmail')";
   $statement = $con->prepare($sql);

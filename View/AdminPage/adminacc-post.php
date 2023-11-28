@@ -24,7 +24,7 @@
             <ul>
               <li class="user-accbtn"><i class="fa-solid fa-user-group"></i><a>Tài khoản người dùng</a></li>
               <li class="user-profile"><i class="fa-solid fa-address-card"></i><a>Hồ sơ người dùng</a></li>
-              <li class="btn-test"><i class="fa-brands fa-dochub"></i><a>Đề thi THPT QG</a></li>
+              <!-- <li class="btn-test"><i class="fa-brands fa-dochub"></i><a>Đề thi THPT QG</a></li> -->
             </ul>
             <!-- <a href="study.php">Đăng xuất</a> -->
           </div>
@@ -43,7 +43,7 @@
               Admin demo<i class="fa-solid fa-arrow-down"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item " href="index?route=mainpage"><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a>
+              <a class="dropdown-item " href="index?route=admin"><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a>
             </div>
           </div>
         </div>
@@ -165,59 +165,6 @@
                 </table>
               </div>
 
-            </div>
-          </div>
-          <div class="boxshowlist">
-            <div class="title_page1">
-              <p>Đề thi THPT</p>
-              <div class="totaluser">
-                <i class="fa-solid fa-file-circle-check"></i> <span class="number-doc">0</span>
-              </div>
-            </div>
-            <div class="table-list">
-              <div class="header_table">
-                <table class="styled-table ">
-                  <thead>
-                    <tr>
-                      <th>Mã số đề</th>
-                      <th>Tên môn học</th>
-                      <th>Mô tả</th>
-                      <th>Chỉnh sửa</th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
-              <div class="content_table">
-                <table class=" styled-table ">
-                  <tbody class="tablecontent">
-                    <?php
-                    $row3 = getExamtest();
-                    foreach ($row3 as $row) {
-                    ?>
-                      <tr class="styled-table-tr">
-                        <td class="id-subject">
-                          <?php echo $row['id']; ?>
-                        </td>
-                        <td class="subject-word">
-                          <?php echo $row['subject']; ?>
-                        </td>
-                        <td class="decrip-word">
-                          <?php echo $row['decrip']; ?>
-                        </td>
-                        <td><span class="editacc insert-subject"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
-                          <span class="delacc delete-subject"><i class="fa-regular fa-trash-can"></i>Xóa</span>
-                        </td>
-                      </tr>
-                    <?php
-                    } ?>
-                  </tbody>
-                </table>
-              </div>
-
-            </div>
-            <div class="btn-inserttest">
-              <button type="button"><i class="fa-solid fa-circle-plus fa-lg" style="color: #f0f2f4;"></i><a>Thêm tài
-                  liệu</a></button>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@
 require_once("../ElementForMainpage/database.php");
 session_start();
 $userloginn =$_POST['userLogin'];
-$passwordlogin = md5($_POST['passwordlogin']);
+$passwordlogin = $_POST['passwordlogin'];
  $sql ="SELECT * FROM `useracc` WHERE `username` = '$userloginn' and  `password` = '$passwordlogin'";
  $statement= $con->prepare($sql);
 if ($statement->execute()) {
