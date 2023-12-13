@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../Cssfile/style.css" />
   <link rel="icon" href="../imgg/loggo.png" />
   <link rel="stylesheet" href="../source font/fontawesome/fontawesome/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>LEARN AND LEARN</title>
 </head>
 
@@ -247,8 +248,7 @@
               </div>
             </div>
             <div class="admin-comment">
-              <span>Giúp em giải bài này với ạ Giúp em giải bài này với ạ Giúp em giải bài này với ạ
-                Giúp em giải bài này với ạGiúp em giải bài này với ạGiúp em giải bài này với ạ</span>
+              <span></span>
             </div>
             <div class="admin-status-pic">
               <img src="https://2.bp.blogspot.com/-N5M0I9_1tks/XkElu5uQXII/AAAAAAAAARs/s6sQJXhXzC8CtdmKO3dNv9wKnMAsodQBwCLcBGAsYHQ/s1600/trac-nghiem-gioi-han-1.png" alt="">

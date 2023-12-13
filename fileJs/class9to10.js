@@ -3,8 +3,21 @@ $(document).ready(function () {
     let isSubmit = localStorage.getItem("isAppear");
     if (isSubmit === "false") {
       e.preventDefault();
-      $(".alertword p").html("Đăng nhập vào để dùng chức năng này");
-      $(".alert").addClass("moveout");
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Cần đăng nhập để dùng chức năng này",
+      });
       setTimeout(function () {
         $(".alert").removeClass("moveout");
       }, 3000);

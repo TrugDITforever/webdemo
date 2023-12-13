@@ -151,6 +151,35 @@
 .box1 {
   margin-left: 1rem;
 }
+.hover-submenu {
+  position: absolute;
+  right: 4rem;
+  cursor: pointer;
+}
+.hover-submenu img {
+  width: 30px;
+}
+.small-submenu {
+  display: none;
+  position: absolute;
+  padding: 0;
+  left: 0;
+  background-color: #eae6e6;
+  width: 8rem;
+  border-radius: 10px;
+  z-index: 1;
+}
+.hover-submenu:hover .small-submenu {
+  display: block;
+}
+.small-submenu li {
+  padding: 5px 10px;
+  margin: 5px;
+}
+.small-submenu li:hover {
+  border-radius: 10px;
+  background: #ccc;
+}
 .pic1 ul {
   margin: 0;
 }
@@ -403,35 +432,7 @@
 .styled-table tbody tr:nth-of-type(even) {
   background-color: #f3f3f3;
 }
-.hover-submenu {
-  position: absolute;
-  right: 4rem;
-  cursor: pointer;
-}
-.hover-submenu img {
-  width: 30px;
-}
-.small-submenu {
-  display: none;
-  position: absolute;
-  padding: 0;
-  left: 0;
-  background-color: #eae6e6;
-  width: 8rem;
-  border-radius: 10px;
-  z-index: 1;
-}
-.hover-submenu:hover .small-submenu {
-  display: block;
-}
-.small-submenu li {
-  padding: 5px 10px;
-  margin: 5px;
-}
-.small-submenu li:hover {
-  border-radius: 10px;
-  background: #ccc;
-}
+
 .Confirm-form-delete {
   z-index: 100;
   position: fixed;

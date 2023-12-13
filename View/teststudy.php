@@ -19,7 +19,7 @@
       <div class="menu">
         <div class="logo">
           <a href="">
-            <img src="logo.png" alt="" />
+            <img src="../imgg/loggo.png" alt="" />
             LEARN X2
           </a>
         </div>
@@ -31,7 +31,7 @@
         <div class="tabmenu">
           <ul id="listmainmenu">
             <li>
-              <a href="#home"> Trang chủ </a>
+              <a href="#home"> Mở đầu </a>
             </li>
             <li>
               <a href="#about"> Lộ Trình Học </a>
@@ -301,17 +301,8 @@
                 </div>
               </div>
               <div class="rightlast">
-                <div class="laptop">
-                  <img
-                    src="https://media.istockphoto.com/id/479520746/photo/laptop-with-blank-screen-on-white.jpg?s=170667a&w=0&k=20&c=A0W4jdBTMGKOp4xcknHH1KTdDQhT1pcQux87zx0n7bE="
-                    alt=""
-                  />
-                </div>
                 <div class="imglearn">
-                  <img
-                    src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.15752-9/352871190_2439560052875571_3535585719092284122_n.png?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=MLHYomr2cCYAX-z72gF&_nc_ht=scontent.fdad2-1.fna&oh=03_AdRbwqWy7mtvIEZXg1_Tdqeq59PuheGT2mIwrQ0zoqycKA&oe=64AB0D17"
-                    alt=""
-                  />
+                <img src="https://static.vecteezy.com/system/resources/previews/024/346/428/original/3d-cartoon-group-of-little-children-on-transparent-background-generative-ai-png.png" alt="">
                 </div>
               </div>
             </div>
@@ -320,62 +311,7 @@
       </div>
       <!-- end here -->
 
-      <footer>
-        <div class="footer" id="footer">
-          <div class="last-page">
-            <div class="place-for-ad" id="contact">
-              <div class="main-word" style="color: white">
-                <a href="#">
-                  <img src="logo.png" alt="logo" />
-                  LEARN X2
-                </a>
-                <p>
-                  Trang web gồm những khóa học hay cho các bạn từ lớp 1 đến lớp
-                  12. Môi trường trao đổi kiến thức trực tuyến. Đa dạng các hội
-                  nhóm. Cơ hội hợp tác cùng các bạn mới ra trường. Các dạng đề
-                  ôn luyện thường xuyên được cập nhật.
-                </p>
-                <p1><strong>HỌC - HỌC NỮA - HỌC MÃI</strong></p1>
-              </div>
-            </div>
-            <div class="privacy">
-              <p>CHÍNH SÁCH</p>
-              <ul>
-                <li>Chính sách bảo mật</li>
-                <li>Chính sách đổi trả</li>
-
-                <li>Tuyển dụng</li>
-              </ul>
-            </div>
-            <div class="contact-menu">
-              <p>Liên hệ với chúng tôi</p>
-              <ul>
-                <li>
-                  <a href="">
-                    <img src="facebook.png" alt="" />
-                    https://www.facebook.com/learnx2
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <img src="gmail.png" alt="" />
-                    learnx2.vn@gmail.com
-                  </a>
-                </li>
-                <li style="color: white">
-                  <img src="telephone-call.png" alt="" />
-                  0911163579
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="copyright">
-          <p>
-            Copyright &copy; 2023 <span>VKU-Coder.</span>All Rights Reserved.
-          </p>
-        </div>
-      </footer>
+      <?php include "./ElementForMainpage/Footer.php" ?>
     </div>
     <script src="./fileJs/teststudy.js"></script>
   </body>

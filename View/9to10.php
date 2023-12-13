@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="Cssfile/9to10.css" />
   <link rel="icon" href="imgg/loggo.png" />
   <link rel="stylesheet" href="source font/fontawesome/fontawesome/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>LEARN AND LEARN</title>
 </head>
 

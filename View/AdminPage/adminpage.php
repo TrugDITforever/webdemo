@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ADMIN-PAGE</title>
+  <title>Admin_page</title>
   <link rel="icon" href="imgg/loggo.png" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="source font/fontawesome/fontawesome/css/all.min.css" />
@@ -77,20 +77,20 @@
                     foreach ($rows as $row) {
                     ?>
                       <tr>
-                        <td class="id_useracc">
+                        <td class="id_adminacc">
                           <?php echo $row['id']; ?>
                         </td>
-                        <td>
+                        <td class="admin_name">
                           <?php echo $row['adminname']; ?>
                         </td>
-                        <td>
+                        <td class="admin_pass">
                           <?php echo $row['password']; ?>
                         </td>
-                        <td>
+                        <td class="admin_role">
                           <?php echo $row['role']; ?>
                         </td>
-                        <td><span class="editacc"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
-                          <span class="delacc"><i class="fa-regular fa-trash-can"></i>Xóa</span>
+                        <td><span class="editacc editadmin"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
+                          <span class="delacc deladmin"><i class="fa-regular fa-trash-can"></i>Xóa</span>
                         </td>
                       </tr>
 
@@ -102,138 +102,34 @@
                 </table>
               </div>
             </div>
-          </div>
-          <div class="boxshowlist">
-            <div class="title_page1">
-              <p>Hồ sơ người dùng</p>
-            </div>
-            <div class="table-list">
-              <div class="header_table">
-                <table class="styled-table">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Tên người dùng</th>
-                      <th>Địa chỉ</th>
-                      <th>Số điện thoại</th>
-                      <th>Chỉnh sửa</th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
-              <div class="content_table">
-                <table class="styled-table">
-                  <tbody>
-                    <?php
-                    $row = getUserProfile();
-                    // if ($statement) {
-                    foreach ($row as $row) {
-                    ?>
-
-                      <tr>
-                        <td>
-                          <?php echo $row['id_user']; ?>
-                        </td>
-                        <td class="username-pic">
-                          <a>
-                            <img src="<?php
-                                      if ($row['img'] == "") {
-                                        $image = "imgg/user.png";
-                                        echo $image;
-                                      } else {
-                                        $image = 'uploadfile/' . $row['img'];
-                                        echo $image;
-                                      }
-                                      ?>" alt="">
-                            <?php echo $row['name']; ?>
-                          </a>
-                        </td>
-                        <td>
-                          <?php echo $row['address']; ?>
-                        </td>
-                        <td>
-                          <?php echo $row['phonenumber']; ?>
-                        </td>
-                        <td><span class="editacc"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
-                          <span class="delacc"><i class="fa-regular fa-trash-can"></i>Xóa</span>
-                        </td>
-                      </tr>
-                    <?php
-                      // }
-                    } ?>
-                  </tbody>
-                </table>
-              </div>
-
-            </div>
-          </div>
-          <div class="boxshowlist">
-            <div class="title_page1">
-              <p>Đề thi THPT</p>
-              <div class="totaluser">
-                <i class="fa-solid fa-file-circle-check"></i> <span class="number-doc">0</span>
-              </div>
-            </div>
-            <div class="table-list">
-              <div class="header_table">
-                <table class="styled-table ">
-                  <thead>
-                    <tr>
-                      <th>Mã số đề</th>
-                      <th>Tên môn học</th>
-                      <th>Mô tả</th>
-                      <th>Chỉnh sửa</th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
-              <div class="content_table">
-                <table class=" styled-table ">
-                  <tbody class="tablecontent">
-                    <?php
-                    $row3 = getExamtest();
-                    foreach ($row3 as $row) {
-                    ?>
-                      <tr class="styled-table-tr">
-                        <td class="id-subject">
-                          <?php echo $row['id']; ?>
-                        </td>
-                        <td class="subject-word">
-                          <?php echo $row['subject']; ?>
-                        </td>
-                        <td class="decrip-word">
-                          <?php echo $row['decrip']; ?>
-                        </td>
-                        <td><span class="editacc insert-subject"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
-                          <span class="delacc delete-subject"><i class="fa-regular fa-trash-can"></i>Xóa</span>
-                        </td>
-                      </tr>
-                    <?php
-                    } ?>
-                  </tbody>
-                </table>
-              </div>
-
-            </div>
-            <div class="btn-inserttest">
+            <div class="btn-inserttest adminbtn">
               <button type="button"><i class="fa-solid fa-circle-plus fa-lg" style="color: #f0f2f4;"></i><a>Thêm tài
-                  liệu</a></button>
+              khoản</a></button>
             </div>
           </div>
+          
         </div>
       </div>
       <div class="blur-div">
         <div class="form-insert-test">
-          <form class="form-insert">
+          <form class="formInadmin">
             <i class="fa-solid fa-circle-xmark" style="color: #00e096;"></i>
-            <h1>Cập nhật tài liệu</h1>
-            <input class="hidden_id" type="text">
-            <label for="">Tên môn học:</label>
-            <input class="name-subject" type="text" required>
-            <label for="">Chi tiết:</label>
-            <textarea class="detail-text" resizeable="none" cols="30" rows="4" placeholder="Mô tả tài liệu tải lên..."></textarea>
+            <h1>Cập nhật tài khoản</h1>
+            <input class="id_admin" type="text">
+            <span class="errorword" style="color: red"></span>
+            <label>Tên đăng nhập:</label>
+            <input class="adminname" type="text" required>
+            <label >Mật khẩu:</label>
+            <input class="adminpass" type="text" required>
+            <label >Quyền truy cập:</label>
+            <select class="adminaccess">
+              <option value="admin">admin</option>
+              <option value="admin_doc">admin_doc</option>
+              <option value="admin_acc">admin_acc</option>
+
+            </select>
             <button type="submit">
-              Tải lên<i class="fa-solid fa-upload" style="padding-left:10px"></i>
+              <i class="fa-solid fa-upload" ></i>&nbspCập nhật
             </button>
           </form>
         </div>
@@ -243,8 +139,8 @@
     <div class="confirm-whendelete">
       <h4><i class="fa-solid fa-triangle-exclamation" style="color: #f0e800;"></i>Bạn có chắc chắn muốn xóa!</h4>
       <div class="confirm-button">
-        <button type="button" class="mark button secondary-button mr-12">Xác nhận</button>
-        <button type="button" class="mark button primary-button">Hủy</button>
+        <button type="button" class="mark button secondary-button mr-12 adminconfirm">Xác nhận</button>
+        <button type="button" class="mark button primary-button admincancel">Hủy</button>
       </div>
     </div>
   </div>

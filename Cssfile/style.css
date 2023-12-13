@@ -357,21 +357,14 @@ h5 {
 }
 .liststudy {
   width: 100%;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   flex-direction: column;
 }
 .liststudy ul {
   margin: 0px;
-  width: 50%;
+  width: 100%;
 }
 .liststudy li {
-  width: 100%;
   border-radius: 5px;
-  /* background: #fff; */
-  /* box-shadow: 3px 3px 12px #ccc; */
-  list-style: none;
   margin-top: 5px;
 }
 .classname-selected-none {
@@ -389,15 +382,17 @@ h5 {
   font-family: "Nunito", sans-serif;
 }
 .classname-selected {
-  width: 50%;
-  padding: 1px 0px;
+  width: 5rem;
+  padding: 1px 2px;
   display: inline-block;
   text-align: left;
   text-decoration: none;
   font-family: "Nunito", sans-serif;
   color: black;
-  box-shadow: 3px 3px 12px #ccc;
+  box-shadow: 3px 2px 1px #ccc;
   border-radius: 5px;
+  background-color: white;
+  border: 1px solid rgb(169, 169, 169);
 }
 .classname-selected-2 {
   width: 100%;
@@ -567,9 +562,10 @@ h5 {
   text-decoration: none;
   font-family: "Nunito", sans-serif;
   color: black;
+  box-shadow: 3px 2px 1px #ccc;
   border-radius: 5px;
-  background: #fff;
-  box-shadow: 3px 3px 12px #ccc;
+  background-color: white;
+  border: 1px solid rgb(169, 169, 169);
 }
 .liststudy2 a:hover {
   margin-left: 5px;
@@ -810,12 +806,10 @@ h5 {
   margin-left: 10rem;
   margin-top: 20px;
   width: 550px;
-  /* height: 350px; */
   background-color: white;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  /* box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2); */
 }
 .pic1 {
   position: relative;
@@ -825,7 +819,6 @@ h5 {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
-
 .pic1 ul li {
   margin-top: 5px;
   /* padding-left: 10px; */
@@ -964,7 +957,7 @@ h5 {
   background-color: white;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s linear;
-  animation: move 10s infinite alternate;
+  /* animation: move 10s infinite alternate; */
 }
 @keyframes move {
   0% {
@@ -986,9 +979,7 @@ h5 {
     transform: translateX(10px);
   }
 }
-.peo1:hover {
-  transform: scale(1.1);
-}
+
 .peo1 img {
   margin: 5px 15px 0px 15px;
   width: 200px;
@@ -997,11 +988,9 @@ h5 {
   transition: all 0.3s linear;
   cursor: pointer;
 }
-
 .peo1 img:hover {
   transform: scale(1.1);
 }
-
 .peo1 h3,
 .peo1 h5 {
   text-align: center;
@@ -1142,7 +1131,6 @@ h5 {
   vertical-align: middle;
   width: 100px;
   border-radius: 50%;
-  animation: biani 4s linear infinite alternate;
 }
 .main-word p {
   font-family: cursive;
@@ -2121,8 +2109,6 @@ h5 {
   height: 100%;
   margin: 5px;
   border-radius: 50%;
-  /* box-shadow: 3px 3px 4px rgba(50, 50, 93, 0.25),
-    -3px -3px 4px rgba(50, 50, 93, 0.25); */
 }
 .TextComment {
   width: 90%;

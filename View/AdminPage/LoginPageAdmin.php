@@ -47,7 +47,7 @@ if(isset($_POST['submit'])){
           <div>
           <form class="adminform" method="Post" enctype="multipart/form-data">
             <h4>
-             Bonjour! Chào mừng Admin
+            <i class="fa-solid fa-hand wavinglogin" style="color: #dfe156;"></i> Bonjour! Chào mừng Admin
             </h4>
             <div class="admin-form" id="adminform">
               <?php if(isset($error)){
@@ -55,9 +55,9 @@ if(isset($_POST['submit'])){
               echo '<div style="color: red">' . $error . '</div>';
                 }
               }?>
-              <label >Tên đăng nhập:</label>
+              <label ><i class="fa-regular fa-circle-user"></i>&nbspTên đăng nhập:</label>
               <input type="text" name="adminname" required />
-              <label >Mật khẩu:</label>
+              <label ><i class="fa-solid fa-lock"></i>&nbspMật khẩu:</label>
               <input type="password"  name="password" required />
             </div>
             <input id="admin-btn" class="adminbtn" name="submit"type="submit" value="Đăng nhập" />

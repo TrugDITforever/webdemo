@@ -50,6 +50,7 @@ function poststatus($subject, $commentstatus)
     }
     return false;
 }
+/// user feedback
 function getpostcomment()
 {
     global $con;

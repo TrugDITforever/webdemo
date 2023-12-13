@@ -23,7 +23,6 @@ window.addEventListener("scroll", function () {
   }
 });
 // searching in mainpage
-
 btnmovetosignup.onclick = function () {
   pagedangnhap.classList.remove("appear");
   pagedangki.style.display = "block";
@@ -101,11 +100,21 @@ $(document).ready(function () {
   $(".down").on("click", function (event) {
     if (isSubmitted === "false") {
       event.preventDefault();
-      $(".alertword p").html("Bạn cần đăng nhập vào để tải xuống");
-      $(".alert").addClass("moveout");
-      setTimeout(() => {
-        $(".alert").removeClass("moveout");
-      }, 2000);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Cần đăng nhập để dùng chức năng này",
+      });
     } else {
       var index = $(".down").index(this);
       var woElement = $(".wo p:eq(" + index + ")").text();
@@ -166,46 +175,6 @@ $(document).ready(function () {
     );
   });
 });
-//btn down in 12tocolleage.php
-$(document).ready(function () {
-  let isSubmit = localStorage.getItem("isAppear");
-  $(".down_test").on("click", function (event) {
-    if (isSubmit === "false") {
-      event.preventDefault();
-      $(".alertword p").html("Bạn cần đăng nhập vào trang để tải tài liệu này");
-      $(".alert").addClass("moveout");
-    } else {
-      var index = $(".down_test").index(this);
-      var woElement = $(".test_name p:eq(" + index + ")")
-        .text()
-        .trim();
-      var subjectName = $(".title span:eq(" + index + ")")
-        .text()
-        .trim();
-      var currentDate = new Date();
-      var day = currentDate.getDate();
-      var month = currentDate.getMonth() + 1;
-      var year = currentDate.getFullYear();
-      $.ajax({
-        url: "funtionofPage/tracking.php",
-        type: "post",
-        data: {
-          decrip: woElement,
-          rank: subjectName,
-          day: day,
-          month: month,
-          year: year,
-        },
-        success: function (data) {
-          console.log(data);
-          if (data === "success") {
-            $(".down_test:eq(" + index + ")").html("Đã tải");
-          }
-        },
-      });
-    }
-  });
-});
 $(document).ready(function () {
   var isdisAppear = localStorage.getItem("isAppear");
   if (isdisAppear === "true") {
@@ -230,21 +199,44 @@ $(document).ready(function () {
       success: function (data) {
         console.log(data);
         if (data === "success") {
-          $(".alertword p").html("Chào mừng đến Learx2");
-          $(".alert").addClass("moveout");
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            },
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Chào mừng đến Learnx2",
+          });
           $(".Page-login").removeClass("appear");
           $(".ads").removeClass("active");
           $(".outsideloginplace").addClass("disappear");
           localStorage.setItem("isAppear", "true");
           setTimeout(() => {
-            $(".alert").removeClass("moveout");
-          }, 2000);
-          setTimeout(() => {
             window.location.reload();
-          }, 1000);
+          }, 3000);
         } else if (data === "error") {
-          $(".alertword p").html("Sai tên đăng nhập/mật khẩu");
-          $(".alert").addClass("moveout");
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            },
+          });
+          Toast.fire({
+            icon: "error",
+            title: "Something went wrong!",
+          });
           $("#username").val("");
           $("#password").val("");
           setTimeout(() => {

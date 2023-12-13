@@ -33,109 +33,108 @@ $(document).ready(function () {
     $(".blur-div").addClass("moveout");
   });
 });
-
-///get infor from Test
-$(document).ready(function () {
-  $(".tablecontent").on("click", ".insert-subject", function () {
-    console.log("Insert");
-    var indexID = $(".insert-subject").index(this);
-    $(".blur-div").addClass("moveout");
-    $(".name-subject").val(
-      $(".subject-word:eq(" + indexID + ")")
-        .text()
-        .trim()
-    );
-    $(".detail-text").val(
-      $(".decrip-word:eq(" + indexID + ")")
-        .text()
-        .trim()
-    );
-    $(".hidden_id").val(
-      $(".id-subject:eq(" + indexID + ")")
-        .text()
-        .trim()
-    );
-  });
-});
-//confirm delete
-$(document).on("click", ".delete-subject", function () {
-  var index2 = $(".delete-subject").index(this);
-  console.log($(".id-subject:eq(" + index2 + ")").html());
-  $(".confirm-whendelete").addClass("slideup");
-  $(".primary-button")
-    .off("click")
-    .on("click", function () {
-      $(".confirm-whendelete").removeClass("slideup");
-    });
-  $(".secondary-button")
-    .off("click")
-    .on("click", function () {
-      console.log($(".id-subject:eq(" + index2 + ")").text());
-      var idsubdel = $(".id-subject:eq(" + index2 + ")").html();
-      $.ajax({
-        url: "funtionofPage/updateinadmin.php",
-        type: "POST",
-        data: {
-          idsubdel: idsubdel,
-        },
-        success: function (data) {
-          $(".styled-table-tr:eq(" + index2 + ")").remove();
-          setTimeout(function () {
-            $(".confirm-whendelete").removeClass("slideup");
-          }, 1000);
-        },
-      });
-    });
-});
 //get number of user
 $(document).ready(function () {
   $(".id_useracc").length;
-  $(".number-user").html($(".id_useracc").length);
+  $(".number-user").html($(".id_adminacc").length);
   $("id-subject").length;
   $(".number-doc").html($(".id-subject").length);
 });
-//insert/update documents form
+
+//insert/update for ADMIN(parent)
 $(document).ready(function () {
-  $(".form-insert").on("submit", function (event) {
-    event.preventDefault();
-    let namesub = $(".name-subject").val();
-    let detailword = $(".detail-text").val();
-    let idsub = $(".hidden_id").val();
+  $(".adminbtn").click(function () {
+    $(".blur-div").addClass("moveout");
+  });
+  $(".formInadmin i").click(function () {
+    $(".blur-div").removeClass("moveout");
+    $(".id_admin").val("");
+    $(".adminname").val("");
+    $(".adminpass").val("");
+  });
+  $(".formInadmin").on("submit", function (e) {
+    e.preventDefault();
+    const idadminacc = $(".id_admin").val();
+    const adminname = $(".adminname").val();
+    const adminpass = $(".adminpass").val();
+    const adminaccess = $(".adminaccess").val();
+    const container = { idadminacc, adminname, adminpass, adminaccess };
+    console.log(container);
     $.ajax({
-      url: "funtionofPage/updateinadmin.php",
+      url: "./funtionofPage/eventOfadmin/editadmin.php",
       type: "POST",
-      data: {
-        idsub,
-        namesub,
-        detailword,
-      },
-      success: function (data) {
-        var responejson = JSON.parse(data);
-        if (responejson.message === "success") {
+      data: container,
+      success: function (res) {
+        console.log(res);
+        if (res === "success") {
           $(".blur-div").removeClass("moveout");
-          $(".name-subject").val("");
-          $(".detail-text").val("");
-          $(".tablecontent").html("");
-          responejson.data.forEach((value, key) => {
-            const documentdiv = $(`
-  <tr class="styled-table-tr">
-    <td class="id-subject">
-     ${value.id}
-    </td>
-    <td class="subject-word">
-    ${value.subject}
-    </td>
-    <td class="decrip-word">
-    ${value.decrip}
-    </td>
-    <td><span class="editacc insert-subject"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
-      <span class="delacc delete-subject"><i class="fa-regular fa-trash-can"></i>Xóa</span>
-    </td>
-  </tr>`);
-            $(".tablecontent").append(documentdiv);
-          });
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        } else {
+          $(".errorword").text("Hãy kiểm tra lại tên người dùng");
         }
       },
     });
   });
+});
+///buttton editadmin inadminpage
+$(document).ready(function () {
+  var index;
+  $(".editadmin").click(function (e) {
+    $(".blur-div").addClass("moveout");
+    index = $(".editadmin").index(this);
+    const id = $(".id_adminacc:eq(" + index + ")")
+      .html()
+      .trim();
+    $(".id_admin").val(id);
+    $(".adminname").val(
+      $(".admin_name:eq(" + index + ")")
+        .html()
+        .trim()
+    );
+    $(".adminpass").val(
+      $(".admin_pass:eq(" + index + ")")
+        .html()
+        .trim()
+    );
+    $(".adminaccess").val(
+      $(".admin_role:eq(" + index + ")")
+        .html()
+        .trim()
+    );
+  });
+});
+///button confirm and cancel in adminpage
+$(document).on("click", ".deladmin", function () {
+  var index2 = $(".deladmin").index(this);
+  console.log($(".id_adminacc:eq(" + index2 + ")").html());
+  $(".confirm-whendelete").addClass("slideup");
+  $(".admincancel")
+    .off("click")
+    .on("click", function () {
+      $(".confirm-whendelete").removeClass("slideup");
+    });
+  $(".adminconfirm")
+    .off("click")
+    .on("click", function () {
+      console.log($(".id_adminacc:eq(" + index2 + ")").text());
+      var idadminacc = $(".id_adminacc:eq(" + index2 + ")").html();
+      $.ajax({
+        url: "funtionofPage/updateinadmin.php",
+        type: "POST",
+        data: {
+          idadminacc: idadminacc,
+        },
+        success: function (data) {
+          const res = JSON.parse(data);
+          if (res.message == "success") {
+            $(".styled-table tr:eq(" + index2 + ")").remove();
+            setTimeout(function () {
+              $(".confirm-whendelete").removeClass("slideup");
+            }, 1000);
+          }
+        },
+      });
+    });
 });

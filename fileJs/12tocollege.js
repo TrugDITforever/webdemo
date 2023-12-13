@@ -16,9 +16,21 @@ function showReview() {
     element.addEventListener("click", function () {
       const isSubmitted = localStorage.getItem("isAppear");
       if (isSubmitted === "false") {
-        alertwords.innerHTML =
-          "Bạn cần đăng nhập vào trang để xem tài liệu này";
-        alertt.classList.add("moveout");
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+        });
+        Toast.fire({
+          icon: "error",
+          title: "Cần đăng nhập để dùng chức năng này",
+        });
       } else if (isSubmitted === "true") {
         if (element === hovera[0]) {
           ads.classList.add("active");
@@ -64,3 +76,56 @@ function showReview() {
   });
 }
 showReview();
+//btn down in 12tocolleage.php
+$(document).ready(function () {
+  let isSubmit = localStorage.getItem("isAppear");
+  $(".down_test").on("click", function (event) {
+    if (isSubmit === "false") {
+      event.preventDefault();
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Cần đăng nhập để dùng chức năng này",
+      });
+    } else {
+      var index = $(".down_test").index(this);
+      var woElement = $(".test_name p:eq(" + index + ")")
+        .text()
+        .trim();
+      var subjectName = $(".title span:eq(" + index + ")")
+        .text()
+        .trim();
+      var currentDate = new Date();
+      var day = currentDate.getDate();
+      var month = currentDate.getMonth() + 1;
+      var year = currentDate.getFullYear();
+      $.ajax({
+        url: "funtionofPage/tracking.php",
+        type: "post",
+        data: {
+          decrip: woElement,
+          rank: subjectName,
+          day: day,
+          month: month,
+          year: year,
+        },
+        success: function (data) {
+          console.log(data);
+          if (data === "success") {
+            $(".down_test:eq(" + index + ")").html("Đã tải");
+          }
+        },
+      });
+    }
+  });
+});
