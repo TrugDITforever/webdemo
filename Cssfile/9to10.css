@@ -149,7 +149,6 @@ html {
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-
 .tasks-list-cb:checked ~ .tasks-list-mark {
   border-color: #39ca74;
 }
@@ -165,4 +164,10 @@ html {
 .tasks-list-cb:checked ~ .tasks-list-desc {
   color: #34bf6e;
   text-decoration: line-through;
+}
+.show-answer {
+  display: none;
+}
+.show-answer.show {
+  display: block;
 }

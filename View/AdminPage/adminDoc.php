@@ -64,6 +64,7 @@
                       <th>Mã số đề</th>
                       <th>Tên môn học</th>
                       <th>Mô tả</th>
+                      <th>Ảnh</th>
                       <th>Chỉnh sửa</th>
                     </tr>
                   </thead>
@@ -85,6 +86,9 @@
                         </td>
                         <td class="decrip-word">
                           <?php echo $row['decrip']; ?>
+                        </td>
+                        <td class="decrip-img">
+                          <?php echo $row['imgtest']; ?>
                         </td>
                         <td><span class="editacc insert-subject"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
                           <span class="delacc delete-subject"><i class="fa-regular fa-trash-can"></i>Xóa</span>
@@ -111,18 +115,26 @@
             <h1>Cập nhật tài liệu</h1>
             <input class="hidden_id" type="text">
             <label for="">Tên môn học:</label>
-            <!-- <input class="name-subject" type="text" required> -->
             <select name="subject-status" class="name-subject">
               <option value="Toán học">Toán học</option>
-              <option value="Ngữ Văn">Ngữ văn</option>
-              <option value="Tiếng Anh">Tiếng anh</option>
-              <option value="Hóa Học">Hóa học</option>
+              <option value="Ngữ văn">Ngữ văn</option>
+              <option value="Tiếng anh">Tiếng anh</option>
+              <option value="Hóa học">Hóa học</option>
               <option value="Vật lí">Vật lí</option>
               <option value="Sinh học">Sinh học</option>
               <option value="Địa lí">Địa lí</option>
               <option value="Lịch sử">Lịch sử</option>
               <option value="GDCD">GDCD</option>
             </select>
+            <label for="">Ảnh tài liệu:</label>
+            <div class="inputfile-container">
+            <div class="custom-file-upload">
+                     Chọn ảnh
+                      <i class="fa-solid fa-pen"></i>
+            </div>
+                    <input id="file-input" type="file" accept="image/jpg, image/jpeg,image/png" required>
+                  </div>
+                  <span class="name-file-subject"></span>
             <label for="">Chi tiết:</label>
             <textarea class="detail-text" resizeable="none" cols="30" rows="4" placeholder="Mô tả tài liệu tải lên..."></textarea>
             <button type="submit">

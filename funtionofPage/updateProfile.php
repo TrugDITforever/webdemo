@@ -12,7 +12,7 @@ if (isset($_SESSION["userid"])) {
         $image_folder = "../uploadfile/$userimg";
         move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $image_folder);
     } else {
-        $userimg = "";
+        $userimg = $_POST['fileToUpload'];
     }
     $sql1 = "SELECT * FROM `userprofile` WHERE `id_user` = :user_id";
     $statement = $con->prepare($sql1);

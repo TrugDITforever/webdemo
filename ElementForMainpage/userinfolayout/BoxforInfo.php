@@ -135,55 +135,83 @@
 
             </div>
             <div class="BoxforInfo">
+            <div style="width: 100%">
               <?php
               $row = getMypost();
               $reversedArray = array_reverse($row);
               foreach ($reversedArray as $row) :
               ?>
-                <div class="box1">
-                  <div class="pic1">
-                    <ul>
-                      <li>
-                        <a data-post-id="<?php echo $row['id'] ?>">
-                          <img width="40px" src="./imgg/team.png" alt="" />
-                          <?php echo $row['nameuser'] ?>
-                        </a>
-                      </li>
-                      <li class="space">
-                        <a>
-                          <?php echo $row['subject'] ?>
-                        </a>
-                      </li>
-                      <li class="space">
-                        <a> 1 giờ trước </a>
-                      </li>
-                      <li class="space hover-submenu">
-                        <a> <img src="./imgg/ellipsis.png" ></a>
-                        <ul class="small-submenu">
-                          <li class="btn deletepost"><i class="fa-solid fa-trash-can" style="color: #cb1010;"></i>&nbspXóa bài</li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="comment1">
-                    <p>
-                      <?php echo $row['cmtStatus'] ?>
-                    </p>
-                    <a>
-                      <img src="https://2.bp.blogspot.com/-N5M0I9_1tks/XkElu5uQXII/AAAAAAAAARs/s6sQJXhXzC8CtdmKO3dNv9wKnMAsodQBwCLcBGAsYHQ/s1600/trac-nghiem-gioi-han-1.png" alt="" />
-                    </a>
+                <div class="containerPost">
+                  <div class="box1">
+                    <div class="pic1">
+                      <ul>
+                        <li>
+                          <a data-post-id="<?php echo $row['id'] ?>">
+                            <img width="40px" src="<?php echo 'uploadfile/'.$row['imguser']?>" alt="" />
+                            <?php echo $row['nameuser'] ?>
+                          </a>
+                        </li>
+                        <li class="space">
+                          <a>
+                            <?php echo $row['subject'] ?>
+                          </a>
+                        </li>
+                        <li class="space">
+                          <a> 1 giờ trước </a>
+                        </li>
+                        <li class="space hover-submenu">
+                          <a> <img src="./imgg/ellipsis.png"></a>
+                          <ul class="small-submenu">
+                            <li class="deletepost"><i class="fa-solid fa-trash-can"></i>&nbspXóa bài</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="comment1">
+                      <p>
+                        <?php echo $row['cmtStatus'] ?>
+                      </p>
+                      <a>
+                        <img src="<?php echo 'uploadfile/'.$row['img']?>" alt="" />
+                      </a>
 
+                    </div>
                   </div>
-                  <!-- <div class="place_tolike">
-                    <ul>
-                      <li><i class="fa-regular fa-thumbs-up fa-lg"></i>Thích</li>
-                      <li class="answer-comment"><i class="fa-regular fa-comment"></i>Trả lời</li>
-                      <li><i class="fa-regular fa-share-from-square"></i>Chia sẻ</li>
-                    </ul>
-                  </div> -->
+                 
+                  <div class="Container-user-comment">
+                    <h5 class="word-usercommet">Bình luận của người dùng:</h5>
+                  <?php 
+                 $rowForUserPost = getPost_commentbyId($row['id']);
+                 if(!empty($rowForUserPost)){
+                 foreach ($rowForUserPost as $row):
+                  ?>
+                  <div class="User-comment-contain">
+                    <div class="user-comment-info">
+                      <div class="user-comment-pic">
+                        <img src="./uploadfile/<?php 
+                        if(!empty($row['img'])){
+                          echo $row['img'];
+                        }
+                          ?>" alt="">
+                      </div>
+                      <div class="user-comment-name-container">
+                        <div class="user-comment-name" data-id-cmt="<?php echo $row['id']?>">
+                          <h4><?php echo $row['username']?> 
+                        </h4>
+                          <span><?php echo $row['comment']?></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                   <?php
+                   endforeach;
+                  }
+                   ?>
+                  </div>
                 </div>
               <?php
               endforeach;
               ?>
+            </div>
             </div>
           </div>

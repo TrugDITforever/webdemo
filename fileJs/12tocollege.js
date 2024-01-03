@@ -1,71 +1,60 @@
+const review = document.querySelector(".review");
+const test = document.querySelector(".test");
+const loginplacee = document.querySelector(".outsideloginplace");
+const hovera = document.querySelectorAll(".read a");
+const alertt = document.querySelector(".alert");
+const alertword = document.querySelector(".alertword a");
+const alertwords = document.querySelector(".alertword p");
 function showReview() {
-  const revew = document.querySelector(".review");
-  const test1 = document.querySelector(".test:nth-child(1)");
-  const test2 = document.querySelector(".test:nth-child(2)");
-  const test3 = document.querySelector(".test:nth-child(3)");
-  const test4 = document.querySelector(".test:nth-child(4)");
-  const loginplacee = document.querySelector(".outsideloginplace");
-  const hovera = document.querySelectorAll(".read a");
-  const alertt = document.querySelector(".alert");
-  const alertword = document.querySelector(".alertword a");
-  const alertwords = document.querySelector(".alertword p");
   alertword.addEventListener("click", function () {
     alertt.classList.remove("moveout");
   });
-  hovera.forEach(function (element) {
-    element.addEventListener("click", function () {
-      const isSubmitted = localStorage.getItem("isAppear");
-      if (isSubmitted === "false") {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 2000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
-          icon: "error",
-          title: "Cần đăng nhập để dùng chức năng này",
-        });
-      } else if (isSubmitted === "true") {
-        if (element === hovera[0]) {
-          ads.classList.add("active");
-          revew.classList.add("opacity");
-          test1.classList.add("appearrr");
-        }
-        if (element === hovera[1]) {
-          ads.classList.add("active");
-          revew.classList.add("opacity");
-          test2.classList.add("appearrr");
-        }
-        if (element === hovera[2]) {
-          ads.classList.add("active");
-          revew.classList.add("opacity");
-          test3.classList.add("appearrr");
-        }
-        if (element === hovera[3]) {
-          ads.classList.add("active");
-          revew.classList.add("opacity");
-          test4.classList.add("appearrr");
-        }
-      }
-    });
+  $(".read a").click(function () {
+    var index;
+    const isSubmitted = localStorage.getItem("isAppear");
+    if (isSubmitted === "false") {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Cần đăng nhập để dùng chức năng này",
+      });
+    } else if (isSubmitted === "true") {
+      index = $(".read a").index(this);
+      const idexam = $("a[data-id-exam]:eq(" + index + ")").data("id-exam");
+      $.ajax({
+        url: "funtionofPage/getExamimg.php",
+        type: "POST",
+        data: { idexam: idexam },
+        success: function (res) {
+          const resposne = JSON.parse(res);
+          if (resposne.message === "success") {
+            $(".review").addClass("opacity");
+            const imgtest = resposne.data.imgtest;
+            $(".test img").attr("src", `uploadfile/${imgtest}`);
+            $(".ads").addClass("active");
+            document.body.style.overflow = "hidden";
+          }
+        },
+      });
+    }
   });
   ads.addEventListener("click", function (event) {
     var targetElement = event.target;
-    if (targetElement != revew) {
-      pagedangnhap.classList.remove("appear");
-      pagedangki.style.display = "none";
+    if (targetElement != review) {
       ads.classList.remove("active");
-      revew.classList.remove("opacity");
-      test1.classList.remove("appearrr");
-      test2.classList.remove("appearrr");
-      test3.classList.remove("appearrr");
-      test4.classList.remove("appearrr");
+      review.classList.remove("opacity");
+      test.classList.remove("appearrr");
+      document.body.style.overflow = "auto";
     }
   });
   const tabmenuall = document.querySelectorAll(".tabmenub");

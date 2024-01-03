@@ -122,7 +122,15 @@
                         </td>
                         <td>
                           <!-- <span class="editacc"><i class="fa-regular fa-pen-to-square"></i>Sửa</span> -->
-                          <span class="delacc adminpost-btn-useracc-delete"><i class="fa-regular fa-trash-can"></i>Xóa</span>
+                          <?php 
+                            $access= $row['access'];
+                            if($access == 1){
+                              echo '<span class="delacc adminpost-btn-useracc-delete"><i class="fa-regular fa-trash-can"></i><span class="del-wo">Chặn</span></span>';
+                            }else if($access == 0)  {
+                              echo '<span class="delacc adminpost-btn-useracc-delete"><i class="fa-regular fa-trash-can"></i><span class="del-wo">Bỏ chặn</span></span>';
+                            }
+                            ?>
+                          
                         </td>
                       </tr>
 
@@ -148,7 +156,7 @@
                       <ul>
                         <li>
                           <a data-post-id="<?php echo $row['id'] ?>">
-                            <img width="40px" src="./imgg/team.png" alt="" />
+                            <img width="40px" src="<?php echo 'uploadfile/'.$row['imguser']?>" alt="" />
                             <?php echo $row['nameuser'] ?>
                           </a>
                         </li>
@@ -162,7 +170,7 @@
                         </li>
                         <li class="space hover-submenu">
                           <a> <img src="./imgg/ellipsis.png"></a>
-                          <ul class="small-submenu">
+                          <ul class="small-submenu">                     
                             <li class="deletepost"><i class="fa-solid fa-trash-can"></i>&nbspXóa bài</li>
                           </ul>
                         </li>
@@ -196,9 +204,9 @@
                           ?>" alt="">
                       </div>
                       <div class="user-comment-name-container">
-                        <div class="user-comment-name">
+                        <div class="user-comment-name" data-id-cmt="<?php echo $row['id'] ?>" >
                           <div>
-                          <span style="color: red;"><i class="fa-solid fa-trash-can"></i>&nbsp;Delete</span>
+                          <span class="cmt-del-btn"style="color: red;"><i class="fa-solid fa-trash-can"></i>&nbsp;Delete</span>
                           </div>
                           <h4><?php echo $row['username']?> 
                         </h4>
@@ -240,7 +248,7 @@
 
     </div>
     <div class="confirm-whendelete">
-      <h4><i class="fa-solid fa-triangle-exclamation" style="color: #f0e800;"></i>Bạn có chắc chắn muốn xóa!</h4>
+      <h4><i class="fa-solid fa-triangle-exclamation" style="color: #f0e800;"></i>Chắc chắn hành động này!</h4>
       <div class="confirm-button">
         <button type="button" class="mark button secondary-button mr-12 adminpost-confirm">Xác nhận</button>
         <button type="button" class="mark button primary-button adminpost-cancel">Hủy</button>

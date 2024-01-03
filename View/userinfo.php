@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LearnX2</title>
+  <title>Learn and learn</title>
+
   <link rel="stylesheet" href="Cssfile/style.css">
   <link rel="stylesheet" href="Cssfile/userinfo.css">
   <link rel="icon" href="imgg/loggo.png" />
   <link rel="stylesheet" href="source font/fontawesome/fontawesome/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>

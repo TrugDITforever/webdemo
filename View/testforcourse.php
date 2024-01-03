@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="Cssfile/testforcource.css" />
   <link rel="icon" href="imgg/loggo.png" />
   <link rel="stylesheet" href="source font/fontawesome/fontawesome/css/all.min.css" />
-  <title>LEARN AND LEARN</title>
+  <title>Learn and learn</title>
+
 </head>
 
 <body>
@@ -110,7 +111,7 @@
                       </div>
                       <div class="btndowwn">
                         <div class="btndoown">
-                          <a class="down" href="./powerpoint/cources.txt"><span>Tải Xuống!</span></a>
+                          <a class="down" href="./powerpoint/cources.txt" download><span>Tải Xuống!</span></a>
                         </div>
                       </div>
                     </div>

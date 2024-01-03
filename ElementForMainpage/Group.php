@@ -1,4 +1,3 @@
-
 <div class="group-container">
     <div class="create">
         <p>Tạo nhóm để học cùng nhau nhé!!!</p>
@@ -12,7 +11,7 @@
     </div>
     <div class="group-main">
         <?php $row = getGroupAll();
-        foreach ($row as $row){
+        foreach ($row as $row) {
         ?>
             <div class="group">
                 <div class="group-img">
@@ -27,17 +26,15 @@
                                         } ?>" alt="" />
                         </a>
                     </div>
-                    <div style="
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                    ">
+                    <div>
                         <span><?php echo $row['groupname'] ?></span>
+                        <div class="gr-btn">
+                            <button>Tham Gia</button>
+                        </div>
                     </div>
+
                 </div>
-                <div class="gr-btn">
-                    <button>Tham Gia Ngay</button>
-                </div>
+               
             </div>
         <?php } ?>
         <!-- Get group that u create -->
@@ -58,17 +55,14 @@
                                         } ?>" alt="" />
                         </a>
                     </div>
-                    <div style="
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                    ">
+                    <div >
                         <span><?php echo $row['groupname'] ?></span>
-                    </div>
-                </div>
-                <div class="gr-btn">
+                        <div class="gr-btn">
                     <button>Vào xem</button>
                 </div>
+                    </div>
+                </div>
+               
             </div>
         <?php endforeach; ?>
     </div>

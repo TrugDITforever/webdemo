@@ -11,7 +11,8 @@
       rel="stylesheet"
       href="source font/fontawesome/fontawesome/css/all.min.css"
     />
-    <title>LEARN AND LEARN</title>
+    <title>Learn and learn</title>
+
   </head>
 
   <body>

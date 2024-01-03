@@ -9,7 +9,8 @@
   <link rel="icon" href="../imgg/loggo.png" />
   <link rel="stylesheet" href="../source font/fontawesome/fontawesome/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>LEARN AND LEARN</title>
+  <title>Learn and learn</title>
+
 </head>
 
 <body>
@@ -31,6 +32,12 @@
           <?php include "./ElementForMainpage/login-signup.php" ?>
         </div>
         <div class="board">
+          <div class="board-btn prev">
+            <i class="fa-solid fa-caret-left"></i>
+          </div>
+          <div class="board-btn nexxt">
+            <i class="fa-solid fa-caret-right"></i>
+          </div>
           <div class="peo1">
             <img src="https://image.baogialai.com.vn/w840/dataimages/202207/original/images3171534_1.jpg" alt="" />
             <h3>Dương Khánh Linh</h3>
@@ -79,7 +86,7 @@
           <div class="ask-box">
             <span>Tìm môn học:</span>
             <select name="subject-status" id="ask-place" class="select-subject">
-            <option value="">Tất cả</option>
+              <option value="">Tất cả</option>
               <option value="Toán học">Toán học</option>
               <option value="Ngữ Văn">Ngữ văn</option>
               <option value="Tiếng Anh">Tiếng anh</option>
@@ -106,7 +113,7 @@
               <ul>
                 <li>
                   <a href="index?post_id=<?php echo $row['id'] ?>" data-post-id="<?php echo $row['id'] ?>">
-                    <img width="40px" src="./imgg/team.png" alt="" />
+                    <img width="40px" src="<?php echo 'uploadfile/'.$row['imguser']?>" alt="" />
                     <?php echo $row['nameuser'] ?>
                   </a>
                 </li>
@@ -125,10 +132,12 @@
                 <?php echo $row['cmtStatus'] ?>
               </p>
               <a>
-                <img src="https://2.bp.blogspot.com/-N5M0I9_1tks/XkElu5uQXII/AAAAAAAAARs/s6sQJXhXzC8CtdmKO3dNv9wKnMAsodQBwCLcBGAsYHQ/s1600/trac-nghiem-gioi-han-1.png" alt="" />
+              <img src="<?php echo "./uploadfile/" . $row['img']; ?>" alt="" />
+
               </a>
 
             </div>
+            <div class="line"></div>
             <div class="place_tolike">
               <ul>
                 <li><i class="fa-regular fa-thumbs-up fa-lg"></i>Thích</li>
@@ -196,7 +205,7 @@
       <!-- poststatus-create-form -->
       <div class="Post-create">
         <i class="fa-solid fa-circle-xmark" id="close4"></i>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
           <h4>
             Tạo bài viết
           </h4>
@@ -227,7 +236,7 @@
           <input id="post-btn" type="submit" value="Đăng" />
         </form>
       </div>
-  <!-- form post comment to status -->
+      <!-- form post comment to status -->
       <div class="FormPostComment">
         <div class="Status-title">
           <div class="word-title-status" data-idpost="">
@@ -280,12 +289,12 @@
             <div class="UserComment-Pic">
               <?php
               $row = getuserInfo();
-              if (empty($row['name']) && empty($row['id_user'])&&empty($row['img'])) {
+              if (empty($row['name']) && empty($row['id_user']) && empty($row['img'])) {
                 $row['name'] = "no name";
                 $row['id_user'] = "";
-                $row['img']="face.png";
-              }else{
-                echo '<img src="./uploadfile/'.$row['img'].'" " data-id-user="' . $row['id_user'] . ' "data-username="' . $row['name'] . ' ">';
+                $row['img'] = "face.png";
+              } else {
+                echo '<img src="./uploadfile/' . $row['img'] . '" " data-id-user="' . $row['id_user'] . ' "data-username="' . $row['name'] . ' ">';
               }
               ?>
             </div>
@@ -295,7 +304,7 @@
               </div>
               <button type="submit" class="btn-post-comment">
                 <i class="fa-solid fa-paper-plane btn-post-status"></i>
-            </button>
+              </button>
             </form>
           </div>
         </div>
@@ -308,20 +317,60 @@
   <script src="./fileJS/style.js"></script>
   <script>
     const searchForm = document.getElementById("search-form");
-const boxes = document.querySelectorAll(".box1");
-const searchInput = document.getElementById("ask-place");
-searchInput.addEventListener("input", function () {
-  const searchTerm = searchInput.value.toLowerCase();
-  boxes.forEach(function (box) {
-    const subject = box
-      .querySelector("li.space:nth-child(2) a")
-      .textContent.toLowerCase();
-    if (subject.includes(searchTerm) || searchTerm === "") {
-      box.style.display = "block";
-    } else {
-      box.style.display = "none";
-    }
+    const boxes = document.querySelectorAll(".box1");
+    const searchInput = document.getElementById("ask-place");
+    searchInput.addEventListener("input", function() {
+      const searchTerm = searchInput.value.toLowerCase();
+      boxes.forEach(function(box) {
+        const subject = box
+          .querySelector("li.space:nth-child(2) a")
+          .textContent.toLowerCase();
+        if (subject.includes(searchTerm) || searchTerm === "") {
+          box.style.display = "block";
+        } else {
+          box.style.display = "none";
+        }
+      });
+    });
+    window.addEventListener("load", function () {
+  const btnnext = document.querySelector(".nexxt");
+  const btnpre = document.querySelector(".prev");
+  const slideritems = document.querySelectorAll(".peo1");
+  const slideritemswidth = slideritems[0].offsetWidth;
+  const sliderlength = slideritems.length;
+  console.log("sliderlength", sliderlength);
+  console.log("slideritemswidth", slideritemswidth);
+  btnnext.addEventListener("click", function () {
+    handlechange(1);
   });
+  btnpre.addEventListener("click", function () {
+    handlechange(-1);
+  });
+  let positionx = 0;
+  let index = 0;
+  function handlechange(direction) {
+    if (direction === 1) {
+      if (index >= sliderlength - 3) {
+        index = sliderlength - 3;
+        return;
+      }
+      positionx = positionx - (slideritemswidth + 20);
+      slideritems.forEach(function (element) {
+        element.style = `transform: translateX(  ${positionx}px)`;
+      });
+      index++;
+    } else if (direction === -1) {
+      if (index <= 0) {
+        index = 0;
+        return;
+      }
+      positionx = positionx + (slideritemswidth + 20);
+      slideritems.forEach(function (element) {
+        element.style = `transform: translateX(  ${positionx}px)`;
+      });
+      index--;
+    }
+  }
 });
   </script>
 </body>

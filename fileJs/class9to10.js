@@ -36,8 +36,10 @@ $(document).ready(function () {
         success: function (res) {
           console.log(res);
           if (res === "true") {
+            $(".show-answer:eq(" + index + ")").addClass("show");
             $(".tasks-list-cb:eq(" + index + ")").prop("checked", true);
           } else if (res == "false") {
+            $(".show-answer:eq(" + index + ")").removeClass("show");
             $(".tasks-list-cb:eq(" + index + ")").prop("checked", false);
           }
         },

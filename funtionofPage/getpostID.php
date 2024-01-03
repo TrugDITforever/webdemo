@@ -8,7 +8,8 @@ if (isset($_POST['postid'])) {
     if ($statement->execute()) {
         $row = $statement->fetch(PDO::FETCH_ASSOC);
         $statement->closeCursor();
-        $sql = "SELECT * FROM `usercmtstatus` WHERE id_post = :postid";
+        $sql = "SELECT usercmtstatus.username, usercmtstatus.comment,userprofile.img FROM `usercmtstatus` INNER JOIN `userprofile`
+        WHERE usercmtstatus.id_uer = userprofile.id_user and usercmtstatus.id_post = :postid";
         $statement = $con->prepare($sql);
         $statement->bindParam(":postid", $postID);
         if ($statement->execute()) {

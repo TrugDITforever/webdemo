@@ -814,14 +814,13 @@ h5 {
 .pic1 {
   position: relative;
   width: 100%;
-  height: 50px;
+  height: auto;
   background-color: #6085ca;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 .pic1 ul li {
-  margin-top: 5px;
-  /* padding-left: 10px; */
+  margin: 2px 2px;
   list-style: none;
   display: inline-block;
 }
@@ -832,6 +831,11 @@ h5 {
 }
 .pic1 ul li.space {
   padding-left: 35px;
+}
+.pic1 img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 .pic1 a img {
   vertical-align: middle;
@@ -898,10 +902,12 @@ h5 {
   transform: scale(1.5);
 }
 .line {
-  margin: 50px 0px 0px 90px;
-  width: 80%;
-  height: 2px;
+  width: 100%;
+  height: 1px;
   background-color: rgb(169, 169, 169);
+}
+.customer-cmt {
+  margin-top: 40px;
 }
 .reward {
   margin-left: 160px;
@@ -942,49 +948,52 @@ h5 {
 }
 .board {
   display: flex;
+  position: relative;
   width: 100%;
   margin-left: 3px;
   height: 340px;
   overflow: hidden;
 }
+.board-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  top: 10rem;
+  cursor: pointer;
+  z-index: 1;
+  &:hover {
+    color: orange;
+  }
+}
+.board-btn i {
+  font-size: x-large;
+}
+.nexxt {
+  right: 2px;
+}
 .peo1 {
   margin-top: 30px;
-  margin-left: 40px;
+  margin-left: 20px;
   margin-right: 10px;
   width: 250px;
   height: 250px;
   border-radius: 20px;
-  background-color: white;
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  /* background-color: white; */
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.3s linear;
   /* animation: move 10s infinite alternate; */
 }
-@keyframes move {
-  0% {
-    transform: translateX(-1500px);
-  }
-  25% {
-    transform: translateX(-1000px);
-  }
-  50% {
-    transform: translateX(-550px);
-  }
-  75% {
-    transform: translate3d(-250px);
-  }
-  90% {
-    transform: translate3d(-100px);
-  }
-  100% {
-    transform: translateX(10px);
-  }
-}
-
 .peo1 img {
-  margin: 5px 15px 0px 15px;
+  margin: 10px;
   width: 200px;
-  border-radius: 25px;
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.734);
+  border-radius: 20px;
   transition: all 0.3s linear;
   cursor: pointer;
 }
@@ -1065,8 +1074,6 @@ h5 {
   padding-right: 5px;
 }
 .group-img span {
-  /* font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif; */
-  /* font-style: oblique; */
   text-align: center;
 }
 
@@ -1074,19 +1081,21 @@ h5 {
   width: 100%;
   height: 70px;
 }
+.group-img:hover .gr-btn {
+  display: block;
+}
 .gr-btn button {
   width: 95%;
   height: 50px;
   margin: 10px 0px 0px 8px;
   background-color: #0a40a3;
-
   border: none;
   color: white;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 1rem;
   border-radius: 35px;
   cursor: pointer;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
@@ -1243,7 +1252,7 @@ h5 {
   background-color: #eee;
   border: 1px solid #ccc;
   padding: 20px;
-  height: 400px;
+  height: 350px;
   z-index: 15;
   width: 700px;
   border-radius: 20px;
@@ -2066,13 +2075,15 @@ h5 {
   height: auto;
 }
 .user-comment-pic {
-  width: 10%;
+  margin: 8px;
+  width: 50px;
   height: 50px;
 }
 .user-comment-pic img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: fill;
 }
 .user-comment-name-container {
   max-width: 70%;
@@ -2117,16 +2128,18 @@ h5 {
   margin-top: 5px;
   width: 100%;
   min-height: 50px;
-  user-select: text;
+  -webkit-user-select: text;
   white-space: pre-wrap;
   word-break: break-word;
   cursor: text;
   border: none;
   outline: none;
   border-radius: 20px;
-  /* box-shadow: rgb(60, 60, 60) 1px 1px 4px; */
   overflow: auto;
   resize: none;
+}
+div:where(.swal2-icon) {
+  -webkit-user-select: none;
 }
 .Form-comment-status {
   margin: 10px;

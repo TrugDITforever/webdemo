@@ -16,14 +16,15 @@ function getuserInfo() {
 function getcmtstatus()
 {
     global $con;
-    $sql = "SELECT * FROM `poststatus`";
+    $sql = "SELECT poststatus.id,poststatus.iduser,poststatus.nameuser,poststatus.subject, poststatus.cmtStatus,poststatus.img, userprofile.img AS imguser FROM `poststatus` INNER JOIN `userprofile` 
+    WHERE poststatus.iduser = userprofile.id_user";
     $statement = $con->prepare($sql);
     $statement->execute();
     $row = $statement->fetchAll();
     $statement->closeCursor();
     return $row;
 }
-function poststatus($subject, $commentstatus)
+function poststatus($subject, $commentstatus,$userimg)
 {
     global $con;
     $user_id = $_SESSION["userid"];
@@ -35,13 +36,14 @@ function poststatus($subject, $commentstatus)
         $row = $statement->fetch(PDO::FETCH_ASSOC);
         $iduser = $row["id_user"];
         $name = $row["name"];
-        $sql = "INSERT INTO `poststatus` (`iduser`, `nameuser`, `subject`, `cmtStatus`) 
-                VALUES (:iduser, :name, :subject, :commentstatus)";
+        $sql = "INSERT INTO `poststatus` (`iduser`, `nameuser`, `subject`, `cmtStatus`,`img` ) 
+                VALUES (:iduser, :name, :subject, :commentstatus,:imgpost)";
         $statement = $con->prepare($sql);
         $statement->bindParam(':iduser', $iduser, PDO::PARAM_INT);
         $statement->bindParam(':name', $name, PDO::PARAM_STR);
         $statement->bindParam(':subject', $subject, PDO::PARAM_STR);
         $statement->bindParam(':commentstatus', $commentstatus, PDO::PARAM_STR);
+        $statement->bindParam(':imgpost', $userimg, PDO::PARAM_STR);
         if ($statement->execute()) {
             return true;
         } else {
@@ -96,9 +98,18 @@ function actioninstudy()
             $comment = $_POST["comments"];
             postcomment($comment);
         } else if ($action === "poststatus") {
-            $subject = filter_input(INPUT_POST, "subject-status");
-            $decrip = filter_input(INPUT_POST, "decrip-status");
-            poststatus($subject, $decrip);
+            if (isset($_FILES["file-status"]["name"])) {
+                $subject = filter_input(INPUT_POST, "subject-status");
+                $decrip = filter_input(INPUT_POST, "decrip-status");
+                $userimg = $_FILES["file-status"]["name"];
+                $image_folder = "./uploadfile/$userimg";
+                if (move_uploaded_file($_FILES["file-status"]["tmp_name"], $image_folder)) {
+                    poststatus($subject, $decrip, $userimg);
+                } else {
+                    echo "File upload failed!";
+                }
+            }
+            
         } else if ($action === "gr-create") {
             creategr();
         }

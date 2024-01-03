@@ -4,11 +4,12 @@ if (isset($_POST['idsub'])) {
     $idsub = $_POST['idsub'];
     $namesub = $_POST['namesub'];
     $detailword = $_POST['detailword'];
+    $filename = $_POST['filename'];
     $sqlcheck = "SELECT * FROM exam_test Where id ='$idsub'";
     $statement = $con->prepare($sqlcheck);
     $statement->execute();;
     if (($statement->rowCount() > 0)) {
-        $sqlupdate = "UPDATE exam_test SET subject = '$namesub', decrip ='$detailword' WHERE id = '$idsub'";
+        $sqlupdate = "UPDATE exam_test SET subject = '$namesub', decrip ='$detailword',imgtest ='$filename' WHERE id = '$idsub'";
         $statement = $con->prepare($sqlupdate);
         if ($statement->execute()) {
             $statement->closeCursor();
@@ -26,7 +27,7 @@ if (isset($_POST['idsub'])) {
             echo 'error';
         }
     } else {
-        $sqlinsert = "INSERT INTO `exam_test`(`subject`,`decrip`) VALUES ('$namesub','$detailword')";
+        $sqlinsert = "INSERT INTO `exam_test`(`subject`,`decrip`,`imgtest`) VALUES ('$namesub','$detailword','$filename')";
         $statement = $con->prepare($sqlinsert);
         if ($statement->execute()) {
             $statement->closeCursor();
@@ -73,28 +74,61 @@ if (isset($_POST['idadminacc'])) {
         echo "error";
     }
 }
-///delete useracc in adminpost-acc
+///update access of useracc in adminpost-acc
 if (isset($_POST['iduseracc'])) {
     $idsubdel = $_POST['iduseracc'];
-    $sqldel = "DELETE FROM userprofile WHERE id_user = '$idsubdel'";
+    $sqldel = "SELECT * FROM `useracc` WHERE id = :id";
     $statement = $con->prepare($sqldel);
+    $statement->bindParam(':id', $idsubdel, PDO::PARAM_INT);
     if ($statement->execute()) {
-        $response = array(
-            'message' => 'success',
-        );
-        echo json_encode($response);
+        if ($statement->rowCount() > 0) {
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+            $newAccessValue = ($row['access'] == 1) ? 0 : 1;
+            $sqlupdate = "UPDATE `useracc` SET `access` = :newAccess WHERE id = :id";
+            $statement = $con->prepare($sqlupdate);
+            $statement->bindParam(':newAccess', $newAccessValue, PDO::PARAM_INT);
+            $statement->bindParam(':id', $idsubdel, PDO::PARAM_INT);
+
+            if ($statement->execute()) {
+                $response = array(
+                    'message' => 'success',
+                );
+            } else {
+                $response = array(
+                    'message' => 'error',
+                );
+            }
+        } else {
+            $response = array(
+                'message' => 'error',
+            );
+        }
     } else {
-        echo "error";
+        $response = array(
+            'message' => 'error',
+        );
     }
+    echo json_encode($response);
 }
+
+
 // delete usserpost in adminpost-acc
-if(isset($_POST['idpost'])) {
-    $idpost=$_POST['idpost'];
-    $sqldel= "DELETE FROM `poststatus` WHERE id = :postid";
-    $statement =$con->prepare($sqldel);
-    $statement->bindValue(':postid',$idpost,PDO::PARAM_INT);
-    if($statement->execute()) {
+if (isset($_POST['idpost'])) {
+    $idpost = $_POST['idpost'];
+    $sqldel = "DELETE FROM `poststatus` WHERE id = :postid";
+    $statement = $con->prepare($sqldel);
+    $statement->bindValue(':postid', $idpost, PDO::PARAM_INT);
+    if ($statement->execute()) {
         echo "success";
     }
 }
-?>
+// delete usercomment in adminpost-acc
+if (isset($_POST['idcmt'])) {
+    $idcmt = $_POST['idcmt'];
+    $sqldel = "DELETE FROM `usercmtstatus` WHERE id = :idcmt";
+    $statement = $con->prepare($sqldel);
+    $statement->bindValue(':idcmt', $idcmt, PDO::PARAM_INT);
+    if ($statement->execute()) {
+        echo "success";
+    }
+}

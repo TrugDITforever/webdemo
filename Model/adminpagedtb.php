@@ -33,7 +33,8 @@ function getExamtest()
 function getUserpost()
 {
     global $con;
-    $sql = "SELECT * FROM `poststatus`";
+    $sql = "SELECT poststatus.id,poststatus.iduser,poststatus.nameuser,poststatus.subject, poststatus.cmtStatus,poststatus.img, userprofile.img AS imguser FROM `poststatus` INNER JOIN `userprofile` 
+    WHERE poststatus.iduser = userprofile.id_user";
     $statement = $con->prepare($sql);
     $statement->execute();
     $row = $statement->fetchAll();

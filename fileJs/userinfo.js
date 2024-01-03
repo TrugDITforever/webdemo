@@ -1,3 +1,11 @@
+//prevent user change default route
+function movetomainpage() {
+  const checkIsappear = localStorage.getItem("isAppear");
+  if (checkIsappear === "false") {
+    window.location.href = "index?route=mainpage";
+  }
+}
+movetomainpage();
 // btn change handling
 $(document).ready(function () {
   $(".infor").click(function () {
@@ -71,13 +79,28 @@ $(document).ready(function () {
     formData.append("usseraddress", usseraddress);
     formData.append("useremail", useremail);
     var fileInput = $("#file-input")[0].files[0];
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+
     if (fileInput) {
       formData.append("fileToUpload", fileInput);
       console.log(fileInput);
     } else {
       var imgSrc = $("#image").attr("src");
-      formData.append("fileToUpload", imgSrc);
-      console.log(imgSrc);
+      var parts = imgSrc.split("/");
+      var lastPart = parts[parts.length - 1];
+      console.log(lastPart);
+      formData.append("fileToUpload", lastPart);
+      console.log(lastPart);
     }
     if (isNaN(phonenumber)) {
       $(".alertword p").html("Vui Lòng nhập đúng kiểu số điện thoại");
@@ -93,11 +116,13 @@ $(document).ready(function () {
       success: function (data) {
         console.log(data);
         if (data === "success-UPDATE") {
-          $(".alertword p").html("Cập nhật thành công");
-          $(".alert").addClass("moveout");
+          Toast.fire({
+            icon: "success",
+            title: "Cập nhật thành công!",
+          });
           setTimeout(() => {
-            $(".alert").removeClass("moveout");
-          }, 3000);
+            window.location.reload();
+          }, 2000);
         } else {
           console.log(data);
         }
@@ -112,12 +137,22 @@ $(document).ready(function () {
     let currentpass = $("#currentpasss").val();
     let newpass = $("#newpass").val();
     let cpassword = $("#cnewpass").val();
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
     if (newpass !== cpassword) {
-      $(".alertword p").html("Mật khẩu xác nhận sai!");
-      $(".alert").addClass("moveout");
-      setTimeout(() => {
-        $(".alert").removeClass("moveout");
-      }, 2000);
+      Toast.fire({
+        icon: "error",
+        title: "Mật khẩu xác nhân không đúng!",
+      });
       return;
     }
     $.ajax({
@@ -130,11 +165,10 @@ $(document).ready(function () {
       success: function (data) {
         console.log(data);
         if (data === "success") {
-          $(".alertword p").html("Cập nhật thành công");
-          $(".alert").addClass("moveout");
-          setTimeout(() => {
-            $(".alert").removeClass("moveout");
-          }, 3000);
+          Toast.fire({
+            icon: "success",
+            title: "Cập nhật thành công!",
+          });
           $("#currentpasss").val("");
           $("#newpass").val("");
           $("#cnewpass").val("");
@@ -151,6 +185,12 @@ $(document).ready(function () {
       },
     });
   });
+});
+//cacel update password
+$(document).on("click", ".btnupdate2", function (e) {
+  $("#currentpasss").val("");
+  $("#newpass").val("");
+  $("#cnewpass").val("");
 });
 // manage postStatus
 $(document).ready(function () {
@@ -176,7 +216,7 @@ $(document).ready(function () {
         console.log(res);
         if (res === "success") {
           $(".Confirm-form-delete").removeClass("moveout");
-          $(".box1:eq(" + index + ")").remove();
+          $(".containerPost:eq(" + index + ")").remove();
         }
       },
     });

@@ -86,7 +86,9 @@
                 <span class="tasks-list-desc">Đã hoàn thành</span>
               </label>
             </div>
-
+<div class="show-answer">
+  <a href="./powerpoint/Đáp án.txt" download> Tải xuống đáp án!</a>
+</div>
             <div class="placefortest">
               <div class="dethi"></div>
               <div class="exam1">

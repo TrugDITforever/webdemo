@@ -9,14 +9,12 @@
   <link rel="icon" href="imgg/loggo.png" />
   <link rel="stylesheet" href="source font/fontawesome/fontawesome/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>LEARN AND LEARN</title>
+  <title>Learn and learn</title>
 </head>
-
 <body>
   <?php include "ElementForMainpage/header.php"; ?>
   <div class="container">
     <div class="ads"></div>
-
     <div class="main">
       <div class="arrow">
         <a href="#login-place" href="#">
@@ -24,7 +22,6 @@
         </a>
       </div>
       <?php include "ElementForMainpage/tabmain.php" ?>
-
       <div class="infor">
         <div class="outsideloginplace">
           <?php include "ElementForMainpage/login-signup.php" ?>
@@ -45,11 +42,11 @@
               <div class="box">
                 <div class="test_name">
                   <p>
-                   <?php echo $row['decrip'] ?>
+                    <?php echo $row['decrip'] ?>
                   </p>
                 </div>
                 <div class="title">
-                 <p> <i class="fa-regular fa-folder-open"> </i><span><?php echo $row["subject"] ?></span>, Đề thi THPT quốc gia</p>
+                  <p> <i class="fa-regular fa-folder-open"> </i><span><?php echo $row["subject"] ?></span>, Đề thi THPT quốc gia</p>
                 </div>
                 <div class="eyeandown">
                   <div class="eye">
@@ -65,18 +62,16 @@
                 </div>
                 <div class="hidden">
                   <div class="read">
-                    <a>Review</a>
+                    <a data-id-exam="<?php echo $row['id']?>">Review</a>
                   </div>
                   <div class="btndown">
                     <a class="down_test" href="./powerpoint/cources.txt" download="">Download</a>
                   </div>
                 </div>
               </div>
-
             <?php
             }
             ?>
-
           </div>
         </div>
         <!-- end here -->
@@ -84,15 +79,6 @@
       <div class="review">
         <div class="test">
           <img src="https://toanmath.com/wp-content/uploads/2022/07/de-thi-chinh-thuc-ky-thi-tot-nghiep-thpt-nam-2022-mon-toan.png" alt="" />
-        </div>
-        <div class="test">
-          <img src="https://hou.edu.vn/files/anhbaiviet/Images/2019/Thang_06/Dap%20an%20Van%20THPT/Dap%20an%20Van%202019%20p1.png" alt="" />
-        </div>
-        <div class="test">
-          <img src="https://media.kenhtuyensinh.vn/images/cms/2019/06/de-thi-mon-hoa-thpt-2019.png" alt="" />
-        </div>
-        <div class="test">
-          <img src="https://tailieuhoctap.edu.vn/wp-content/uploads/2022/07/de-thi-ly-2019.jpg" alt="" />
         </div>
       </div>
       <div class="last">
@@ -107,15 +93,12 @@
           </a>
         </div>
       </div>
-
-
-
- 
     </div>
-   <?php  include "./ElementForMainpage/Footer.php"?>
+    <?php include "./ElementForMainpage/Footer.php" ?>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
   <script src="fileJS/style.js"></script>
   <script src="fileJS/12tocollege.js"></script>
 </body>
+
 </html>

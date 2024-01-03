@@ -5,6 +5,7 @@ $(document).ready(function () {
     let namesub = $(".name-subject").val();
     let detailword = $(".detail-text").val();
     let idsub = $(".hidden_id").val();
+    let filename = $(".name-file-subject").html();
     $.ajax({
       url: "funtionofPage/updateinadmin.php",
       type: "POST",
@@ -12,6 +13,7 @@ $(document).ready(function () {
         idsub,
         namesub,
         detailword,
+        filename,
       },
       success: function (data) {
         var responejson = JSON.parse(data);
@@ -49,6 +51,9 @@ $(document).ready(function () {
       <td class="decrip-word">
       ${value.decrip}
       </td>
+      <td class="decrip-img">
+      ${value.imgtest}
+      </td>
       <td><span class="editacc insert-subject"><i class="fa-regular fa-pen-to-square"></i>Sửa</span>
         <span class="delacc delete-subject"><i class="fa-regular fa-trash-can"></i>Xóa</span>
       </td>
@@ -62,26 +67,25 @@ $(document).ready(function () {
 });
 ///get infor from doc_exam_test
 $(document).ready(function () {
-  $(".tablecontent").on("click", ".insert-subject", function () {
-    console.log("Insert");
-    var indexID = $(".insert-subject").index(this);
-    var subjectname = $(".subject-word:eq(" + indexID + ")")
-      .html()
-      .trim();
-    console.log(subjectname);
-    $(".name-subject").val(subjectname);
-    $(".detail-text").val(
-      $(".decrip-word:eq(" + indexID + ")")
-        .html()
-        .trim()
-    );
-    $(".hidden_id").val(
-      $(".id-subject:eq(" + indexID + ")")
-        .html()
-        .trim()
-    );
-    $(".blur-div").addClass("moveout");
-  });
+  var indexID;
+  $(".table-list")
+    .off("click")
+    .on("click", ".insert-subject", function () {
+      console.log("Insert");
+      indexID = $(".insert-subject").index(this);
+      var subjectname = $(".subject-word:eq(" + indexID + ")").html();
+      var decripword = $(".decrip-word:eq(" + indexID + ")").html();
+      console.log(subjectname);
+      console.log(subjectname);
+      $(".name-subject").val(subjectname.trim());
+      $(".detail-text").val(decripword.trim());
+      $(".hidden_id").val(
+        $(".id-subject:eq(" + indexID + ")")
+          .html()
+          .trim()
+      );
+      $(".blur-div").addClass("moveout");
+    });
 });
 //confirm delete inadmindoc
 $(document).on("click", ".delete-subject", function () {
@@ -127,4 +131,9 @@ $(document).on("click", ".delete-subject", function () {
         },
       });
     });
+});
+//file-input onchange
+$("#file-input").change(function () {
+  var filename = $("#file-input")[0].files[0].name;
+  $(".name-file-subject").html(`${filename}`);
 });

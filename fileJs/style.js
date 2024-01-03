@@ -148,11 +148,21 @@ $(document).ready(function () {
   $(".post-button").click(function () {
     let isSubmitted = localStorage.getItem("isAppear");
     if (isSubmitted === "false") {
-      $(".alertword p").html("Bạn cần đăng nhập vào để đăng bài");
-      $(".alert").addClass("moveout");
-      setTimeout(function () {
-        $(".alert").removeClass("moveout");
-      }, 3000);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Cần đăng nhập vào để đăng bài!",
+      });
     } else {
       $(".Post-create").addClass("activate");
       ads.classList.add("active");
@@ -235,7 +245,7 @@ $(document).ready(function () {
           });
           Toast.fire({
             icon: "error",
-            title: "Something went wrong!",
+            title: "Tên đăng nhập hoặc mật khẩu không chính xác!",
           });
           $("#username").val("");
           $("#password").val("");
@@ -255,19 +265,31 @@ $(document).ready(function () {
     let password = $("#password2").val();
     let confirmPassword = $("#password3").val();
     let userEmail = $("#email").val();
-
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
     // Kiểm tra các trường nhập liệu
     if (!username || !password || !confirmPassword || !userEmail) {
-      alert("Vui lòng điền đầy đủ thông tin");
+      Toast.fire({
+        icon: "error",
+        title: "Vui lòng điền đầy đủ thông tin",
+      });
       return;
     }
 
     if (password !== confirmPassword) {
-      $(".alertword p").html("Mật khẩu xác nhận không đúng");
-      $(".alert").addClass("moveout");
-      setTimeout(() => {
-        $(".alert").removeClass("moveout");
-      }, 2000);
+      Toast.fire({
+        icon: "error",
+        title: "Mật khẩu xác nhận không đúng!",
+      });
       return;
     }
     $.ajax({
@@ -281,26 +303,35 @@ $(document).ready(function () {
       success: function (response) {
         console.log(response);
         if (response === "success") {
-          $(".alert").addClass("moveout");
-          $(".alertword p").html("Đăng ký thành công!");
+          Toast.fire({
+            icon: "success",
+            title: "Đăng kí thành công!",
+          });
           $(".ads").removeClass("active");
           $(".Page-signup").css("display", "none");
           $(".outsideloginplace").addClass("disappear");
           localStorage.setItem("isAppear", "true");
-          setTimeout(() => {
-            $(".alert").removeClass("moveout");
-          }, 2000);
+
           setTimeout(() => {
             window.location.reload();
           }, 1000);
-        } else if (response === "error") {
-          $(".alertword p").html("Tên người dùng đã tồn tại");
-          $(".alert").addClass("moveout");
+        } else if (response === "duplicate") {
+          Toast.fire({
+            icon: "error",
+            title: "Tên người dùng đã tồn tại!",
+          });
+        } else {
+          Toast.fire({
+            icon: "error",
+            title: "Đã xảy ra lỗi. Vui lòng thử lại sau!",
+          });
         }
       },
       error: function (xhr, status, error) {
-        $(".alertword p").html("Lỗi cú pháp");
-        $(".alert").addClass("moveout");
+        Toast.fire({
+          icon: "error",
+          title: "Đã xảy ra lỗi. Vui lòng thử lại sau!",
+        });
         console.log(error);
         console.log(xhr.responseText);
         console.log(status);
@@ -308,16 +339,27 @@ $(document).ready(function () {
     });
   });
 });
+
 ///confirm islogin or not
 $(document).ready(function () {
   $(".pageinfo").click(function () {
     const checkIsappear = localStorage.getItem("isAppear");
     if (checkIsappear === "false") {
-      $(".alertword p").html("Bạn cần đăng nhập vào để xem tài khoản");
-      $(".alert").addClass("moveout");
-      setTimeout(() => {
-        $(".alert").removeClass("moveout");
-      }, 2000);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Cần đăng nhập vào để xem tài khoản!",
+      });
     } else {
       window.location.href = "index?route=account";
     }
@@ -325,11 +367,21 @@ $(document).ready(function () {
   $(".btngroup").click(function () {
     const checkIsappear = localStorage.getItem("isAppear");
     if (checkIsappear === "false") {
-      $(".alertword p").html("Bạn cần đăng nhập vào để xem tài khoản");
-      $(".alert").addClass("moveout");
-      setTimeout(() => {
-        $(".alert").removeClass("moveout");
-      }, 2000);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Cần đăng nhập vào để tạo nhóm!",
+      });
     } else {
       $(".group-create").addClass("activate");
       $(".ads").addClass("active");
@@ -345,6 +397,7 @@ $(document).ready(function () {
   $(".close-btn-status").click(function () {
     $(".FormPostComment").removeClass("activate");
     $(".ads").removeClass("active");
+    $(".editable-content").val("");
     $("body").css("overflow", "");
   });
   $(".answer-comment").click(function () {
@@ -368,7 +421,6 @@ $(document).ready(function () {
             "Bài viết của " + responseObject.data.nameuser
           );
           $("div[data-idpost]").data("idpost", postid);
-          console.log(responseObject.listcomments);
           $(".comment-for-status").html("");
           let numbercom = responseObject.listcomments.length;
           $(".numbercom").html(numbercom + " bình luận");
@@ -377,7 +429,7 @@ $(document).ready(function () {
             <div class="User-comment-contain">
             <div class="user-comment-info">
                 <div class="user-comment-pic">
-                  <img src="./imgg/face.png" alt="">
+                  <img src="./uploadfile/${value.img}" alt="">
                 </div>
                 <div class="user-comment-name-container">
                   <div class="user-comment-name">
@@ -401,28 +453,46 @@ $(document).ready(function () {
 $(document).ready(function () {
   $(".Form-comment-status").on("submit", function (e) {
     e.preventDefault();
-    var id = $("img[data-id-user]").data("id-user");
-    var username = $("img[data-username]").data("username");
-    var comment = $(".editable-content").val();
-    var postid = $("div[data-idpost]").data("idpost");
-    $.ajax({
-      url: "../funtionofPage/getusercomment.php",
-      type: "POST",
-      data: {
-        postid: postid,
-        iduser: id,
-        username: username,
-        comment: comment,
-      },
-      success: function (data) {
-        console.log(data);
-        const responejson = JSON.parse(data);
-        if (responejson.message === "success") {
-          handleCreateComment();
-        }
-      },
-    });
-    // }
+    const checkIsappear = localStorage.getItem("isAppear");
+    if (checkIsappear === "false") {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Cần đăng nhập vào để dùng chức năng này!",
+      });
+    } else {
+      var id = $("img[data-id-user]").data("id-user");
+      var username = $("img[data-username]").data("username");
+      var comment = $(".editable-content").val();
+      var postid = $("div[data-idpost]").data("idpost");
+      $.ajax({
+        url: "../funtionofPage/getusercomment.php",
+        type: "POST",
+        data: {
+          postid: postid,
+          iduser: id,
+          username: username,
+          comment: comment,
+        },
+        success: function (data) {
+          console.log(data);
+          const responejson = JSON.parse(data);
+          if (responejson.message === "success") {
+            handleCreateComment();
+          }
+        },
+      });
+    }
   });
   function showcomment(user, commentofuser) {
     const container = $("<div>").addClass("User-comment-contain");
@@ -459,6 +529,48 @@ $(document).ready(function () {
     $(".editable-content").val("");
   }
 });
+
+// window.addEventListener("load", function () {
+//   const btnnext = document.querySelector(".nexxt");
+//   const btnpre = document.querySelector(".prev");
+//   const slideritems = document.querySelectorAll(".peo1");
+//   const slideritemswidth = slideritems[0].offsetWidth;
+//   const sliderlength = slideritems.length;
+//   console.log("sliderlength", sliderlength);
+//   console.log("slideritemswidth", slideritemswidth);
+//   btnnext.addEventListener("click", function () {
+//     handlechange(1);
+//   });
+//   btnpre.addEventListener("click", function () {
+//     handlechange(-1);
+//   });
+//   let positionx = 0;
+//   let index = 0;
+//   function handlechange(direction) {
+//     if (direction === 1) {
+//       if (index >= sliderlength - 3) {
+//         index = sliderlength - 3;
+//         return;
+//       }
+//       positionx = positionx - (slideritemswidth + 20);
+//       slideritems.forEach(function (element) {
+//         element.style = `transform: translateX(  ${positionx}px)`;
+//       });
+//       index++;
+//     } else if (direction === -1) {
+//       if (index <= 0) {
+//         index = 0;
+//         return;
+//       }
+//       positionx = positionx + (slideritemswidth + 20);
+//       slideritems.forEach(function (element) {
+//         element.style = `transform: translateX(  ${positionx}px)`;
+//       });
+//       index--;
+//     }
+//   }
+// });
+
 //button when review
 // import { showReview } from "./12tocollege";
 // showReview();
@@ -498,3 +610,4 @@ $(document).ready(function () {
 //     input.val("");
 //   }
 // }
+// anima

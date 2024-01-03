@@ -43,7 +43,6 @@ html {
   background-color: white;
   position: relative;
   box-shadow: 0 0 2px 2px rgba(194, 194, 194, 0.94);
-  animation: scaleAnimation 5s infinite alternate;
 }
 @keyframes scaleAnimation {
   0% {
@@ -144,41 +143,44 @@ html {
   height: 70px;
 }
 .review {
-  position: absolute;
-  visibility: hidden;
-  opacity: 0;
-  top: 10%;
+  position: fixed;
+  display: none;
   left: 30%;
   width: 36rem;
-  height: 36rem;
+  height: 40rem;
   z-index: 9;
   transition: opacity 0.3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.review::-webkit-scrollbar {
+  width: 5px;
+}
+.review::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #f90d0d;
 }
 .review.opacity {
-  visibility: visible;
-  opacity: 1;
+  display: block;
 }
 .test {
   border-radius: 10px;
-  width: 36rem;
+  width: 100%;
   height: auto;
   position: absolute;
-  box-shadow: 9px 9px 12px #ccc, -3px -3px 12px white;
 }
 .test img {
-  width: 36rem;
+  width: 100%;
   border-radius: 10px;
 }
 .test {
   width: 36rem;
-  visibility: hidden;
-  opacity: 0;
   transition: opacity 1s linear;
 }
-.test.appearrr {
+/* .test.appearrr {
   visibility: visible;
   opacity: 1;
-}
+} */
 /* .test:nth-child(2) {
   visibility: hidden;
   opacity: 0;

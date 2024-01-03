@@ -509,19 +509,19 @@ p {
 }
 .arr li:nth-child(1) {
   color: rgb(193, 193, 4);
-  animation: changecolorr 0.5s infinite alternate;
+  animation: changecolorr 1s infinite alternate;
 }
 .arr li:nth-child(2) {
   color: rgb(179, 1, 182);
-  animation: changecolor2 0.5s infinite alternate;
+  animation: changecolor2 1s infinite alternate;
 }
 .arr li:nth-child(3) {
   color: rgb(24, 160, 6);
-  animation: changecolorr 0.5s infinite alternate;
+  animation: changecolorr 1s infinite alternate;
 }
 .arr li:nth-child(4) {
   color: rgb(255, 3, 3);
-  animation: changecolor2 0.5s infinite alternate;
+  animation: changecolor2 1s infinite alternate;
 }
 
 .btnmove {

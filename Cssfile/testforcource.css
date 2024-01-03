@@ -10,35 +10,70 @@ html {
 .mathplace {
   width: 95%;
   height: auto;
-  margin-top: 10rem;
+  margin-top: 7rem;
   /* margin-left: 30px; */
 }
 .matthwo {
   position: relative;
-  border-bottom: 3px solid #867070;
   width: 93%;
   height: auto;
 }
 .matthwo h1 {
-  /* margin: 0 0 0 400px; */
-  font-weight: 500;
-  width: 50%;
-  border-radius: 20px;
-  background-color: #867070;
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  width: 150px;
   text-align: center;
-  font-family: "Poppins", sans-serif;
-  color: #fff;
+  margin: auto;
+  white-space: nowrap;
+  border: 2px solid #222;
+  padding: 5px 11px 3px 11px;
+}
+.matthwo h1:before,
+.matthwo h1:after {
+  background-color: #c50000;
+  position: absolute;
+  content: "";
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  bottom: 12px;
+}
+.matthwo h1:before {
+  left: -20px;
+}
+.matthwo h1:after {
+  right: -20px;
 }
 .courcewwo h1 {
-  margin-left: 5px;
-  margin-bottom: 0;
-  font-weight: 400;
-  font-size: 1.7rem;
-  width: 50%;
-  border-radius: 20px 20px 0 0;
-  background-color: rgba(49, 79, 162, 0.447);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 160px;
   text-align: center;
-  font-family: "Poppins", sans-serif;
+  white-space: nowrap;
+  padding-bottom: 13px;
+}
+.courcewwo h1:before {
+  background-color: #c50000;
+  content: "";
+  display: block;
+  height: 3px;
+  width: 75px;
+  margin-bottom: 5px;
+}
+.courcewwo h1:after {
+  background-color: #c50000;
+  content: "";
+  display: block;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  width: 75px;
+  margin-bottom: 0.25em;
 }
 .cources {
   display: flex;
@@ -97,7 +132,7 @@ html {
   display: inline-block;
 }
 .arr2 ul {
-  animation: backup 0.5s infinite alternate;
+  animation: backup 3s infinite alternate;
 }
 .arr2 i {
   font-size: small;
@@ -138,19 +173,15 @@ html {
 }
 .arr2 li:nth-child(1) {
   color: rgb(193, 193, 4);
-  animation: changecolorr 0.5s infinite alternate;
 }
 .arr2 li:nth-child(2) {
-  color: rgb(179, 1, 182);
-  animation: changecolor2 0.5s infinite alternate;
+  color: rgb(201, 222, 12);
 }
 .arr2 li:nth-child(3) {
   color: rgb(24, 160, 6);
-  animation: changecolorr 0.5s infinite alternate;
 }
 .arr2 li:nth-child(4) {
   color: rgb(255, 3, 3);
-  animation: changecolor2 0.5s infinite alternate;
 }
 .btndowwn {
   display: flex;
@@ -203,11 +234,11 @@ html {
 }
 .menucource {
   height: 3rem;
-  margin: 50px 0 50px 0;
+  margin: 50px 0 30px 0;
 }
 .menucource ul li {
   display: inline-block;
-  padding: 20px 35px 20px 0;
+  padding: 20px 20px 20px 0;
 }
 .menucource a {
   border: 2px solid yellow;
