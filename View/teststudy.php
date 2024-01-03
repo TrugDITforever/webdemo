@@ -113,7 +113,7 @@
                   </div>
                   <div class="part">
                     <div class="part1">
-                      <img src="number-one.png" alt="" />
+                      <img src="./imgg/number-one.png" alt="" />
                     </div>
                     <div class="part2">
                       <div class="part2-move">
@@ -135,7 +135,7 @@
                   </div>
                   <div class="part">
                     <div class="part1">
-                      <img src="number-2.png" alt="" />
+                      <img src="./imgg/number-2.png" alt="" />
                     </div>
                     <div class="part2">
                       <div class="part2-move">
@@ -156,7 +156,7 @@
                   </div>
                   <div class="part">
                     <div class="part1">
-                      <img src="number-3.png" alt="" />
+                      <img src="./imgg/number-3.png" alt="" />
                     </div>
                     <div class="part2">
                       <div class="part2-move">
@@ -203,18 +203,18 @@
                 </div>
                 <div class="arroww">
                   <div class="arrow1">
-                    <img src="number-111.png" alt="" />
+                    <img src="./imgg/number-111.png" alt="" />
                   </div>
                   <div class="arrow1">
-                    <img src="number-22.png" alt="" />
+                    <img src="./imgg/number-22.png" alt="" />
                   </div>
                   <div class="arrow1">
-                    <img src="number-33.png" alt="" />
+                    <img src="./imgg/number-33.png" alt="" />
                   </div>
                 </div>
                 <div class="linethr">
                   <i class="fa-sharp fa-solid fa-arrow-right fa-xl"></i>
-                  <img class="schooll" src="school.png" alt="" />
+                  <img class="schooll" src="./imgg/school.png" alt="" />
                 </div>
 
                 <div class="arroww">

@@ -64,10 +64,10 @@ function getNameclass()
       <div class="liststudy2">
         <ul>
           <li>
-            <a href="index?route=9to10class">Đề thi lớp 9 lên 10</a>
+           <span><i class="fa-solid fa-marker" style="color: #0c419d;"></i></span>&nbsp;<a href="index?route=9to10class">Đề thi lớp 9 lên 10</a>
           </li>
           <li>
-            <a href="index?route=College">Đề thi THPT quốc gia</a>
+            <span><i class="fa-solid fa-paste" style="color: #0240ac;"></i></span>&nbsp;<a href="index?route=College">Đề thi THPT quốc gia</a>
           </li>
         </ul>
       </div>

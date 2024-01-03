@@ -7,7 +7,7 @@ body {
   font-family: "Nunito", sans-serif;
   margin: 0;
   padding: 0;
-  background: #f0f2f5;
+  background: #fafafa;
   scroll-behavior: smooth;
   scroll-padding-top: 30px;
 }
@@ -41,7 +41,7 @@ html {
 }
 .menu {
   width: 100%;
-  height: 70px;
+  height: 75px;
   display: flex;
   margin-top: 0px;
   background: linear-gradient(
@@ -59,17 +59,19 @@ html {
     #e78ee7,
     #e78ab8
   );
-  /* background-color: #8ec5fc;
-  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%); */
+  /* background-color: #fff; */
 }
 .logo {
-  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
 }
 .slogan {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 30%;
 }
 @keyframes changeback {
   0% {
@@ -86,41 +88,47 @@ html {
   }
 }
 .slogan h1 {
-  margin-left: 200px;
   font-family: "Patrick Hand", cursive;
-  /* color: ghostwhite; */
-  text-shadow: 10px 7px 3px rgb(97, 96, 96);
-  /* animation: changecolor 2s linear infinite alternate; */
+  animation: text-shadow 1.5s infinite ease-in-out;
+  font-size: 2rem;
 }
-@keyframes changecolor {
+@keyframes text-shadow {
   0% {
-    margin-left: 60px;
-    color: #f4de39;
-    margin-bottom: 40px;
+    transform: translateY(0);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
   }
-  25% {
-    margin-left: 40px;
-    color: #f0f0f0;
-    margin-bottom: 20px;
+
+  20% {
+    transform: translateY(-1em);
+    text-shadow: 0 0.125em 0 #0c2ffb, 0 0.25em 0 #2cfcfd, 0 -0.125em 0 #fb203b,
+      0 -0.25em 0 #fefc4b;
   }
-  75% {
-    margin-left: 15px;
-    color: rgb(210, 218, 45);
-    margin-bottom: 10px;
+
+  40% {
+    transform: translateY(0.5em);
+    text-shadow: 0 -0.0625em 0 #0c2ffb, 0 -0.125em 0 #2cfcfd,
+      0 0.0625em 0 #fb203b, 0 0.125em 0 #fefc4b;
   }
-  100% {
-    margin-left: 0px;
-    color: #def5f5;
-    margin-bottom: 0px;
+
+  60% {
+    transform: translateY(-0.25em);
+    text-shadow: 0 0.03125em 0 #0c2ffb, 0 0.0625em 0 #2cfcfd,
+      0 -0.03125em 0 #fb203b, 0 -0.0625em 0 #fefc4b;
+  }
+
+  80% {
+    transform: translateY(0);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
   }
 }
 .logo img {
   display: inline-block;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   margin-left: 40px;
   margin-top: 5px;
-  /* border-radius: 50%; */
+  border-radius: 50%;
+  object-fit: contain;
   mix-blend-mode: multiply;
 }
 
@@ -136,26 +144,20 @@ html {
   }
 }
 .logo a {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: monospace;
   text-decoration: none;
   display: inline-block;
   text-shadow: 10px 7px 5px rgb(97, 96, 96);
-
-  /* font-weight: 500;   */
   color: black;
 }
 .tab-mainmenu {
-  background: white;
-  /* box-shadow: 0px 5px 10px #b4b2b2;   */
-  /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
-  position: relative;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
   height: auto;
-  padding-left: 0px;
-  /* background-color: rgb(18, 104, 144); */
-  /* background-color: gainsboro; */
+  padding: 10px;
 }
 .tabmenu a {
   text-align: center;
@@ -164,13 +166,14 @@ html {
   /* text-transform: capitalize; */
   font-family: "Nunito", sans-serif;
   font-weight: 600;
-  color: rgb(1, 1, 1);
+  color: rgb(69 66 66);
 }
 .tabmenu a:hover {
   /* padding: 5px; */
   background: white !important;
   border-radius: 10px;
   box-shadow: 9px 9px 12px white, -2px -2px 12px white;
+  text-decoration: underline;
   /* box-shadow: inset 200px 0 0 0 #54b3d6; */
   color: rgb(12, 8, 123);
 }
@@ -275,7 +278,7 @@ html {
   display: flex;
   position: relative;
   flex-wrap: wrap;
-  margin-top: 100px;
+  margin-top: 75px;
 }
 .tab-main {
   width: 15.5%;
@@ -303,7 +306,7 @@ html {
 .infor {
   position: relative;
   margin-left: 17.4%;
-  width: 60%;
+  width: 62%;
   scroll-behavior: smooth;
 }
 
@@ -366,6 +369,7 @@ h5 {
 .liststudy li {
   border-radius: 5px;
   margin-top: 5px;
+  list-style: circle;
 }
 .classname-selected-none {
   background: orange;

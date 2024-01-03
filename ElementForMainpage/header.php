@@ -7,12 +7,7 @@
               LearNx2
             </a>
           </div>
-
-          <div class="slogan">
-            <h1>Learn by Yourself</h1>
-          </div>
-        </div>
-        <section class="tab-mainmenu">
+          <section class="tab-mainmenu">
           <div class="tabmenu">
             <ul id="listmainmenu">
               <li>
@@ -47,4 +42,9 @@
             </ul>
           </div>
         </section>
+          <div class="slogan">
+            <h1>Learn by Yourself</h1>
+          </div>
+        </div>
+        
       </header>
