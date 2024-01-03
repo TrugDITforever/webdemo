@@ -30,6 +30,16 @@ function getExamtest()
     $statement->closeCursor();
     return $row;
 }
+function gettest9to10()
+{
+    global $con;
+    $sql = "SELECT * FROM `test`";
+    $statement = $con->prepare($sql);
+    $statement->execute();
+    $row = $statement->fetchALL();
+    $statement->closeCursor();
+    return $row;
+}
 function getUserpost()
 {
     global $con;

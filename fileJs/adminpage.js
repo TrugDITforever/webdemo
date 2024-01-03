@@ -14,6 +14,11 @@ $(document).ready(function () {
     $(".boxshowlist:nth-child(2)").removeClass("appear2");
     $(".boxshowlist:nth-child(3)").addClass("appear3");
   });
+  $(".btn-test9to10").on("click", function () {
+    $(".boxshowlist:nth-child(1)").removeClass("fadeout");
+    $(".boxshowlist:nth-child(2)").addClass("appear2");
+    $(".boxshowlist:nth-child(3)").removeClass("appear3");
+  });
 });
 $(document).ready(function () {
   $(".list-menu li").click(function () {
