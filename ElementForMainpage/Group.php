@@ -3,7 +3,7 @@
         <p>Tạo nhóm để học cùng nhau nhé!!!</p>
         <button class="btngroup">
             <a>
-                <i class="fa-solid fa-circle-plus"></i>
+            <i class="fa-solid fa-people-group"></i>    
                 Tạo Nhóm
             </a>
         </button>

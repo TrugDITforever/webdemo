@@ -28,10 +28,17 @@
         </div>
         <!-- //start here -->
         <div class="all">
+          <div class="contain-wothpt">
           <div class="wordd">
-            <h1>Đề thi THPT quốc gia</h1>
-            <p>có 4289 tài liệu</p>
+            <h1>Đề thi THPT quốc gia và đáp án</h1>
+            <p>Tổng hợp Đề thi THPT Quốc gia và lời giải nhanh và chính xác nhất</p>
           </div>
+          <div class="picthpt">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/013/651/730/original/animated-studying-friends-characters-group-of-classmates-full-body-flat-people-hd-footage-with-alpha-channel-color-cartoon-style-illustration-on-transparent-background-for-animation-video.jpg" alt="">
+          </div>
+          </div>
+         
+          <p>có 4289 tài liệu</p>
           <div class="placefortest">
             <?php
             $row = getExamtests();

@@ -1,14 +1,14 @@
 var tabmenu = document.querySelector(".tab-mainmenu");
 
-const btnMobile = document.querySelector(".mobbilebtn");
-btnMobile.addEventListener("click", function () {
-  console.log(tabmenu.clientHeight);
-  if (tabmenu.clientHeight === 40) {
-    tabmenu.classList.add("addheight");
-  } else {
-    tabmenu.classList.remove("addheight");
-  }
-});
+// const btnMobile = document.querySelector(".mobbilebtn");
+// btnMobile.addEventListener("click", function () {
+//   console.log(tabmenu.clientHeight);
+//   if (tabmenu.clientHeight === 40) {
+//     tabmenu.classList.add("addheight");
+//   } else {
+//     tabmenu.classList.remove("addheight");
+//   }
+// });
 const tabmenuall = document.querySelectorAll(".tabmenu a");
 tabmenuall.forEach(function (element) {
   element.addEventListener("click", function () {
@@ -34,18 +34,22 @@ function appear() {
 window.addEventListener("scroll", appear2);
 function appear2() {
   const img1 = document.querySelectorAll(".img1");
-  const img2 = document.querySelector(".img2");
+  const img2 = document.querySelectorAll(".img2");
   var scrolldis = window.scrollY;
   if (scrolldis >= 700 && scrolldis <= 1300) {
     img1.forEach(function (element) {
       element.classList.add("movee");
     });
-    img2.classList.add("moveee");
+    img2.forEach(function (element) {
+      element.classList.add("moveee");
+    });
   } else {
     img1.forEach(function (element) {
       element.classList.remove("movee");
     });
-    img2.classList.remove("moveee");
+    img2.forEach(function (element) {
+      element.classList.remove("moveee");
+    });
   }
 }
 

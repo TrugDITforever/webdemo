@@ -34,7 +34,7 @@ html {
   z-index: 5;
   border-bottom: 1px solid transparent;
   transition: 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  box-shadow: #ccc 0px 1px 2px 0px;
+  box-shadow: #d7d7d7 0px 1px 1px;
 }
 .head.hide {
   top: -100px;
@@ -46,18 +46,11 @@ html {
   margin-top: 0px;
   background: linear-gradient(
     45deg,
-    #e18080,
-    #dab590,
-    #ffff7f,
-    #bfff7f,
     #90dd90,
     #7fffbf,
     #7fffff,
     #7fbfff,
-    #9191e9,
-    #b78ce1,
-    #e78ee7,
-    #e78ab8
+    #9191e9
   );
   /* background-color: #fff; */
 }
@@ -65,13 +58,12 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 15%;
 }
 .slogan {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
 }
 @keyframes changeback {
   0% {
@@ -155,14 +147,14 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 64%;
   height: auto;
   padding: 10px;
 }
 .tabmenu a {
   text-align: center;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   /* text-transform: capitalize; */
   font-family: "Nunito", sans-serif;
   font-weight: 600;
@@ -170,11 +162,9 @@ html {
 }
 .tabmenu a:hover {
   /* padding: 5px; */
-  background: white !important;
   border-radius: 10px;
-  box-shadow: 9px 9px 12px white, -2px -2px 12px white;
+  /* box-shadow: 9px 9px 12px white, -2px -2px 12px white; */
   text-decoration: underline;
-  /* box-shadow: inset 200px 0 0 0 #54b3d6; */
   color: rgb(12, 8, 123);
 }
 /* .tab-mainmenu.padd {
@@ -355,7 +345,7 @@ html {
   /* text-align: center; */
 }
 .listword h4,
-h5 {
+.listword h5 {
   line-height: 0.5;
 }
 .liststudy {
@@ -718,18 +708,17 @@ h5 {
 }
 
 .ask {
-  margin-top: 35px;
   border-radius: 20px;
   border-bottom-left-radius: 100px;
   border-top-right-radius: 100px;
   border-top-left-radius: 100px;
-
-  width: 461px;
-  height: 175px;
+  width: 400px;
+  height: 100px;
   background-color: #afeeee;
   text-align: center;
-  /* display: inline-block;  */
   margin-left: 50px;
+  display: flex;
+  align-items: center;
 }
 .ask a {
   font-size: 40px;
@@ -739,7 +728,7 @@ h5 {
   margin-top: 0px;
 }
 .ask a img {
-  width: 40%;
+  width: 20%;
   vertical-align: bottom;
   /* animation: biani 4.5s linear infinite alternate; */
 }
@@ -770,9 +759,12 @@ h5 {
   position: relative;
   margin-top: 40px;
   float: right;
-  width: 350px;
+  width: 100%;
   height: 30px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .ask-box input[type="submit"] {
   position: absolute;
@@ -788,13 +780,10 @@ h5 {
   cursor: pointer;
   background-color: rgb(113, 129, 239);
 }
+.searching-wo {
+  font-size: 1.1rem;
+}
 
-/* #search-form {
-  margin-top: 0px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-} */
 #ask-place {
   margin-top: 0px;
   display: inline-block;
@@ -989,19 +978,18 @@ h5 {
   height: 250px;
   border-radius: 20px;
   border: 1px solid #ccc;
-  /* background-color: white; */
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2), 0px -1px 1px rgba(0, 0, 0, 0.2);
   transition: all 0.3s linear;
-  /* animation: move 10s infinite alternate; */
+  background: #fff;
 }
 .peo1 img {
-  margin: 10px;
   width: 200px;
-  border-radius: 20px;
+  height: 155px;
+  border-radius: 10px 10px 0 0;
   transition: all 0.3s linear;
   cursor: pointer;
 }
-.peo1 img:hover {
+.peo1:hover {
   transform: scale(1.1);
 }
 .peo1 h3,
@@ -1017,16 +1005,15 @@ h5 {
   flex-direction: column;
 }
 .create button {
-  height: 65px;
-  margin: auto;
-  background-color: #6085ca;
+  padding: 15px 10px;
+  background-color: rgb(0, 45, 167);
   border: none;
   color: rgb(60, 60, 60);
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 18px;
-  border-radius: 35px;
+  border-radius: 10px;
   cursor: pointer;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
@@ -1046,7 +1033,7 @@ h5 {
   vertical-align: middle;
 }
 .create button:hover {
-  background-color: chartreuse;
+  background-color: rgb(0, 66, 249);
   color: white;
 }
 .group-main {
@@ -1262,9 +1249,7 @@ h5 {
   border-radius: 20px;
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.Post-create {
-  height: auto !important;
-}
+
 .group-create.activate,
 .Post-create.activate {
   display: block;
@@ -1272,13 +1257,17 @@ h5 {
 .add-img {
   position: relative;
   right: 0;
-  background-color: #ffffff;
-  width: 30%;
+  background-color: #fff4ed;
+  color: #ff884b !important;
+  width: 23%;
   border: none;
   padding: 10px 10px;
   cursor: pointer;
   border-radius: 30px;
-  box-shadow: 3px 3px 10px #27e9e9;
+  border: 1px solid #ff884b;
+}
+.creategroup {
+  width: 35%;
 }
 .input-hidden,
 .input-creategroup {
@@ -1292,20 +1281,23 @@ h5 {
   cursor: pointer;
   opacity: 0;
 }
+.input-hidden {
+  top: 0 !important;
+}
 .input-creategroup {
   top: 230px;
 }
 .place-img-select {
   display: none;
   width: 100%;
-  height: auto !important;
+  height: 250px;
+  overflow-x: auto;
   & a {
     cursor: pointer;
     float: right;
   }
   & img {
     width: 100%;
-    height: 300px;
     border-radius: 20px;
     object-fit: contain;
   }
@@ -1323,20 +1315,23 @@ h5 {
   display: none;
   position: fixed;
   overflow: hidden;
-  top: 50%;
+  top: 300px;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #eee;
   border: 1px solid #ccc;
   padding: 20px;
-  height: auto;
+  min-height: 200px;
   z-index: 15;
   width: 700px;
   border-radius: 20px;
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .Post-create {
-  width: 470px !important;
+  width: 570px !important;
+  top: 400px;
+  background-color: #fff;
+  vertical-align: bottom;
 }
 .Page-login.appear {
   display: block;
@@ -1486,6 +1481,14 @@ h5 {
   font-size: inherit;
   transition: 0.3s ease;
   margin-top: 10px;
+}
+.decrip-status {
+  width: 570px;
+  height: 150px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  resize: none;
+  background-color: #fbf8f8;
 }
 .create-form input {
   outline: none;
@@ -1675,11 +1678,9 @@ h5 {
 }
 .box-cmt button,
 .btnpost button {
-  background-color: blue;
-  margin-left: 5px;
-  margin-top: 10px;
+  background-color: #ff884b;
+  margin-left: 30px;
   width: auto;
-  /* height: 1%; */
   border: none;
   color: white;
   padding: 9px 20px;

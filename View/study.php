@@ -84,7 +84,7 @@
         </div>
         <div class="under-ask">
           <div class="ask-box">
-            <span>Tìm môn học:</span>
+            <span class="searching-wo">Tìm môn học:&nbsp;</span>
             <select name="subject-status" id="ask-place" class="select-subject">
               <option value="">Tất cả</option>
               <option value="Toán học">Toán học</option>
@@ -97,10 +97,11 @@
               <option value="Lịch sử">Lịch sử</option>
               <option value="GDCD">GDCD</option>
             </select>
+            <div class="btnpost">
+            <button class="post-button">Đặt câu hỏi ngay &nbsp;<span><i class="fa-solid fa-chevron-right"></i></span></button>
           </div>
-          <div class="btnpost">
-            <button class="post-button">Đăng bài</button>
           </div>
+          
         </div>
         <?php actioninstudy(); ?>
         <?php
@@ -207,12 +208,14 @@
         <i class="fa-solid fa-circle-xmark" id="close4"></i>
         <form method="post" enctype="multipart/form-data">
           <h4>
-            Tạo bài viết
+            Đăng câu hỏi về bài tập của bạn
           </h4>
           <div class="status-form">
-            <label>Môn học:</label>
             <input type="hidden" name="action" value="poststatus">
-            <!-- <input type="text" name="subject-status" required /> -->
+           
+            <label>Mô tả:<span style="color: red">(*)</span></label>
+            <textarea editable="none"type="text" name="decrip-status" class="decrip-status" required placeholder="Đặt nội dung câu hỏi...Không spam đăng những bài nhạy cảm, ban nick nếu vi phạm" ></textarea>
+            <span>Chọn môn <span style="color: red">(*)</span> </span>
             <select name="subject-status" class="select-subject">
               <option value="Toán học">Toán học</option>
               <option value="Ngữ Văn">Ngữ văn</option>
@@ -224,16 +227,16 @@
               <option value="Lịch sử">Lịch sử</option>
               <option value="GDCD">GDCD</option>
             </select>
-            <label>Mô tả:</label>
-            <input type="text" name="decrip-status" required placeholder="Thêm mô tả tại đây..." />
-            <label class="add-img create-status">Thêm ảnh:<i class="fa-solid fa-images" style="color: #04ff00;"></i></label>
-            <input type="file" name="file-status" class="input-hidden create-status" required />
+            <div style="position: relative">
+              <label class="add-img create-status"><i class="fa-solid fa-images"></i>Thêm ảnh:</label>
+              <input type="file" name="file-status" class="input-hidden create-status" required />
+            </div>
             <div class="place-img-select">
               <a class="del-img-status"><i class="fa-regular fa-circle-xmark"></i></a>
               <img class="img-status" src="">
             </div>
           </div>
-          <input id="post-btn" type="submit" value="Đăng" />
+          <input id="post-btn" type="submit" value="Đăng câu hỏi" />
         </form>
       </div>
       <!-- form post comment to status -->

@@ -1,4 +1,4 @@
 <?php
 session_start();
-require_once("./Navigate/navigate.php")
+require_once("./route/navigate.php")
 ?>

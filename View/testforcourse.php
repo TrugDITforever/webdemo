@@ -95,11 +95,13 @@
                 foreach ($row as $row) :
                 ?>
                   <div class="class">
-                    <img class="classwwo" src="<?php echo $row["image"]?>"/>
-                    <p>Đề ôn luyện được chọn lọc và tham khảo</p>
+                    <img class="classwwo" src="<?php echo $row["image"] ?>" />
                     <div class="nameclass">
                       <p><?php echo $row['nameClass'] ?></p>
                     </div>
+                    <p>Đề ôn luyện được chọn lọc và tham khảo</p>
+                    <p class="detail-wo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                      sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <div class="placetoodown">
                       <div class="arr2">
                         <ul>
@@ -120,14 +122,8 @@
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
-      <div class="last">
-        <?php include "./ElementForMainpage/Group.php" ?>
-      </div>
-      <?php include "./ElementForMainpage/GroupCreate.php" ?>
       <div class="alert">
         <div class="alertword">
           <p>Bạn cần đăng nhập vào để xem tài liệu này</p>
