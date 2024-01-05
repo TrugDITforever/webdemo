@@ -44,15 +44,15 @@ html {
   height: 75px;
   display: flex;
   margin-top: 0px;
-  background: linear-gradient(
+  /* background: linear-gradient(
     45deg,
     #90dd90,
     #7fffbf,
     #7fffff,
     #7fbfff,
     #9191e9
-  );
-  /* background-color: #fff; */
+  ); */
+  background-color: #fff;
 }
 .logo {
   display: flex;
@@ -179,6 +179,29 @@ html {
   justify-content: center;
   padding: 2px;
   border-top: 2px black;
+}
+.grade-menu {
+  list-style: none;
+}
+.grade-menu h4 {
+  background: #fff3ed;
+  width: 150px;
+  padding: 15px 15px;
+  margin-bottom: 5px;
+  color: #ff884b;
+  border-radius: 0 10px 10px 0;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.contain-grade-menu {
+  padding: 0;
+}
+.small-sub-menu {
+  height: 0;
+  overflow-y: hidden;
+  transition: 0.5s linear;
+}
+.grade-menu:hover .small-sub-menu {
+  height: 170px;
 }
 #listmainmenu li a {
   cursor: pointer;
@@ -321,11 +344,12 @@ html {
 }
 .group-container {
   width: 20rem;
+  margin-top: 30px;
 }
 .menu1 {
   width: 90%;
   height: auto;
-  margin-top: 10px;
+  margin-top: 35px;
 }
 
 .home {
@@ -359,7 +383,6 @@ html {
 .liststudy li {
   border-radius: 5px;
   margin-top: 5px;
-  list-style: circle;
 }
 .classname-selected-none {
   background: orange;

@@ -12,7 +12,7 @@ function getGrade()
   } else {
     return false;
   }
-} 
+}
 function getNameclass()
 {
   global $con;
@@ -37,19 +37,72 @@ function getNameclass()
         </a>
         <!-- <h5>GIÁO ÁN HỌC CƠ BẢN</h5> -->
         <div class="liststudy">
-          <ul>
+          <ul class="contain-grade-menu">
+            <li class="grade-menu">
+            <h4><i class="fa-brands fa-pinterest"></i>&nbsp;Bậc tiểu học</h4>
+              <ul class="small-sub-menu">
+                <li>
+                  <a href="index?route=Classes&class=1" class="classname-selected">Lớp 1</a>
+                </li>
+                <li>
+                  <a href="index?route=Classes&class=2" class="classname-selected">Lớp 2</a>
+                </li>
+                <li>
+                  <a href="index?route=Classes&class=3" class="classname-selected">Lớp 3</a>
+                </li>
+                <li>
+                  <a href="index?route=Classes&class=4" class="classname-selected">Lớp 4</a>
+                </li>
+                <li>
+                  <a href="index?route=Classes&class=5" class="classname-selected">Lớp 5</a>
+                </li>
+              </ul>
+            </li>
+            <li class="grade-menu">
+            <h4><i class="fa-solid fa-brain"></i>&nbsp;Bậc THCS</h4>
+              <ul class="small-sub-menu">
+                <li>
+                  <a href="index?route=Classes&class=6" class="classname-selected">Lớp 6</a>
+                </li>
+                <li>
+                  <a href="index?route=Classes&class=7" class="classname-selected">Lớp 7</a>
+                </li>
+                <li>
+                  <a href="index?route=Classes&class=8" class="classname-selected">Lớp 8</a>
+                </li>
+                <li>
+                  <a href="index?route=Classes&class=9" class="classname-selected">Lớp 9</a>
+                </li>
+              </ul>
+            </li>
+            <li class="grade-menu">
+              <h4><i class="fa-solid fa-tags"></i>&nbsp;Bậc THPT</h4>
+              <ul class="small-sub-menu">
+                <li>
+                  <a href="index?route=Classes&class=10" class="classname-selected">Lớp 10</a>
+                </li>
+                <li>
+                  <a href="index?route=Classes&class=11" class="classname-selected">Lớp 11</a>
+                </li>
+                <li>
+                  <a href="index?route=Classes&class=12" class="classname-selected">Lớp 12</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <!-- <ul>
             <?php $row = getNameclass();
-            foreach($row as $row) :
+            foreach ($row as $row) :
             ?>
              <li>
-              <a href="index?route=Classes&class=<?php echo $row['id']?>" 
+              <a href="index?route=Classes&class=<?php echo $row['id'] ?>" 
               class="classname-selected">
-              <?php echo $row['nameClass']?></a>
+              <?php echo $row['nameClass'] ?></a>
             </li>
-            <?php endforeach;?>
-          </ul>
+            <?php endforeach; ?>
+          </ul> -->
 
-          
+
         </div>
       </div>
     </div>
@@ -64,7 +117,7 @@ function getNameclass()
       <div class="liststudy2">
         <ul>
           <li>
-           <span><i class="fa-solid fa-marker" style="color: #0c419d;"></i></span>&nbsp;<a href="index?route=9to10class">Đề thi lớp 9 lên 10</a>
+            <span><i class="fa-solid fa-marker" style="color: #0c419d;"></i></span>&nbsp;<a href="index?route=9to10class">Đề thi lớp 9 lên 10</a>
           </li>
           <li>
             <span><i class="fa-solid fa-paste" style="color: #0240ac;"></i></span>&nbsp;<a href="index?route=College">Đề thi THPT quốc gia</a>

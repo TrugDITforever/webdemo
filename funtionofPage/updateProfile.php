@@ -1,8 +1,5 @@
 <?php
-require_once("../ElementForMainpage/database.php");
-session_start();
-if (isset($_SESSION["userid"])) {
-    $user_id = $_SESSION["userid"];
+include("../Model/Class/User.php");
     $username = $_POST["username"];
     $userphone = $_POST["phonenumber"];
     $useraddress = $_POST["usseraddress"];
@@ -14,33 +11,6 @@ if (isset($_SESSION["userid"])) {
     } else {
         $userimg = $_POST['fileToUpload'];
     }
-    $sql1 = "SELECT * FROM `userprofile` WHERE `id_user` = :user_id";
-    $statement = $con->prepare($sql1);
-    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-    $statement->execute();
-    $result = $statement->fetch();
-    if ($statement->rowCount()>0) {
-        $sqlupdate = "UPDATE `userprofile` SET `name` = '$username', `address` ='$useraddress', `phonenumber` ='$userphone',`img`='$userimg' WHERE `id_user` ='$user_id'";
-        $statement = $con->prepare($sqlupdate);
-        if ($statement->execute()) {
-            $statement->closeCursor();
-            $sqlupdate2 = "UPDATE `useracc` SET `email`='$useremail' WHERE `id`='$user_id'";
-            $statement2 = $con->prepare($sqlupdate2);
-            if ($statement2->execute()) {
-                echo "success-UPDATE";
-            }
-        } else {
-            echo "error";
-        }
-    } else {
-        $sql = "INSERT INTO `userprofile` (`id_user`, `name`, `address`, `phonenumber`, `img`) VALUES ('$user_id', '$username', '$useraddress', '$userphone', '$userimg')";
-        $statement = $con->prepare($sql);
-        if ($statement->execute()) {
-            echo "success-INSERT";
-        } else {
-            echo "error";
-        }
-    }
-} else {
-    echo "error";
-}
+    $userupdate = new User( "","",$useremail, $username ,$userphone ,$useraddress,$userimg);
+$userupdate->updateprofile();
+?>
